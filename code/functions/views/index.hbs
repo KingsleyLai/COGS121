@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Welcome | GoDuck</title>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script src='static/js/index.js'></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!-- Warning here: Consider avoiding viewport values that prevent users from resizing documents -->
+  <!-- We use this because we want to avoid the zoom in and zoom out when using on phone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+</head>
+
+<body>
+	Welcome to GoDuck index page
+  <form id="loginForm" method="GET">
+    <label for="email">Email: </label><br>
+    <input class="input" type="text" id="email"><br>
+    <label for="password">Password: </label><br>
+    <input class="input" type="password" id="password"><br><br>
+    <button id="loginBtn" type="button" class="btn btn-block loginButton" onclick="login(event);">Login</button>
+    <button id="signupBtn" type="button" class="btn btn-block loginButton" onclick="validationCheck(function() {window.location.href='home.html';});">Signup</button>
+  </form>
+
+</body>
+</html>

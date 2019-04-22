@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Home | GoDuck</title>
+  <meta charset="UTF-8">
+
+  <!-- Warning here: Consider avoiding viewport values that prevent users from resizing documents -->
+  <!-- We use this because we want to avoid the zoom in and zoom out when using on phone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script src='static/js/share.js'></script>
+</head>
+
+<body onload="checkUserLoggedIn();">
+	<h1>News Selections Just For You</h1>
+
+	<ul>
+		{{#each news}}
+			<li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
+		{{/each}}
+	</ul>
+	<button type="button" onclick="logout()">Signout</button>
+
+</body>
+</html>
