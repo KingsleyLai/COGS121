@@ -37,6 +37,7 @@ This storyboard shows a scenario where Thomas, an ESL student who thinks remembe
 
 ###### Prototype 1:
 
+This prototype has a fix sidebar menu for user to select function directly without clicking a button to open a sidebar. The news reading page is sentence by sentence, a original text followed by a translate sentence. 
 ![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Signin.png)
 ![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Signup.png)
 ![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Settings.png)
@@ -48,6 +49,9 @@ This storyboard shows a scenario where Thomas, an ESL student who thinks remembe
 ![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Favorite.png)
 
 ###### Prototype 2:
+
+This prototype has a hidden sidebar menu compare to the prototype 1, and it has a more simple homepage. The news reading page is divided into two section: left is orginal text and right is translated text, which is easy for user
+to compare two different languages and learn.
 
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Signin.png)
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Signup.png)
