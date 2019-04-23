@@ -1,4 +1,5 @@
-Milestone1 Markedown File
+##Milestone1
+
 ### 1. Team Name:
 GoDuck
 
@@ -13,23 +14,23 @@ In our project, the target users are ESL(English as Second Language) students in
 
 ##### b) What possible sources of real word data or APIs can use
 
-The API we will use is Google News API and Google Translate API. Google News API will be used to collect data such as news as our dataset in the database for the application. Then, we will use Google Translate API to translate the news data and display to the user.
+The API we will use is Google News API and Google Translate API. Google News API will be used to collect data such as news as our dataset in the database for the application. Then, we will use Google Translate API to translate the news data and display to the user. We will also use an ESL words dataset to highlight ESL words in readings.
 
 ##### c) Ideas if want feedback from TAs.
 
-The idea of this web application is to help ESL students learn English in their daily life. We use the API to get everyday news and translate the news in user's preferred language. After translation, the web application will show up both the original news text and the translated text in the same screen. By providing original and translate news to the users, they can learn English by understanding the meaning of the words or sentences in their mother language, and learning what is happening in the US so they can talk about the news with other native speakers. Furthermore, the web application will highlight the ESL words in our server list for the users, and user can favorite news, save vocabulary in their notebook, and viewing the history of news read.
+The idea of this web application is to help ESL students learn English in their daily life. We use the API to get everyday news and translate the news in user's preferred language. After translation, the web application will show up both the original news text in English and the translated text in the same screen. By providing original and translated news to the users, they can learn English by understanding the meaning of the words or sentences in their mother language, and learning what is happening in the US so they can talk about the news with other native speakers. Furthermore, the web application will highlight the ESL words in our server list for the users, and user can favorite news, save vocabulary in their notebook, and viewing the history of news read.
 
 ##### d) Storyboards and paper prototypes
 
 ###### Storyboard 1:
 
-This storyboard shows a scenario where...
+This storyboard shows a scenario where Jack, an ESL student who feels this class is very hard to learn, wants to find a right way to study ESL. A friend suggests him to use a web app called DuoNews. He starting using DuoNews to learn ESL vocabularies and making a good progress, and got an A for his ESL class.
 
 ![Storyboard1](https://github.com/KingsleyLai/COGS121/blob/master/images/Storyboard1.png)
 
 ###### Storyboard 2:
 
-This storyboard shows a scenario where...
+This storyboard shows a scenario where Thomas, an ESL student who thinks remembering ESL vocabularies from handouts is too boring. He saw an ads for a web app called DuoNews and he wanted to try it. He feels very interesting to learn ESL with DuoNews now.
 
 ![Storyboard1](https://github.com/KingsleyLai/COGS121/blob/master/images/Storyboard2.png)
 
@@ -57,4 +58,3 @@ This storyboard shows a scenario where...
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Home-2Sidebar.png)
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/History.png)
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Favorite.png)
-
