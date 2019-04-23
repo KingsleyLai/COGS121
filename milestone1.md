@@ -36,25 +36,25 @@ This storyboard shows a scenario where...
 
 ###### Prototype 1:
 
-![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Sign in.png)
-![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Sign up.png)
+![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Signin.png)
+![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Signup.png)
 ![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Settings.png)
 ![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Home.png)
 ![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/History.png)
-![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Read News.png)
-![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Study Sets.png)
-![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Study History.png)
-![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Study Favorite.png)
+![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/ReadNews.png)
+![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/StudySets.png)
+![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/History.png)
+![Prototype1](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype1/Favorite.png)
 
 ###### Prototype 2:
 
-![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Sign in.png)
-![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Sign up.png)
-![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Study Sets.png)
+![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Signin.png)
+![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Signup.png)
+![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/StudySets.png)
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Settings.png)
-![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Read News-2.png)
+![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/ReadNews-2.png)
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Home-2.png)
-![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Home-2 Sidebar.png)
+![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Home-2Sidebar.png)
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/History.png)
 ![Prototype2](https://github.com/KingsleyLai/COGS121/blob/master/images/prototype2/Favorite.png)
 
