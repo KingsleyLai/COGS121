@@ -8,18 +8,71 @@
   <!-- We use this because we want to avoid the zoom in and zoom out when using on phone -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
   <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src='static/js/share.js'></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body onload="checkUserLoggedIn();">
-	<h1>News Selections Just For You</h1>
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+      <!-- Navbar text-->
+      <span class="navbar-text" id="navbar_text"> <!-- This text should generate dynnamically-->
+        Home
+      </span>
 
-	<ul>
-		{{#each news}}
-			<li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
-		{{/each}}
-	</ul>
-	<button type="button" onclick="logout()">Signout</button>
+      <form class="form-inline" action="/action_page.php">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Page Content-->
+    <div class="container-fluid">
+      <div class="row">
+          <!-- Fixed Sidebar-->
+          <div class="col-sm-2 px-1 bg-success">
+              <div class="py-2 sticky-top flex-grow-1">
+                  <div class="nav flex-sm-column">
+                    <!-- User Profile-->
+                    <img src="#">
+                    <p>user_name</p>
+                    <!-- Buttons -->
+                    <button type="button" onclick="">Home</button>
+                    <button type="button" onclick="">Read New</button>
+                    <button type="button" onclick="">Study Set</button>
+                    <button type="button" onclick="">Favorite New</button>
+                    <button type="button" onclick="">History</button>
+                    <button type="button" onclick="logout()">Signout</button>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Main Page Content-->
+          <div class="col" id="main">
+            <h1>News Selections Just For You</h1>
+
+            <ul>
+              {{#each news}}
+                <li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
+              {{/each}}
+            </ul>
+          </div>
+      </div>
+    </div>
+  </main>
+	
+	
 
 </body>
 </html>
