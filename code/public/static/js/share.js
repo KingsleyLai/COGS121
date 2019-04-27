@@ -8,16 +8,15 @@ var config = {
   };
 firebase.initializeApp(config);
 
-function checkUserLoggedIn() {
+$(document).ready(() => {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
         // User is signed in, do nothing
-        
         } else {
             window.location.href="./index";
         }
     });
-}
+});
 
 function logout(){
     firebase.auth().signOut().then(function() {

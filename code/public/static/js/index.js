@@ -8,7 +8,7 @@ var config = {
   };
 firebase.initializeApp(config);
 
-$(document).ready(function(){
+$(document).ready(() => {
     $("#signup").click(function(){
         $("#signupDiv").show();
         $("#signinDiv").hide();
@@ -18,6 +18,17 @@ $(document).ready(function(){
         $("#signupDiv").hide();
         $("#signinDiv").show();
     });
+    
+    //Check if user signed in
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            var uid = getCurrentUserUID();
+            window.location.href="./home?uid=" + uid;
+        } else {
+            //User not logged in, do nothing
+        }
+    });
+
 });
 
 function login(e){
