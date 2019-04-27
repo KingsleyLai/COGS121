@@ -8,6 +8,18 @@ var config = {
   };
 firebase.initializeApp(config);
 
+$(document).ready(function(){
+    $("#signup").click(function(){
+        $("#signupDiv").show();
+        $("#signinDiv").hide();
+    });
+
+    $("#signin").click(function(){
+        $("#signupDiv").hide();
+        $("#signinDiv").show();
+    });
+});
+
 function login(e){
     e.preventDefault();
     const email = document.getElementById('email').value;
