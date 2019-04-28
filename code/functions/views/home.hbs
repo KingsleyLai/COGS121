@@ -21,7 +21,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="checkUserLoggedIn();">
+<body>
   <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
       <!-- Navbar text-->
@@ -62,6 +62,13 @@
           <div class="col" id="home_main">
             <h1>News Selections Just For You</h1>
 
+            <ul>
+              {{#each news}}
+                <li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
+              {{/each}}
+            </ul>
+
+            <h1>Study Sets</h1>
             <ul>
               {{#each news}}
                 <li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
