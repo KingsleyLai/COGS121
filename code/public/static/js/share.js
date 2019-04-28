@@ -33,7 +33,7 @@ $(document).ready(() => {
     });
     // favorite news button js
     $(".favorite_news_button").click(() => {
-      window.location.href="./favoritenews?uid=" + uid ;
+      window.location.href="./favorite?uid=" + uid ;
     });
     // history button js
     $(".history_button").click(() => {
@@ -43,6 +43,7 @@ $(document).ready(() => {
     $(".logout_button").click(() => {
       logout();
     });
+    // user profile display area
     $(".user_information").click(() => {
       window.location.href="./user?uid=" + uid;
     });

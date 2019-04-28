@@ -43,8 +43,32 @@ app.get('/news', (request, response) => {
 	response.render('learn');
 });
 
-app.get('/histroy',(request,response) => {
-	response.render('history');
+app.get('/history',(request,response) => {
+	//response.render('history');
+	//this used for testing
+	getNews().then(news => {
+		response.render('history', { news });
+	});
+});
+
+app.get('/favorite',(request,response) => {
+	//response.render('favorite');
+	//this used for testing
+	getNews().then(news => {
+		response.render('favorite', { news });
+	});
+});
+
+app.get('/studyset',(request,response) => {
+	//response.render('favorite');
+	//this used for testing
+	getNews().then(news => {
+		response.render('studyset', { news });
+	});
+});
+
+app.get('/user',(request,response) => {
+	response.render('user');
 });
 
 exports.app = functions.https.onRequest(app);
