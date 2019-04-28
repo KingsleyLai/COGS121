@@ -43,4 +43,8 @@ app.get('/news', (request, response) => {
 	response.render('learn');
 });
 
+app.get('/histroy',(request,response) => {
+	response.render('history');
+});
+
 exports.app = functions.https.onRequest(app);

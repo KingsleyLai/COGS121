@@ -22,7 +22,7 @@ $(document).ready(() => {
     //Check if user signed in
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            var uid = getCurrentUserUID();
+            let uid = getCurrentUserUID();
             window.location.href="./home?uid=" + uid;
         } else {
             //User not logged in, do nothing
@@ -44,7 +44,7 @@ function login(e){
 }
 
 function getCurrentUserUID(){
-    var currentUser = firebase.auth().currentUser;
+    const currentUser = firebase.auth().currentUser;
     if (currentUser != null){
         return currentUser.uid;
     }

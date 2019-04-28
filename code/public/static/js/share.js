@@ -9,12 +9,42 @@ var config = {
 firebase.initializeApp(config);
 
 $(document).ready(() => {
+    let uid;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-        // User is signed in, do nothing
+        // User is signed in, obtain uid for future use
+          uid = getCurrentUserUID();
         } else {
             window.location.href="./index";
         }
+    });
+    
+    // home button js
+    $(".home_button").click(() => {
+      window.location.href="./home?uid=" + uid ;
+    });
+    // read news button js
+    $(".read_news_button").click(() => {
+      window.location.href="./news?uid=" + uid ;
+    });
+    // study set button js
+    $(".study_set_button").click(() => {
+      window.location.href="./studyset?uid=" + uid ;
+    });
+    // favorite news button js
+    $(".favorite_news_button").click(() => {
+      window.location.href="./favoritenews?uid=" + uid ;
+    });
+    // history button js
+    $(".history_button").click(() => {
+      window.location.href="./history?uid=" + uid ;
+    });
+    // logout button js
+    $(".logout_button").click(() => {
+      logout();
+    });
+    $(".user_information").click(() => {
+      window.location.href="./user?uid=" + uid;
     });
 });
 
@@ -26,4 +56,12 @@ function logout(){
       }).catch(function(error) {
         // An error happened.
       });
+}
+
+function getCurrentUserUID(){
+  const currentUser = firebase.auth().currentUser;
+  if (currentUser != null){
+      return currentUser.uid;
+  }
+  return -1;
 }

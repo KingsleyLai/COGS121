@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <title>Home | GoDuck</title>
+  <title>History</title>
   <meta charset="UTF-8">
 
   <!-- Warning here: Consider avoiding viewport values that prevent users from resizing documents -->
@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
       <!-- Navbar text-->
       <span class="navbar-text" id="navbar_text"> <!-- This text should generate dynnamically-->
-        Home
+        History
       </span>
 
       <form class="form-inline" action="/action_page.php">
@@ -45,38 +45,22 @@
               <div class="py-2 sticky-top flex-grow-1">
                   <div class="nav flex-sm-column">
                     <!-- User Profile-->
-                    <div class="user_information">
-                      <img src="#">
-                      <p>user_name</p>
-                    </div>
+                    <img src="#">
+                    <p>user_name</p>
                     <!-- Buttons -->
-                    <button type="button" class="home_button">Home</button>
-                    <button type="button" class="read_news_button">Read News</button>
-                    <button type="button" class="study_set_button">Study Sets</button>
-                    <button type="button" class="favorite_news_button">Favorite News</button>
-                    <button type="button" class="history_button">History</button>
-                    <button type="button" class="logout_button">Logout</button>
+                    <button type="button" onclick="">Home</button>
+                    <button type="button" onclick="">Read New</button>
+                    <button type="button" onclick="">Study Set</button>
+                    <button type="button" onclick="">Favorite New</button>
+                    <button type="button" onclick="">History</button>
+                    <button type="button" onclick="logout()">Signout</button>
                   </div>
               </div>
           </div>
 
           <!-- Main Page Content-->
           <div class="col" id="home_main">
-            <h1>News Selections Just For You</h1>
-
-            <ul>
-              {{#each news}}
-                <li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
-              {{/each}}
-            </ul>
-
-
-            <h1>Study Sets</h1>
-            <ul>
-              {{#each news}}
-                <li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
-              {{/each}}
-            </ul>
+            <h1>View History</h1>
           </div>
       </div>
     </div>
