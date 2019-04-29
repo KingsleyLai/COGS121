@@ -54,4 +54,9 @@ $(document).ready(() =>{
             $(page_to_dis).show();
         }
     });
+
+    $('[data-toggle="popover"]').popover(); 
+    $('h1').click( () =>{
+        $("[data-toggle='popover']").popover('hide');
+    })
 });
