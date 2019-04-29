@@ -58,5 +58,26 @@ $(document).ready(() =>{
     $('[data-toggle="popover"]').popover(); 
     $('h1').click( () =>{
         $("[data-toggle='popover']").popover('hide');
-    })
+    });
+
+    $('span').click( function () {
+        const word = $(this).html();
+        $.ajax({
+            url:'/studyset?uid=',
+            type:'GET',
+            dataType: 'json',
+            succese: (data) =>{
+                console.log('ajax',data);
+                alert('checked');
+            }
+        });
+    });
 });
+
+function getCurrentUserUID(){
+    const currentUser = firebase.auth().currentUser;
+    if (currentUser != null){
+        return currentUser.uid;
+    }
+    return -1;
+}
