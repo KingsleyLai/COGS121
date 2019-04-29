@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Onboard</title>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="static/js/onboard.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!-- Warning here: Consider avoiding viewport values that prevent users from resizing documents -->
+  <!-- We use this because we want to avoid the zoom in and zoom out when using on phone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to DuoNews</h1>
+	<h2>Before we get started, let's setting up your preference</h2>
+  </header>
+  <main>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <div class="row">
+            <div class="col-1"></div>
+             <!-- preference page-->
+            <div class="col-10" id="preferenceDiv">
+              <form id="loginForm" method="GET">
+                <div class="form-group">
+                    <label for="sel1">Please select your native language:</label>
+                    <select class="form-control" id="sel1">
+                        <option value="zh">Chinese</option>
+                        <option value="es">Spanish</option>
+                        <option value="hi">Hindi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sel2">Please select your favorite news category:</label>
+                    <select class="form-control" id="sel2">
+                        <option value="0" >Technology</option>
+                        <option value="1">Sports</option>
+                        <option value="2">Business</option>
+                    </select>
+                </div>
+                <button id="onboard_save_btn" type="button">Save Setting</button>
+              </form>
+            </div>
+            <div class="col-1"></div>
+          </div>
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

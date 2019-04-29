@@ -19,6 +19,10 @@ $(document).ready(() => {
         $("#signinDiv").show();
     });
 
+    $('#signupBtn').click(() => {
+        validationCheck();
+    });
+
     $('#forget_password').click(() => {
         const email = prompt('Please enter your email');
         firebase.auth().sendPasswordResetEmail(email).then(function () {
@@ -35,6 +39,7 @@ $(document).ready(() => {
     });
     
     //Check if user signed in
+    /*
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             let uid = getCurrentUserUID();
@@ -42,7 +47,7 @@ $(document).ready(() => {
         } else {
             //User not logged in, do nothing
         }
-    });
+    });*/
 
 });
 
@@ -67,7 +72,7 @@ function getCurrentUserUID(){
     return -1;
 }
 
-function validationCheck(callback) {
+function validationCheck() {
     const email = $('#signup_email').val();
     const username = $('#signup_username').val();
     const password = $('#signup_password').val();
@@ -81,9 +86,11 @@ function validationCheck(callback) {
         if(password === confirm_password){
             firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {               
                 const currentUser = firebase.auth().currentUser;               
-                currentUser.updateProfile({displayName : username});
-                var newUID = getCurrentUserUID();
-                window.location.href="./home" + "?uid=" + newUID;
+                currentUser.updateProfile({displayName : username}).then( function (){
+                    var newUID = getCurrentUserUID();
+                    window.location.href="./onboard" + "?uid=" + newUID;
+                });
+                
             }).catch(function(error) {
                 if(password.length < 6){
                     alert("Your password is less than 6 digits.");

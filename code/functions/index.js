@@ -71,4 +71,8 @@ app.get('/user',(request,response) => {
 	response.render('user');
 });
 
+app.get('/onboard',(request,response) => {
+	response.render('onboard');
+});
+
 exports.app = functions.https.onRequest(app);
