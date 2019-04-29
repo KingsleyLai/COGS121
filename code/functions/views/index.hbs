@@ -54,6 +54,7 @@
                 <label for="password">Password: </label><br>
                 <input class="input" type="password" id="password"><br>
                 <p>Don't have an account? <a href="#" id="signup"><abbr title="signup">Sign up</abbr></a></p>
+                <a href="#" id="forget_password">Forget password?</a><br>
                 <button id="loginBtn" type="button" onclick="login(event);">Login</button><br>
               </form>
             </div>
@@ -64,11 +65,15 @@
                 <label for="signup_username">Username: </label><br>
                 <input class="input" type="text" id="signup_username"><br>
                 <label for="signup_email">Email: </label><br>
-                <input class="input" type="text" id="signup_email"><br>
+                <input class="input" type="text" id="signup_email">
+                <p id="email_in_use" style="display:none;color:red;">email already used</p>
+                <br>
                 <label for="signup_password">Password: </label><br>
                 <input class="input" type="password" id="signup_password"><br>
                 <label for="confirm_password">Confirm Password: </label><br>
-                <input class="input" type="password" id="confirm_password"><br>
+                <input class="input" type="password" id="confirm_password">
+                <p id="password_match" style="display:none;color:red;">Password Doesn't match</p>
+                <br>
                 <p>Already have an account? <a href="#" id="signin"><abbr title="signup">Login</abbr></a></p>
                 <button id="signupBtn" type="button" onclick="validationCheck(function() {window.location.href='home.html';});">Signup</button>
               </form>

@@ -14,14 +14,15 @@ $(document).ready(() => {
         if (user) {
         // User is signed in, obtain uid for future use
           uid = getCurrentUserUID();
+          console.log(user.displayName);
         } else {
-            window.location.href="./index";
+            window.location.href='./index';
         }
     });
     
     // home button js
-    $(".home_button").click(() => {
-      window.location.href="./home?uid=" + uid ;
+    $('.home_button').click(() => {
+      window.location.href='./home?uid=' + uid ;
     });
     // read news button js
     $(".read_news_button").click(() => {
@@ -44,15 +45,15 @@ $(document).ready(() => {
       logout();
     });
     // user profile display area
-    $(".user_information").click(() => {
-      window.location.href="./user?uid=" + uid;
+    $('.user_information').click(() => {
+      window.location.href='./user?uid=' + uid;
     });
 });
 
 function logout(){
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
-        alert("Logout success");
+        alert('Logout success');
         window.location.href='./index';
       }).catch(function(error) {
         // An error happened.
