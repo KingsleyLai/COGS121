@@ -26,7 +26,7 @@ $(document).ready(() => {
     });
     // read news button js
     $(".read_news_button").click(() => {
-      window.location.href="./news?uid=" + uid ;
+      window.location.href="./learn?uid=" + uid ;
     });
     // study set button js
     $(".study_set_button").click(() => {

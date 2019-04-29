@@ -37,6 +37,17 @@ $(document).ready(() =>{
         }else{
             const page_to_dis = '#notebook' + content
             const page_id = '#page' + content;
+            const to_page = parseInt(content);
+            if(to_page == 1){
+                $('#prev').addClass('disabled');
+                $('#next').removeClass('disabled');
+            }else if(to_page == 6){
+                $('#next').addClass('disabled');
+                $('#prev').removeClass('disabled');
+            }else{
+                $('#prev').removeClass('disabled');
+                $('#next').removeClass('disabled');
+            }
             $('.pagination .active').removeClass('active');
             $(page_id).addClass('active');
             $(page_to_hide).hide();
