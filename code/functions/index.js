@@ -39,7 +39,7 @@ app.get('/index', (request, response) => {
 	response.render('index');
 });
 
-app.get('/news', (request, response) => {
+app.get('/learn', (request, response) => {
 	response.render('learn');
 });
 
