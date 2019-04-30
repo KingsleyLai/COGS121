@@ -11,6 +11,7 @@
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src='static/js/share.js'></script>
+  <script src="static/js/home.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -36,7 +37,7 @@
     <div class="container-fluid">
       <div class="row">
           <!-- Fixed Sidebar-->
-          <div class="col-sm-2 px-1 bg-success">
+          <div class="sidebar col-sm-2 px-1 bg-success">
               <div class="py-2 sticky-top flex-grow-1">
                   <div class="nav flex-sm-column">
                     <!-- User Profile-->
@@ -46,7 +47,6 @@
                     </div>
                     <!-- Buttons -->
                     <button type="button" class="home_button">Home</button>
-                    <button type="button" class="read_news_button">Read News</button>
                     <button type="button" class="study_set_button">Study Sets</button>
                     <button type="button" class="favorite_news_button">Favorite News</button>
                     <button type="button" class="history_button">History</button>
@@ -57,7 +57,7 @@
 
           <!-- Main Page Content-->
           <div class="col" id="home_main">
-            <h1>News Selections Just For You</h1>
+            <!-- <h1>News Selections Just For You</h1>
 
             <ul>
               {{#each news}}
@@ -71,7 +71,28 @@
               {{#each news}}
                 <li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
               {{/each}}
-            </ul>
+            </ul> -->
+
+            <div class="row">
+              <div class="col">
+                <h1>News Selections Just For You</h1>
+              </div>
+            </div>
+            <div class="row">       
+              {{#each news}}
+                <div class="col-1"></div>
+                <div class="col news" style="border:2px solid">
+                  {{title}} <br>
+                    <i><a href="{{source}}" target="_blank">Source article</a></i>
+                </div>
+              {{/each}}  
+              <div class="col-1"></div>
+              <div class="col" style="border:2px solid">
+                test <br>
+                <i><a href="#" target="_blank">Source article</a></i>
+              </div>
+              <div class="col-1"></div>        
+            </div>
           </div>
       </div>
     </div>

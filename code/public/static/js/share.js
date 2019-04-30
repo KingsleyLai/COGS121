@@ -24,10 +24,6 @@ $(document).ready(() => {
     $('.home_button').click(() => {
       window.location.href='./home?uid=' + uid ;
     });
-    // read news button js
-    $(".read_news_button").click(() => {
-      window.location.href="./learn?uid=" + uid ;
-    });
     // study set button js
     $(".study_set_button").click(() => {
       window.location.href="./studyset?uid=" + uid ;

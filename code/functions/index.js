@@ -67,7 +67,7 @@ app.get('/studyset',(request,response) => {
 	});
 });
 
-app.get('/studyset?uid',(request,response) => {
+app.get('/studyset?uid:',(request,response) => {
 	//response.render('favorite');
 	//this used for testing
 	console.log('test');

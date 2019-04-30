@@ -62,8 +62,10 @@ $(document).ready(() =>{
 
     $('span').click( function () {
         const word = $(this).html();
+        const u = '/studyset?uid='+getCurrentUserUID();
+        console.log(u);
         $.ajax({
-            url:'/studyset?uid=',
+            url:u,
             type:'GET',
             dataType: 'json',
             succese: (data) =>{
@@ -73,7 +75,7 @@ $(document).ready(() =>{
         });
     });
 });
-
+ 
 function getCurrentUserUID(){
     const currentUser = firebase.auth().currentUser;
     if (currentUser != null){
