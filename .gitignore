@@ -3,3 +3,4 @@ package-lock.json
 
 # firebase private key
 cogs121-goduck-firebase-adminsdk-f5baa-73bc1269cd.json
+.DS_Store
