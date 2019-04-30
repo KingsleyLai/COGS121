@@ -7,17 +7,37 @@ const firebaseApp = firebase.initializeApp(
 	functions.config().firebase
 );
 
-function getNews() {
+function getCurrentUser_(request) {
+	// console.log("======================================");
+	// console.log("=== Current User: " + request.query.uid);
+	// console.log("======================================");
+	return request.query.uid;
+}
+
+function getNewsByUser(userid) {
 	const ref = firebaseApp.firestore().collection('news_overview');
 	return ref.get().then((snapshot) => {
 		var result = []
 		snapshot.docs.forEach(doc => {
-			console.log(doc.data());
 			result.push(doc.data());
 		});
-		console.log("--------- " + result);
 		return result;
 	});
+}
+
+function getNotebookByUser(userid) {
+	const ref = firebaseApp.firestore().collection('notebook');
+	return ref.get('testuserid').then((snapshot) => {
+		var result = []
+		snapshot.docs.forEach(doc => {
+			result.push(doc.data());
+		});
+		return result;
+	});
+}
+
+function getNotebookByUserWithPage(userid, page) {
+
 }
 
 const app = express();
@@ -26,13 +46,10 @@ app.set('views', './views');
 app.set('view engine', 'hbs');
 
 app.get('/home', (request, response) => {
-	// console.log("enter get home");
-	// cache our content on server, with delay 300 second, storage life 600 second
-	// response.set('Cache-Control', 'public, max-age=300, s-maxage=600')
-	getNews().then(news => {
+	const user = getCurrentUser_(request);
+	getNewsByUser(user).then(news => {
 		response.render('home', { news });
 	});
-
 });
 
 app.get('/index', (request, response) => {
@@ -40,45 +57,55 @@ app.get('/index', (request, response) => {
 });
 
 app.get('/learn', (request, response) => {
+	const user = getCurrentUser_(request);
 	response.render('learn');
 });
 
 app.get('/history',(request,response) => {
-	//response.render('history');
-	//this used for testing
-	getNews().then(news => {
+	const user = getCurrentUser_(request);
+	getNewsByUser(user).then(news => {
 		response.render('history', { news });
 	});
 });
 
 app.get('/favorite',(request,response) => {
-	//response.render('favorite');
-	//this used for testing
-	getNews().then(news => {
+	const user = getCurrentUser_(request);
+	getNewsByUser(user).then(news => {
 		response.render('favorite', { news });
 	});
 });
 
 app.get('/studyset',(request,response) => {
-	//response.render('favorite');
-	//this used for testing
-	getNews().then(news => {
-		response.render('studyset', { news });
+	const user = getCurrentUser_(request);
+	getNotebookByUser(user).then(studysets => {
+		console.log(studysets);
+		response.render('studyset', { studysets });
 	});
 });
 
-app.get('/studyset?uid:',(request,response) => {
-	//response.render('favorite');
-	//this used for testing
-	console.log('test');
-	res.send({});
+app.get('/getStudySetByPage',(request,response) => {
+	const user = getCurrentUser_(request);
+	const targetPage = request.query.page;
+	getNotebookByUser(user).then(studysets => {
+		console.log(studysets);
+		response.render('studyset', { studysets });
+	});
+});
+
+app.get('/getStudySetCount',(request,response) => {
+	const user = getCurrentUser_(request);
+	getNotebookByUser(user).then(studysets => {
+		response.json({count: studysets[0]['record'].length})
+	});
 });
 
 app.get('/user',(request,response) => {
+	const user = getCurrentUser_(request);
 	response.render('user');
 });
 
 app.get('/onboard',(request,response) => {
+	const user = getCurrentUser_(request);
 	response.render('onboard');
 });
 
