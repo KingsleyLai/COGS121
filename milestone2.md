@@ -22,13 +22,22 @@ Other parts are similar to what we had in our paper prototypes.
 
 
 #### Study Sets Page
-![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/studyset.png)
+![Studyset](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/studyset.png)
 
 #### Favorite Page
-![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/favorite.png)
+![Favorite](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/favorite.png)
 
 #### History Page
-![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/history.png)
+![History](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/history.png)
 
 #### User Profile Page
-![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/profile.png)
+![Profile](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/profile.png)
+
+#### Onboard Page
+![Onboard](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/onboard.png)
+
+#### Login Page
+![Login](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/login.png)
+
+#### Signup Page
+![Signup](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/signup.png)
