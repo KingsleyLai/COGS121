@@ -1,16 +1,84 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <title>Welcome | GoDuck</title>
+	<title>Learning</title>
   <meta charset="UTF-8">
 
   <!-- Warning here: Consider avoiding viewport values that prevent users from resizing documents -->
   <!-- We use this because we want to avoid the zoom in and zoom out when using on phone -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-	<script src='static/js/share.js'></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.css"/>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
+
+  <script src="static/js/share.js"></script>
+  <!-- <script src="static/js/history.js"></script> -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		html, body {height: 100%;}
+		h4 {color: gray}
+	</style>
 </head>
 
 <body>
-	Welcome to GoDuck learn pagerefhjeirh
+	<header>
+    <nav style="background-color: yellow !important" class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+      <!-- Navbar text-->
+      <span class="navbar-text" id="navbar_text"> <!-- This text should generate dynnamically-->
+        Learning
+      </span>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Page Content-->
+    <div  class="container-fluid">
+      <div class="row" style="height: 1100px;">
+          <!-- Fixed Sidebar-->
+        {{> sidebar}}
+
+        <!-- Main Page Content-->
+        <div class="col-sm-10">
+          <h1>Reading News</h1>
+						<div class="row">
+							<div class="col-sm-6">
+								<h4> Original news in English</h4>
+								<div style="border: 3px solid black; height: 600px">
+									<p style="margin: 10px;">
+										Four days after the coordinated attacks, the Sri Lankan Health Ministry revised the death toll, saying 253 people had died. That toll is significantly lower than the 359 initially reported to CNN by a Colombo police spokesman this week. The health ministry cited the condition of remains and the difficulty in identifying them for the discrepancy.
+									</p>
+								</div>
+
+							</div>
+							<div class="col-sm-6">
+								<h4> Translated news in Spanish</h4>
+								<div style="border: 3px solid black; height: 600px">
+									<p style="margin: 10px;">
+										Cuatro días después de los ataques coordinados, el Ministerio de Salud de Sri Lanka revisó la cifra de muertos y dijo que 253 personas habían muerto. Esa cifra es significativamente menor que la de los 359 informados inicialmente a CNN por un portavoz de la policía de Colombo esta semana. El ministerio de salud citó la condición de los restos y la dificultad de identificarlos por la discrepancia.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div style="text-align: center; width: 100%; margin-top: 30px">
+								<button>Next Paragraph</button>
+							</div>
+						</div>
+
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

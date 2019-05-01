@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const firebase = require('firebase-admin');
 const express = require('express');
 const engines = require('consolidate');
+const hbs = require('express-handlebars');
 
 const NUM_STUDY_SET_PER_PAGE = 5;
 
@@ -43,9 +44,10 @@ function getNotebookByUserWithPage(userid, page) {
 }
 
 const app = express();
-app.engine('hbs', engines.handlebars);
-app.set('views', './views');
-app.set('view engine', 'hbs');
+app.engine('handlebars', hbs({defaultLayout: 'main'}));
+// app.set('views', './views');
+app.set('view engine', 'handlebars');
+// hbs.registerPartials(__dirname + '/views/partials');
 
 app.get('/home', (request, response) => {
 	const user = getCurrentUser_(request);
