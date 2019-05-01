@@ -13,5 +13,9 @@ Parts different from paper prototypes:
 
 Other parts are similar to what we had in our paper prototypes.
 
-#### Homepage
-![Homepage](hhttps://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/homepage.png)
+#### Screen #1: Homepage
+![Homepage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/homepage.png)
+
+#### Screen #2: Read News Page (Learning Page)
+![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/learnpage1.png)
+![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/learnpage2.png)
