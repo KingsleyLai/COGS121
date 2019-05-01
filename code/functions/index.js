@@ -45,9 +45,11 @@ function getNotebookByUserWithPage(userid, page) {
 
 const app = express();
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
-// app.set('views', './views');
 app.set('view engine', 'handlebars');
-// hbs.registerPartials(__dirname + '/views/partials');
+
+app.get('/', (request, response) => {
+	response.redirect('/home');
+});
 
 app.get('/home', (request, response) => {
 	const user = getCurrentUser_(request);
