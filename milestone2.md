@@ -19,3 +19,16 @@ Other parts are similar to what we had in our paper prototypes.
 #### Screen #2: Read News Page (Learning Page)
 ![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/learnpage1.png)
 ![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/learnpage2.png)
+
+
+#### Study Sets Page
+![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/studyset.png)
+
+#### Favorite Page
+![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/favorite.png)
+
+#### History Page
+![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/history.png)
+
+#### User Profile Page
+![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone2/profile.png)
