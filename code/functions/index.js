@@ -103,9 +103,9 @@ app.get('/getStudySetCount',(request,response) => {
 	});
 });
 
-app.get('/user',(request,response) => {
+app.get('/profile',(request,response) => {
 	const user = getCurrentUser_(request);
-	response.render('user');
+	response.render('profile');
 });
 
 app.get('/onboard',(request,response) => {

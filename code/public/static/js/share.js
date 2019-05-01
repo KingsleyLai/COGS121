@@ -19,7 +19,7 @@ $(document).ready(() => {
             window.location.href='./index';
         }
     });
-    
+
     // home button js
     $('.home_button').click(() => {
       window.location.href='./home?uid=' + uid ;
@@ -42,7 +42,7 @@ $(document).ready(() => {
     });
     // user profile display area
     $('.user_information').click(() => {
-      window.location.href='./user?uid=' + uid;
+      window.location.href='./profile?uid=' + uid;
     });
 });
 

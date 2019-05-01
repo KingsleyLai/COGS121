@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Learning</title>
+  <meta charset="UTF-8">
+
+  <!-- Warning here: Consider avoiding viewport values that prevent users from resizing documents -->
+  <!-- We use this because we want to avoid the zoom in and zoom out when using on phone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.css"/>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
+	<script src='static/js/share.js'></script>
+  <!-- <script src="static/js/history.js"></script> -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/share.css">
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		html, body {height: 100%;}
+		h4 {color: gray}
+	</style>
+</head>
+
+<body>
+	<header>
+    <nav style="background-color: #0396A6 !important" class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+      <!-- Navbar text-->
+      <span class="navbar-text" id="navbar_text"> <!-- This text should generate dynnamically-->
+        Profile
+      </span>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Page Content-->
+    <div  class="container-fluid" style="height: 100%; position: absolute">
+      <div class="row" style="height: 100%;">
+        {{> sidebar}}
+
+        <!-- Main Page Content-->
+        <div class="col-sm-10">
+          <div style="margin-top: 20%">
+						<div class="row">
+							<div class="col" style="text-align: right; padding-right: 50px;">
+								<img src="https://www.freeiconspng.com/uploads/duck-png-10.png" width=200px>
+								<p style="font-size: 26px; padding-right: 35px">user_name</p>
+							</div>
+							<div class="col" style="text-align: left">
+								<p> <b>Username</b>: user_name</p>
+								<p> <b>Email</b>: user@gmail.com</p>
+								<p> <b>Password</b>: ********</p>
+								<p> <b>Language</b>: Spanish</p>
+								<p> <b>News Topic</b>: Technology</p>
+							</div>
+						</div>
+
+					</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
