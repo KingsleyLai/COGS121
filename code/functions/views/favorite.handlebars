@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <title>History</title>
+  <title>Favorite News</title>
   <meta charset="UTF-8">
 
   <!-- Warning here: Consider avoiding viewport values that prevent users from resizing documents -->
@@ -11,11 +11,11 @@
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.css"/>
- 
+
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
 
   <script src="static/js/share.js"></script>
-  <script src="static/js/history.js"></script>
+  <script src="static/js/favorite.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
       <!-- Navbar text-->
       <span class="navbar-text" id="navbar_text"> <!-- This text should generate dynnamically-->
-        History
+        Favorite News
       </span>
     </nav>
   </header>
@@ -40,28 +40,13 @@
     <!-- Page Content-->
     <div class="container-fluid">
       <div class="row">
-          <!-- Fixed Sidebar-->
-          <div class="col-sm-2 px-1 bg-success">
-              <div class="py-2 sticky-top flex-grow-1">
-                  <div class="nav flex-sm-column">
-                    <!-- User Profile-->
-                    <img src="#">
-                    <p>user_name</p>
-                    <!-- Buttons -->
-                    <button type="button" class="home_button">Home</button>
-                    <button type="button" class="study_set_button">Study Sets</button>
-                    <button type="button" class="favorite_news_button">Favorite News</button>
-                    <button type="button" class="history_button">History</button>
-                    <button type="button" class="logout_button">Logout</button>
-                  </div>
-              </div>
-          </div>
+          {{> sidebar}}
 
           <!-- Main Page Content-->
-          <div class="col" id="history_main">
-            <h1>View History</h1>
-          
-            <table class="table table-striped table-bordered" id="history_table">
+          <div class="col" id="favorite_main">
+            <h1>Favortied News</h1>
+
+            <table class="table table-striped table-bordered" id="favorite_table">
               <thead>
                 <tr>
                   <th>Title</th>
@@ -71,25 +56,26 @@
                 </tr>
               </thead>
               <tbody>
-                {{#each news}}       
+                {{#each news}}
                   <tr>
                     <td>{{title}}</td>
                     <td>04/25/2019</td>
                     <td><i><a href="{{source}}" target="_blank">Source article</a></i></td>
                     <td>
                       <button type="button" class="read_button">Read It</button>
-                      <button type="button" class="delete_button">Delete History</button>
+                      <button type="button" class="delete_button">Unlike</button>
                     </td>
-                  </tr>                
+                  </tr>
                 {{/each}}
-              </tbody>  
+              </tbody>
+
             </table>
           </div>
       </div>
     </div>
   </main>
-	
-	
+
+
 
 </body>
 </html>

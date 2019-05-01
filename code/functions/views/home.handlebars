@@ -36,24 +36,7 @@
     <!-- Page Content-->
     <div class="container-fluid">
       <div class="row">
-          <!-- Fixed Sidebar-->
-          <div class="sidebar col-sm-2 px-1 bg-success">
-              <div class="py-2 sticky-top flex-grow-1">
-                  <div class="nav flex-sm-column">
-                    <!-- User Profile-->
-                    <div class="user_information">
-                      <img src="#">
-                      <p>user_name</p>
-                    </div>
-                    <!-- Buttons -->
-                    <button type="button" class="home_button">Home</button>
-                    <button type="button" class="study_set_button">Study Sets</button>
-                    <button type="button" class="favorite_news_button">Favorite News</button>
-                    <button type="button" class="history_button">History</button>
-                    <button type="button" class="logout_button">Logout</button>
-                  </div>
-              </div>
-          </div>
+          {{> sidebar}}
 
           <!-- Main Page Content-->
           <div class="col" id="home_main">
@@ -78,27 +61,27 @@
                 <h1>News Selections Just For You</h1>
               </div>
             </div>
-            <div class="row">       
+            <div class="row">
               {{#each news}}
                 <div class="col-1"></div>
                 <div class="col news" style="border:2px solid">
                   {{title}} <br>
                     <i><a href="{{source}}" target="_blank">Source article</a></i>
                 </div>
-              {{/each}}  
+              {{/each}}
               <div class="col-1"></div>
               <div class="col" style="border:2px solid">
                 test <br>
                 <i><a href="#" target="_blank">Source article</a></i>
               </div>
-              <div class="col-1"></div>        
+              <div class="col-1"></div>
             </div>
           </div>
       </div>
     </div>
   </main>
-	
-	
+
+
 
 </body>
 </html>
