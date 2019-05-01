@@ -9,9 +9,8 @@ $(document).ready(() => {
             window.location.href='./index';
         }
     });
-    
-    $('.news').click( () => {
+
+    $('.news-button').click( () => {
         window.location.href="./learn?uid=" + uid ;
     });
 });
-

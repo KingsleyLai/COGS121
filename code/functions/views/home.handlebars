@@ -8,13 +8,14 @@
   <!-- We use this because we want to avoid the zoom in and zoom out when using on phone -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
   <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src='static/js/share.js'></script>
   <script src="static/js/home.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+	<link rel="stylesheet" href="static/css/shared.css">
   <!-- Popper JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
@@ -27,7 +28,7 @@
     <nav style="background-color: #0396A6 !important" class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
       <!-- Navbar text-->
       <span class="navbar-text" id="navbar_text"> <!-- This text should generate dynnamically-->
-        Home
+        DuoNews
       </span>
     </nav>
   </header>
@@ -58,23 +59,20 @@
 
             <div class="row">
               <div class="col">
-                <h1>News Selections Just For You</h1>
+								<h1 id="slogan">Catch up with latest news while learning ESL...</h1>
+                <h4>Here are some personal recommandations for you:</h4>
               </div>
             </div>
-            <div class="row">
+            <div class="row" style="height: 200px; margin-top: 30px">
               {{#each news}}
                 <div class="col-1"></div>
-                <div class="col news" style="border:2px solid">
+                <div class="col news" style="border:2px solid; font-weight: bold">
                   {{title}} <br>
-                    <i><a href="{{source}}" target="_blank">Source article</a></i>
+                  <i><a href="{{source}}" target="_blank">Source article</a></i><br>
+									<button class="news-button">Read News</button>
                 </div>
               {{/each}}
-              <div class="col-1"></div>
-              <div class="col" style="border:2px solid">
-                test <br>
-                <i><a href="#" target="_blank">Source article</a></i>
-              </div>
-              <div class="col-1"></div>
+							<div class="col-1"></div>
             </div>
           </div>
       </div>
