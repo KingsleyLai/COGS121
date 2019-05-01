@@ -3,6 +3,8 @@ const firebase = require('firebase-admin');
 const express = require('express');
 const engines = require('consolidate');
 
+const NUM_STUDY_SET_PER_PAGE = 5;
+
 const firebaseApp = firebase.initializeApp(
 	functions.config().firebase
 );
@@ -78,7 +80,6 @@ app.get('/favorite',(request,response) => {
 app.get('/studyset',(request,response) => {
 	const user = getCurrentUser_(request);
 	getNotebookByUser(user).then(studysets => {
-		console.log(studysets);
 		response.render('studyset', { studysets });
 	});
 });
@@ -87,7 +88,6 @@ app.get('/getStudySetByPage',(request,response) => {
 	const user = getCurrentUser_(request);
 	const targetPage = request.query.page;
 	getNotebookByUser(user).then(studysets => {
-		console.log(studysets);
 		response.render('studyset', { studysets });
 	});
 });
