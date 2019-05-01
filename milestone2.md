@@ -6,6 +6,9 @@ Our project idea is to help ESL students learn English through our web applicati
 ### 2. screenshots:
 Parts different from paper prototypes: 
 - After the sign-up page, we added an "onboard" page which asks the user to select their native language and favorite category of news. 
-- Removed the "Read News" button on the sidebar as news can be accessed from the boxes on the home page.
-- Removed the search bar on all pages because it is not very useful for the goal of the app and would be redundant to the other features
-- 
+- Removed the "Read News" button on the sidebar as news will be accessed from the home page.
+- Removed the search bar from the navbar on all pages and added search bar on the "favorite", "history", and "notebook" page.
+- Removed the "study sets" preview on home page. 
+- ESL words highlighted in the "read news" page.
+
+Other parts are similar to what we had in our paper prototypes.
