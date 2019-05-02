@@ -116,13 +116,6 @@ app.get('/getStudySetByPage',(request,response) => {
 	});
 });
 
-// app.get('/getStudySetTotalPage',(request,response) => {
-// 	const user = getCurrentUser_(request);
-// 	getNotebookByUser(user).then(studysets => {
-// 		response.json({count: studysets[0]['record'].length})
-// 	});
-// });
-
 app.get('/profile',(request,response) => {
 	const user = getCurrentUser_(request);
 	response.render('profile');
