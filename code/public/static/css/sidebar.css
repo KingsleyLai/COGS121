@@ -1,0 +1,17 @@
+
+.side {
+	width: 200px;
+	background-color: #04BFBF;
+}
+.user_information{
+  align-self: center;
+}
+
+#menu {
+  background-color: #04BFBF;
+  padding: .5em;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 20px;
+
+}
