@@ -11,59 +11,9 @@ $(document).ready(() =>{
     });
 
     //Function to change the paging
-    /*$('.pagination li a').click( function (){
-        generateNextPage(2);
-        const content = $(this).html();
-        const page_to_hide = '#notebook' + $('.active a').html();
-        if(content === 'Previous' || content === 'Next'){
-            let current_page = parseInt($('.active a').html());
-            
-            if (content === 'Previous'){
-                current_page--;
-                if(current_page == 1){
-                    $('#prev').addClass('disabled');
-                }else if(current_page != lastPage){
-                    $('#next').removeClass('disabled');
-                }
-            }else{
-                current_page++;
-                if(current_page == lastPage){
-                    $('#next').addClass('disabled');
-                }else if(current_page != 1){
-                    $('#prev').removeClass('disabled');
-                }
-            }
-            const page_to_dis = '#notebook' + current_page;
-            const page_id = '#page' + current_page;
-            $('.pagination .active').removeClass('active');
-            $(page_id).addClass('active');
-            $(page_to_hide).hide();
-            $(page_to_dis).show();
-        }else{
-            const page_to_dis = '#notebook' + content
-            const page_id = '#page' + content;
-            const to_page = parseInt(content);
-            if(to_page == 1){
-                $('#prev').addClass('disabled');
-                $('#next').removeClass('disabled');
-            }else if(to_page == 6){
-                $('#next').addClass('disabled');
-                $('#prev').removeClass('disabled');
-            }else{
-                $('#prev').removeClass('disabled');
-                $('#next').removeClass('disabled');
-            }
-            $('.pagination .active').removeClass('active');
-            $(page_id).addClass('active');
-            $(page_to_hide).hide();
-            $(page_to_dis).show();
-        }
-    });*/
-
-
     $('.pagination li a').click( function (){
         const content = $(this).html();
-        const page_to_hide = $('.active a').html();
+        const page_to_hide = '#notebook'+$('.active a').html();
         if(content === 'Previous' || content === 'Next'){
             let current_page = parseInt($('.active a').html());
             if (content === 'Previous'){
@@ -91,9 +41,9 @@ $(document).ready(() =>{
                 $(page_id).addClass('active');
             }
             if($(page_to_dis).length == 0){
-                generateNextPage(current_page,'#notebook'+page_to_hide,page_to_dis);
+                generateNextPage(current_page,page_to_hide,page_to_dis);
             }else{
-                $('#notebook'+page_to_hide).hide();
+                $(page_to_hide).hide();
                 $(page_to_dis).show();
             }
         }else{
@@ -118,9 +68,9 @@ $(document).ready(() =>{
                 $(page_id).addClass('active');
             }
             if($(page_to_dis).length == 0){
-                generateNextPage(content,'#notebook'+page_to_hide,page_to_dis);
+                generateNextPage(content,page_to_hide,page_to_dis);
             }else{
-                $('#notebook'+page_to_hide).hide();
+                $(page_to_hide).hide();
                 $(page_to_dis).show();
             }
         }
@@ -154,7 +104,7 @@ function generateNextPage(nextPage,page_to_hide,page_to_dis){
             //get 5 words array
             const result = data['targetStudySet'];    
             const finalText = generateDiv(result,nextPage);
-            $('#notebook'+(nextPage-1).toString()).after(finalText);
+            $('#notebook1').after(finalText);
             console.log(page_to_hide);
             $(page_to_hide).hide();
             $(page_to_dis).show();
