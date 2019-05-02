@@ -34,192 +34,33 @@
 
   <main>
     <!-- Page Content-->
-		<div  class="container-fluid" style="height: 100%; position: absolute">
+    <div  class="container-fluid" style="height: 100%; position: absolute">
       <div class="row" style="height: 100%;">
           {{> sidebar}}
 
           <!-- Main Page Content-->
-          <!-- <div class="col" id="studyset_main">
+          <div class="col" id="studyset_main">
             <h1>Notebook</h1>
             <div id="notebook1">
                 <input class="form-control" id="word_search" type="text" placeholder="Search Words">
                 <ul class="list-group" id="word_list">
+                    {{#each studysets}}
                     <li class="list-group-item">
-                        <h4 class="list-group-item-heading">A</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="放弃">Abort</span>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
+                        <h4 class="list-group-item-heading">{{en}}</h4>
+                        <p class="list-group-item-text">Spanish: {{es}}</p>
+                        <p class="list-group-item-text">Hindi: {{hi}}</p>
+                        <p class="list-group-item-text">Chinese: {{zh}}</p>
                     </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">B</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="放弃">Abort</span>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="放弃">Abort</span>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">D</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="放弃">Abort</span>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">E</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="放弃">Abort</span>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
+                    {{/each}}
                 </ul>
             </div>
-            <div id="notebook2" style="display:none;">
-                <input class="form-control" id="word_search" type="text" placeholder="Search Words">
-                <ul class="list-group" id="word_list">
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">F</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="放弃">Abort</span>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">G</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">H</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Hello</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">I</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">J</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                </ul>
-            </div>
-            <div id="notebook3" style="display:none;">
-                <input class="form-control" id="word_search" type="text" placeholder="Search Words">
-                <ul class="list-group" id="word_list">
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">A</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">B</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                </ul>
-            </div>
-            <div id="notebook4" style="display:none;">
-                <input class="form-control" id="word_search" type="text" placeholder="Search Words">
-                <ul class="list-group" id="word_list">
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">A</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">B</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                </ul>
-            </div>
-            <div id="notebook5" style="display:none;">
-                <input class="form-control" id="word_search" type="text" placeholder="Search Words">
-                <ul class="list-group" id="word_list">
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">A</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">B</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                </ul>
-            </div>
-            <div id="notebook6" style="display:none;">
-                <input class="form-control" id="word_search" type="text" placeholder="Search Words">
-                <ul class="list-group" id="word_list">
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">A</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">B</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading">C</h4>
-                        <span class="list-group-item-text" data-toggle="popover" title="Translate" data-content="账户">Account</span>
-                    </li>
-                </ul>
-            </div>
+                 
             <ul class="pagination">
                 <li class="page-item disabled" id="prev"><a class="page-link">Previous</a></li>
                 <li class="page-item active" id="page1"><a class="page-link">1</a></li>
-                <li class="page-item" id="page2"><a class="page-link">2</a></li>
-                <li class="page-item" id="page3"><a class="page-link">3</a></li>
-                <li class="page-item" id="page4"><a class="page-link">4</a></li>
-                <li class="page-item" id="page5"><a class="page-link">5</a></li>
-                <li class="page-item" id="page6"><a class="page-link">6</a></li>
+                <li class="page-item" id="lastPage"><a class="page-link">{{totalPageNums}}</a></li>
                 <li class="page-item" id="next"><a class="page-link">Next</a></li>
             </ul>
-          </div> -->
-          <div class="col" id="studyset_main">
-            <h1>Study Sets</h1>
-            {{#each studysets}}
-              <div class="row">
-                <p>{{en}} - </p>
-                <p>{{es}} - </p>
-                <p>{{hi}} - </p>
-                <p>{{zh}} - </p>
-              </div>
-            {{/each}}
-
-            <h3>Total page number: {{totalPageNums}}</h3>
           </div>
 
       </div>
