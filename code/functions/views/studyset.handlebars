@@ -39,7 +39,7 @@
           {{> sidebar}}
 
           <!-- Main Page Content-->
-          <div class="col" id="studyset_main">
+          <!-- <div class="col" id="studyset_main">
             <h1>Notebook</h1>
             <div id="notebook1">
                 <input class="form-control" id="word_search" type="text" placeholder="Search Words">
@@ -207,7 +207,21 @@
                 <li class="page-item" id="page6"><a class="page-link">6</a></li>
                 <li class="page-item" id="next"><a class="page-link">Next</a></li>
             </ul>
+          </div> -->
+          <div class="col" id="studyset_main">
+            <h1>Study Sets</h1>
+            {{#each studysets}}
+              <div class="row">
+                <p>{{en}} - </p>
+                <p>{{es}} - </p>
+                <p>{{hi}} - </p>
+                <p>{{zh}} - </p>
+              </div>
+            {{/each}}
+
+            <h3>Total page number: {{totalPageNums}}</h3>
           </div>
+
       </div>
     </div>
   </main>
