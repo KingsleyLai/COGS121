@@ -1,4 +1,13 @@
 .body {
     border: 3px;
-    padding: 60px;
+    padding: 200px;
+}
+.col-6 {
+    font-size: 80px;
+    font-family: fantasy;
+    font-weight: bolder;
+}
+.col-10 {
+    flex: auto;
+    max-width: 100%;
 }
