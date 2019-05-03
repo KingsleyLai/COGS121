@@ -3,6 +3,7 @@ const firebase = require('firebase-admin');
 const express = require('express');
 const engines = require('consolidate');
 const hbs = require('express-handlebars');
+const moment = require('moment');
 
 const NUM_STUDY_SET_PER_PAGE = 5;
 
@@ -53,7 +54,8 @@ function getFavorNewsByUser(userid) {
 				favorNewsAndTime.forEach(e => {
 					if (e['news_overview_id'] === doc2.id){
 						const temp = doc2.data();
-						temp['add_time'] = e['add_time'].toDate();
+						
+						temp['add_time'] = moment(e['add_time'].toDate().toString()).format('L');
 						result.push(temp);
 					}
 				});
