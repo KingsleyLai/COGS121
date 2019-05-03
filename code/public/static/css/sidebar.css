@@ -1,7 +1,7 @@
 
 .side {
 	width: 200px;
-	background-color: #04BFBF;
+	background-color: #fff;
 }
 .user_information{
   border-top: 3px;
@@ -11,15 +11,22 @@
   padding-top: 20px;
 }
 #a {
-  font-size: 18px;
-  font-style: italic;
-  text-align: center;
+	font-size: 18px;
+	font-family: sans-serif;
+	font-style: italic;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.54);
+	margin-bottom: 1.5rem;
 }
 #menu {
-  background-color: #04BFBF;
-  padding: .5em;
-  color: #fff;
-  font-family: sans-serif;
-  font-size: 20px;
-  border: none;
+	background-color: #fff;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	color: rgba(0, 0, 0, 0.87);
+	font-family: sans-serif;
+	/* font-variant-caps: all-small-caps; */
+	font-size: 20px;
+	text-align: left;
+	font-weight: 300;
+	border: none;
 }

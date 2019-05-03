@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </head>
 
-<body>
+<body style="background-color: #00BCD4">
   <div class="body">
   <header "loginHeader">
     <div class="container">
@@ -56,8 +56,8 @@
                 <input class="input" type="text" id="email"><br>
                 <label for="password">Password: </label><br>
                 <input class="input" type="password" id="password"><br>
-                <p>Don't have an account? <a href="#" id="signup"><abbr title="signup">Sign up</abbr></a></p>
-                <a href="#" id="forget_password">Forget password?</a><br>
+                <p>Don't have an account? <div class="link" id="signup"><abbr title="signup">Sign up</abbr></div></p>
+                <div class="link" id="forget_password">Forget password?</div><br>
                 <button id="loginBtn" type="button" onclick="login(event);">Login</button><br>
               </form>
             </div>
@@ -77,7 +77,7 @@
                 <input class="input" type="password" id="confirm_password">
                 <p id="password_match" style="display:none;color:red;">Password Doesn't match</p>
                 <br>
-                <p>Already have an account? <a href="#" id="signin"><abbr title="signup">Login</abbr></a></p>
+                <p>Already have an account? <div class="link" id="signin"><abbr title="signup">Login</abbr></div></p>
                 <button id="signupBtn" type="button">Signup</button>
               </form>
             </div>

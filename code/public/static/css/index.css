@@ -1,13 +1,56 @@
 .body {
-    border: 3px;
-    padding: 200px;
+    padding: 150px;
+}
+.col-4 {
+  width: 100px;
 }
 .col-6 {
+    color: #fff;
     font-size: 80px;
-    font-family: fantasy;
+    font-family: cursive;
     font-weight: bolder;
 }
 .col-10 {
-    flex: auto;
-    max-width: 100%;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 14pt;
+  padding-top: 10px;
+  width: max-content;
+}
+.input {
+  border: none;
+  padding: 5px;
+  font-family: sans-serif;
+}
+#loginBtn {
+  background-color: #fff;
+  color: #00BCD4;
+  border: none;
+  font-family: sans-serif;
+  font-weight: 600;
+  padding: 5px 75px 5px 75px;
+}
+#signupBtn {
+  background-color: #fff;
+  color: #00BCD4;
+  border: none;
+  font-family: sans-serif;
+  font-weight: 600;
+  padding: 5px 75px 5px 75px;
+}
+#onboard_save_btn {
+  background-color: #fff;
+  color: #00BCD4;
+  border: none;
+  font-family: sans-serif;
+  font-weight: 600;
+  padding: 5px 75px 5px 75px;
+}
+.link {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline
+}
+#signupDiv {
+  align-self: baseline;
 }
