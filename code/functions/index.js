@@ -39,6 +39,29 @@ function getNotebookByUser(userid) {
 	});
 }
 
+function getFavorNewsByUser(userid) {
+	const ref = firebaseApp.firestore().collection('favorite');
+	const ref2 = firebaseApp.firestore().collection('news_overview');
+	return ref.get(userid).then((snapshot) => {
+		let favorNewsAndTime = []
+		snapshot.docs.forEach(doc => {
+			favorNewsAndTime = doc.data()['record'];
+		});
+		return ref2.get().then((snapshot2) => {
+			const result = []
+			snapshot2.docs.forEach(doc2 => {
+				favorNewsAndTime.forEach(e => {
+					if (e['news_overview_id'] === doc2.id){
+						const temp = doc2.data();
+						temp['add_time'] = e['add_time'].toDate();
+						result.push(temp);
+					}
+				});
+			})
+			return result;
+		});
+	});
+}
 
 const app = express();
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
@@ -73,8 +96,8 @@ app.get('/history',(request,response) => {
 
 app.get('/favorite',(request,response) => {
 	const user = getCurrentUser_(request);
-	getNewsByUser(user).then(news => {
-		response.render('favorite', { news });
+	getFavorNewsByUser(user).then(favorNews => {
+		response.render('favorite', { favorNews });
 	});
 });
 
