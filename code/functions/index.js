@@ -54,8 +54,8 @@ function getFavorNewsByUser(userid) {
 				favorNewsAndTime.forEach(e => {
 					if (e['news_overview_id'] === doc2.id){
 						const temp = doc2.data();
-						
-						temp['add_time'] = moment(e['add_time'].toDate().toString()).format('L');
+						const m = moment(e['add_time'].toDate());
+						temp['add_time'] = m.format('L');
 						result.push(temp);
 					}
 				});
