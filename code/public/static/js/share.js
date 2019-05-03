@@ -20,6 +20,7 @@ $(document).ready(() => {
         }
     });
 
+
     // home button js
     $('.home_button').click(() => {
       window.location.href='./home?uid=' + uid ;
@@ -44,6 +45,8 @@ $(document).ready(() => {
     $('.user_information').click(() => {
       window.location.href='./profile?uid=' + uid;
     });
+
+	console.log("eoiufhieurh");
 });
 
 function logout(){

@@ -11,7 +11,7 @@
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.css"/>
-	
+
 	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
 
 	<script src="static/js/share.js"></script>
@@ -41,7 +41,7 @@
 		</nav>
 	</header>
 
-	<main>
+	<main id="main-content-div">
 		<!-- Page Content-->
 		<div  class="container-fluid" style="height: 100%; position: absolute">
 			<div class="row" style="height: 100%;">
@@ -63,7 +63,7 @@
 							<h4> Original news in English</h4>
 							<div style="border: 3px solid #F2785C; height: 600px">
 								<p style="margin: 10px;">
-									Four days after the coordinated <span href="#" data-toggle="popover" data-html=true title="Translate" data-content='ataques <br><a href="http://google.com">Add to Studyset</a>'><esl>attacks</esl></span>, the Sri Lankan Health Ministry revised the death toll, saying 253 people had died. That toll is significantly lower than the 359 initially reported to CNN by a Colombo police spokesman this week. The <esl>health</esl> ministry cited the condition of remains and the difficulty in identifying them for the discrepancy.
+									Four days after the coordinated <span class="popover-word" href="#" data-toggle="popover" data-html=true title="Translate" data-content='ataques <br><a class="addBtn">Add to Studyset</a>'><esl>attacks</esl></span>, the Sri Lankan Health Ministry revised the death toll, saying 253 people had died. That toll is significantly lower than the 359 initially reported to CNN by a Colombo police spokesman this week. The <esl>health</esl> ministry cited the condition of remains and the difficulty in identifying them for the discrepancy.
 								</p>
 							</div>
 
@@ -80,9 +80,9 @@
 
 					<div class="row">
 						<div style="text-align: center; width: 100%; margin-top: 30px">
-							<button style="background-color: #F29985">Read Next Paragraph</button>
+							<button id="next-paragraph" style="background-color: #F29985">Read Next Paragraph</button>
 							<br><br>
-							<button style="background-color: #F29985">Favorite This News</button>
+							<button id="add-to-favorite" style="background-color: #F29985">Favorite This News</button>
 						</div>
 					</div>
 
