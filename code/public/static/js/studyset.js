@@ -53,7 +53,9 @@ $(document).ready(() =>{
             const to_page = parseInt(content);
             if(to_page == 1){
                 $('#prev').addClass('disabled');
-                $('#next').removeClass('disabled');
+                if(content != 1){
+                    $('#next').removeClass('disabled');
+                }
             }else if(to_page == lastPage){
                 $('#next').addClass('disabled');
                 $('#prev').removeClass('disabled');
@@ -89,6 +91,8 @@ function getCurrentUserUID(){
 function generatePages(lastPage) {
     let i;
     for (i = 2; i < lastPage; i++){
+        $('.lastPage').show();
+        $('.next').removeClass('disabled');
         const idName = '#page' + (i-1).toString();
         $(idName).after( '<li class="page-item" ' + 'id="page' + i.toString() + '"' +'><a class="page-link">' + i.toString() + '</a></li>')
     }

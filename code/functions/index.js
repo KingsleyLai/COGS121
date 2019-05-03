@@ -30,13 +30,15 @@ function getNewsByUser(userid) {
 }
 
 function getNotebookByUser(userid) {
-	const ref = firebaseApp.firestore().collection('notebook');
-	return ref.get('testuserid').then((snapshot) => {
-		var allStudySets = []
-		snapshot.docs.forEach(doc => {
-			allStudySets.push(doc.data());
+	const ref = firebaseApp.firestore().collection('notebook').doc(userid);
+	return ref.get().then((doc) => {
+		const allStudySets = []
+		doc.data()['record'].forEach(e => {
+			allStudySets.push(e);
 		});
 		return allStudySets;
+	}).catch((e) => {
+		console.log('Cannot get notebook');
 	});
 }
 
@@ -44,7 +46,7 @@ function getFavorNewsByUser(userid) {
 	const ref = firebaseApp.firestore().collection('favorite').doc(userid);
 	const ref2 = firebaseApp.firestore().collection('news_overview');
 	return ref.get().then((doc) => {
-		let favorNewsAndTime = []
+		const favorNewsAndTime = [];
 		doc.data()['record'].forEach(e => {
 			favorNewsAndTime.push(e);
 		});
@@ -67,7 +69,35 @@ function getFavorNewsByUser(userid) {
 		//backend log error to indicate empty array
 		console.log('error')
 	});
+}
 
+function getHistoryByUser(userid){
+	const ref = firebaseApp.firestore().collection('history').doc(userid);
+	const ref2 = firebaseApp.firestore().collection('news_overview');
+	return ref.get().then((doc) => {
+		const history = [];
+		doc.data()['record'].forEach(e => {
+			history.push(e);
+		});
+		return ref2.get().then((snapshot) => {
+			const result = [];
+			snapshot.docs.forEach(doc2 => {
+				history.forEach(e => {
+					if (e['news_overview_id'] === doc2.id){
+						const temp = doc2.data();
+						const m = moment(e['view_time'].toDate());
+						temp['view_time'] = m.format('L');
+						temp['news_overview_id'] = e['news_overview_id'];
+						result.push(temp);
+					}
+				});
+			});
+			return result;
+		});
+	}).catch((e) => {
+		//backend log error to indicate empty array
+		console.log('error3');
+	});
 }
 /*
 function deleteFavorNewsByUser(userid,news_overview_id) {
@@ -116,8 +146,8 @@ app.get('/learn', (request, response) => {
 
 app.get('/history',(request,response) => {
 	const user = getCurrentUser_(request);
-	getNewsByUser(user).then(news => {
-		response.render('history', { news });
+	getHistoryByUser(user).then(history => {
+		response.render('history', { history });
 	});
 });
 
@@ -144,18 +174,21 @@ app.get('/studyset',(request,response) => {
 	getNotebookByUser(user).then(allstudysets => {
 		// the length of studysets is 5, page = 1
 
-		const totalCount = allstudysets[0]['record'].length;
+		const totalCount = allstudysets.length;
 		let result = [];
 
 		const upperBound = Math.min(NUM_STUDY_SET_PER_PAGE, totalCount);
 		let i = 0;
 		for (i = 0; i < upperBound; i = i + 1) {
-			result.push(allstudysets[0]['record'][i]);
+			result.push(allstudysets[i]);
 		}
 
 		const totalPageNums = Math.ceil(totalCount / NUM_STUDY_SET_PER_PAGE);
 		const studysets = result;
 		response.render('studyset', { studysets, totalPageNums });
+	}).catch((e) => {
+		console.log('error');
+		response.send({});
 	});
 });
 
@@ -164,16 +197,19 @@ app.get('/getStudySetByPage',(request,response) => {
 	const user = getCurrentUser_(request);
 	const targetPage = request.query.p;
 	getNotebookByUser(user).then(allstudysets => {
-		const totalCount = allstudysets[0]['record'].length;
+		const totalCount = allstudysets.length;
 		let result = [];
 
 		const upperBound = Math.min(NUM_STUDY_SET_PER_PAGE * targetPage, totalCount);
 		let i = 0;
 		for (i = (targetPage - 1) * NUM_STUDY_SET_PER_PAGE; i < upperBound; i = i + 1) {
-			result.push(allstudysets[0]['record'][i]);
+			result.push(allstudysets[i]);
 		}
 
 		response.json({targetStudySet: result});
+	}).catch((e) => {
+		console.log('error');
+		response.send({});
 	});
 });
 
