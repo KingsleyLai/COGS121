@@ -4,14 +4,22 @@
 	background-color: #04BFBF;
 }
 .user_information{
+  border-top: 3px;
   align-self: center;
 }
-
+#userpic {
+  padding-top: 20px;
+}
+#a {
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+}
 #menu {
   background-color: #04BFBF;
   padding: .5em;
   color: #fff;
   font-family: sans-serif;
   font-size: 20px;
-
+  border: none;
 }
