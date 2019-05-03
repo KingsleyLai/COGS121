@@ -11,6 +11,9 @@ esl {
 	background-color: yellow;
 }
 
+.navbar {
+	background-color: #00BCD4
+}
 #navbar_text {
 	color: white;
 	font-family: cursive;
