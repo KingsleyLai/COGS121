@@ -41,29 +41,54 @@ function getNotebookByUser(userid) {
 }
 
 function getFavorNewsByUser(userid) {
-	const ref = firebaseApp.firestore().collection('favorite');
+	const ref = firebaseApp.firestore().collection('favorite').doc(userid);
 	const ref2 = firebaseApp.firestore().collection('news_overview');
-	return ref.get(userid).then((snapshot) => {
+	return ref.get().then((doc) => {
 		let favorNewsAndTime = []
-		snapshot.docs.forEach(doc => {
-			favorNewsAndTime = doc.data()['record'];
+		doc.data()['record'].forEach(e => {
+			favorNewsAndTime.push(e);
 		});
-		return ref2.get().then((snapshot2) => {
-			const result = []
-			snapshot2.docs.forEach(doc2 => {
+		return ref2.get().then((snapshot) => {
+			const result = [];
+			snapshot.docs.forEach(doc2 => {
 				favorNewsAndTime.forEach(e => {
 					if (e['news_overview_id'] === doc2.id){
 						const temp = doc2.data();
 						const m = moment(e['add_time'].toDate());
 						temp['add_time'] = m.format('L');
+						temp['news_overview_id'] = e['news_overview_id'];
 						result.push(temp);
 					}
 				});
-			})
+			});
 			return result;
 		});
+	}).catch((e) => {
+		//backend log error to indicate empty array
+		console.log('error')
 	});
+
 }
+/*
+function deleteFavorNewsByUser(userid,news_overview_id) {
+	const ref = firebaseApp.firestore().collection('favorite');
+	return ref.get(userid).then( (snapshot) => {
+		let favorNews = [];
+		snapshot.docs.forEach(doc => {
+			favorNews = doc.data()['record'];
+		});
+		let i;
+		for (i = 0;i<favorNews.length;i++){
+			if (favorNews[i]['news_overview_id'] === news_overview_id){
+				favorNews.splice(i,1);
+			}
+		}
+		const ref2 = firebaseApp.firestore().collection('favorite').doc(userid);
+		return ref2.update({
+			record: favorNews
+		}).then( () => { console.log('delete')});
+	});
+}*/
 
 const app = express();
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
@@ -102,6 +127,17 @@ app.get('/favorite',(request,response) => {
 		response.render('favorite', { favorNews });
 	});
 });
+/*
+app.post('/unfavor',(request,response) => {
+	// getStudySetByPage?nid=
+	const user = getCurrentUser_(request);
+	const targetId = request.query.nid;
+	deleteFavorNewsByUser(user,targetId).then( () => {
+		getFavorNewsByUser(user).then( favorNews => {
+			response.render('favorite', { favorNews });
+		});
+	});
+});*/
 
 app.get('/studyset',(request,response) => {
 	const user = getCurrentUser_(request);
