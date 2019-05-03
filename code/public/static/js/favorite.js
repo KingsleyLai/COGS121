@@ -24,7 +24,7 @@ $(document).ready(() => {
         window.location.href="./learn?uid=" + uid ;
     });
 
-	$('#unlike-btn').click( () => {
+	$('.unlike_button').click( () => {
 		alert("Removed this news from your favorite news.");
     });
 });
