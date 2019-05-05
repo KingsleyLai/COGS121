@@ -142,6 +142,14 @@ function addFavorNewsByUser(userid,news_overview_id) {
 	}).catch((e) => {console.log('error on add favor news')});
 }
 
+function getUserInfo(userid){
+	const ref = firebaseApp.firestore().collection('setting').doc(userid);
+	return ref.get().then((doc) => {
+		const info = {prefer_lang: doc.data()['prefer_lang'], prefer_category: doc.data()['prefer_category']};
+		return info;
+	});
+}
+
 const app = express();
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -245,7 +253,15 @@ app.get('/getStudySetByPage',(request,response) => {
 
 app.get('/profile',(request,response) => {
 	const user = getCurrentUser_(request);
-	response.render('profile');
+	getUserInfo(user).then(userInfo => {
+		const isTech = userInfo.prefer_category == 0;
+		const isBusiness = userInfo.prefer_category == 2;
+		const isSport = userInfo.prefer_category == 1;
+		const isZh = userInfo.prefer_lang === 'zh';
+		const isEs = userInfo.prefer_lang === 'es';
+		const isHi = userInfo.prefer_lang === 'hi';
+		response.render('profile', {isTech, isBusiness ,isSport, isZh,isEs,isHi});
+	});
 });
 
 app.get('/onboard',(request,response) => {
@@ -256,7 +272,7 @@ app.get('/onboard',(request,response) => {
 app.get('/onboardsetup',(request,response)=>{
 	const uid = getCurrentUser_(request);
 	const lang_pref = request.query.la;
-	const category = request.query.ca;
+	const category = parseInt(request.query.ca);
 
 	//setting user profile db
     const ref = firebaseApp.firestore().collection('setting');
@@ -274,6 +290,16 @@ app.get('/onboardsetup',(request,response)=>{
     const ref4 = firebaseApp.firestore().collection('notebook');
     const notebookData = {record:[]};
 	ref4.doc(uid).set(notebookData);
+	response.send({});
+});
+
+app.get('/updateinfo',(request,response)=>{
+	const uid = getCurrentUser_(request);
+	const lang_pref = request.query.la;
+	const category = parseInt(request.query.ca);
+	const ref = firebaseApp.firestore().collection('setting').doc(uid);
+	const data = {prefer_lang:lang_pref,prefer_category:category};
+	ref.set(data);
 	response.send({});
 });
 
