@@ -27,14 +27,7 @@
 </head>
 
 <body>
-  <header>
-    <nav style="background-color: #00BCD4 !important" class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
-      <!-- Navbar text-->
-      <span class="navbar-text" id="navbar_text"> <!-- This text should generate dynnamically-->
-        Favorite News
-      </span>
-    </nav>
-  </header>
+  {{> header}}
 
   <main>
     <!-- Page Content-->
@@ -64,7 +57,7 @@
                     <td>
                       <button type="button" class="read_button">Read It</button>
                       <button type="button" class="unlike_button">Unlike<p class="news_overview_id" style="display:none;">{{news_overview_id}}</p></button>
-                      
+
                     </td>
                   </tr>
                 {{/each}}
