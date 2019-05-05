@@ -99,26 +99,48 @@ function getHistoryByUser(userid){
 		console.log('error3');
 	});
 }
-/*
+
 function deleteFavorNewsByUser(userid,news_overview_id) {
-	const ref = firebaseApp.firestore().collection('favorite');
-	return ref.get(userid).then( (snapshot) => {
+	const ref = firebaseApp.firestore().collection('favorite').doc(userid);
+	return ref.get().then( (doc) => {
 		let favorNews = [];
-		snapshot.docs.forEach(doc => {
-			favorNews = doc.data()['record'];
+		doc.data()['record'].forEach((e) => {
+			favorNews.push(e);
 		});
 		let i;
 		for (i = 0;i<favorNews.length;i++){
 			if (favorNews[i]['news_overview_id'] === news_overview_id){
 				favorNews.splice(i,1);
+				break;
 			}
 		}
-		const ref2 = firebaseApp.firestore().collection('favorite').doc(userid);
-		return ref2.update({
+		ref.update({
 			record: favorNews
-		}).then( () => { console.log('delete')});
-	});
-}*/
+		}).then(() => {console.log('delete favor news')});
+	}).catch((e) => {console.log('error on delete favor news')});
+}
+
+function addFavorNewsByUser(userid,news_overview_id) {
+	const ref = firebaseApp.firestore().collection('favorite').doc(userid);
+	return ref.get().then( (doc) => {
+		const favorNews = doc.data()['record'];
+		let duplicate = false;
+		favorNews.forEach((e) => {
+			if (e['news_overview_id'] === news_overview_id){
+				duplicate = true;
+			}
+		});
+		if(!duplicate){
+			const date = new Date();
+			const toAddDate = firebase.firestore.Timestamp.fromDate(date);
+			const newFavor = {add_time: toAddDate,news_overview_id: news_overview_id};
+			favorNews.push(newFavor);
+			ref.update({
+				record: favorNews
+			}).then(() => {console.log('add new favor news')});
+		}
+	}).catch((e) => {console.log('error on add favor news')});
+}
 
 const app = express();
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
@@ -157,17 +179,25 @@ app.get('/favorite',(request,response) => {
 		response.render('favorite', { favorNews });
 	});
 });
-/*
-app.post('/unfavor',(request,response) => {
-	// getStudySetByPage?nid=
+
+app.get('/unfavor',(request,response) => {
+	// unfavor?nid=
 	const user = getCurrentUser_(request);
 	const targetId = request.query.nid;
 	deleteFavorNewsByUser(user,targetId).then( () => {
-		getFavorNewsByUser(user).then( favorNews => {
-			response.render('favorite', { favorNews });
-		});
+		response.send({});
 	});
-});*/
+});
+
+app.get('/addfavor',(request,response) => {
+	// unfavor?nid=
+	const user = getCurrentUser_(request);
+	//const targetId = request.query.nid;
+	const targetId = 'Aweas71HCwtPN1WVpZk4';
+	addFavorNewsByUser(user,targetId).then( () => {
+		response.send({});
+	});
+});
 
 app.get('/studyset',(request,response) => {
 	const user = getCurrentUser_(request);

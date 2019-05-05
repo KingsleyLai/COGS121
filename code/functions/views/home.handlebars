@@ -41,37 +41,21 @@
 
           <!-- Main Page Content-->
           <div class="col" id="home_main">
-            <!-- <h1>News Selections Just For You</h1>
-
-            <ul>
-              {{#each news}}
-                <li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
-              {{/each}}
-            </ul>
-
-
-            <h1>Study Sets</h1>
-            <ul>
-              {{#each news}}
-                <li>{{title}} <i><a href="{{source}}" target="_blank">Source article</a></i></li>
-              {{/each}}
-            </ul> -->
-
             <div class="row">
               <div class="col">
-				<h1 id="slogan">Catch up with latest news while learning ESL...</h1>
+			        	<h1 id="slogan">Catch up with latest news while learning ESL...</h1>
                 <h4 style="font-family: sans-serif">Here are some personal news recommandations for you:</h4>
               </div>
             </div>
             <div class="row" style="margin-left: 10px">
               {{#each news}}
-			  	<div class="row">
-	                <div class="col news" id="newsBox">
-	                  {{title}} <br>
-					  	<button class="news-button">Read News</button><br>
-						<i><div class="link" href="{{source}}" target="_blank">Source article</div></i>
-	                </div>
-				</div>
+                <div class="row">
+                  <div class="col news" id="newsBox">
+                    {{title}} <br>
+                    <button class="news-button">Read News</button><br>
+                    <i><div class="link" href="{{source}}" target="_blank">Source article</div></i>
+                  </div>
+                </div>
               {{/each}}
             </div>
           </div>

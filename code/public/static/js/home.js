@@ -14,3 +14,5 @@ $(document).ready(() => {
         window.location.href="./learn?uid=" + uid ;
     });
 });
+
+
