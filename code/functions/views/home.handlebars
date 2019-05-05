@@ -24,14 +24,7 @@
 </head>
 
 <body>
-  <header>
-    <nav style="background-color: #00BCD4 !important" class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
-      <!-- Navbar text-->
-      <span class="navbar-text" id="navbar_text"> <!-- This text should generate dynnamically-->
-        DuoNews
-      </span>
-    </nav>
-  </header>
+  {{> header}}
 
   <main>
     <!-- Page Content-->
@@ -52,7 +45,7 @@
                 <div class="row">
                   <div class="col news" id="newsBox">
                     {{title}} <br>
-                    <button class="news-button">Read News</button><br>
+                    <button class="news-button" data-nid="{{content_id}}">Read News</button><br>
                     <i><div class="link" href="{{source}}" target="_blank">Source article</div></i>
                   </div>
                 </div>
