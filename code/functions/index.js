@@ -253,4 +253,28 @@ app.get('/onboard',(request,response) => {
 	response.render('onboard');
 });
 
+app.get('/onboardsetup',(request,response)=>{
+	const uid = getCurrentUser_(request);
+	const lang_pref = request.query.la;
+	const category = request.query.ca;
+
+	//setting user profile db
+    const ref = firebaseApp.firestore().collection('setting');
+    const settingData = {prefer_category: category, prefer_lang:lang_pref};
+    ref.doc(uid).set(settingData);
+    //setting favorite db
+    const ref2 = firebaseApp.firestore().collection('favorite');
+    const favorData = {record:[]};
+    ref2.doc(uid).set(favorData);
+    //setting history db
+    const ref3 = firebaseApp.firestore().collection('history');
+    const hisData = {record:[]};
+    ref3.doc(uid).set(hisData);
+    //setting notebook db
+    const ref4 = firebaseApp.firestore().collection('notebook');
+    const notebookData = {record:[]};
+	ref4.doc(uid).set(notebookData);
+	response.send({});
+});
+
 exports.app = functions.https.onRequest(app);

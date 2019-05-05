@@ -12,11 +12,19 @@ $(document).ready( () => {
     $('#onboard_save_btn').click(() => {
         const lang_pref = $('#sel1').val();
         const category = $('#sel2').val();
+        const uid = getCurrentUserUID();
         //Future save this to user preference
         console.log(lang_pref);
         console.log(category);
+        $.ajax({
+            url:'/onboardsetup?uid='+uid+'&la='+lang_pref+'&ca='+category,
+            type:'GET',
+            dateType:'json',
+            success: (data) =>{
+                window.location.href='./home' + '?uid=' + uid;
+            }
 
-        window.location.href='./home' + '?uid=' + getCurrentUserUID();
+        });
     });
 });
 
