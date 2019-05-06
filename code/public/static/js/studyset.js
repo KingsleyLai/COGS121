@@ -1,7 +1,7 @@
 $(document).ready(() =>{
     //dynamicall inject html to handlebars file
     const lastPage = $('#lastPage a').html();
-    generatePages(lastPage);
+    generatePages(parseInt(lastPage));
 
     $('#word_search').on('keyup', () => {
         const value = $('#word_search').val().toLowerCase();
@@ -18,6 +18,7 @@ $(document).ready(() =>{
             let current_page = parseInt($('.active a').html());
             if (content === 'Previous'){
                 current_page--;
+                $('#next').removeClass('disabled');
                 if(current_page == 1){
                     $('#prev').addClass('disabled');
                 }else if(current_page != lastPage){
@@ -25,6 +26,7 @@ $(document).ready(() =>{
                 }
             }else{
                 current_page++;
+                $('#prev').removeClass('disabled');
                 if(current_page == lastPage){
                     $('#next').addClass('disabled');
                 }else if(current_page != 1){
@@ -48,7 +50,6 @@ $(document).ready(() =>{
             }
         }else{
             const page_to_dis = '#notebook' + content
-            console.log(content);
             const page_id = '#page' + content;
             const to_page = parseInt(content);
             if(to_page == 1){
@@ -90,16 +91,18 @@ function getCurrentUserUID(){
 
 function generatePages(lastPage) {
     let i;
+    if (lastPage != 1){
+        $('#lastPage').show();
+        $('#next').removeClass('disabled');
+    }
     for (i = 2; i < lastPage; i++){
-        $('.lastPage').show();
-        $('.next').removeClass('disabled');
         const idName = '#page' + (i-1).toString();
         $(idName).after( '<li class="page-item" ' + 'id="page' + i.toString() + '"' +'><a class="page-link">' + i.toString() + '</a></li>')
     }
 }
 
 function generateNextPage(nextPage,page_to_hide,page_to_dis){
-    const u = '/getStudySetByPage?p=' + nextPage.toString();
+    const u = '/getStudySetByPage?uid='+ getCurrentUserUID() +'&p=' + nextPage.toString();
     $.ajax({
         url: u,
         type:'GET',
@@ -109,7 +112,6 @@ function generateNextPage(nextPage,page_to_hide,page_to_dis){
             const result = data['targetStudySet'];    
             const finalText = generateDiv(result,nextPage);
             $('#notebook1').after(finalText);
-            console.log(page_to_hide);
             $(page_to_hide).hide();
             $(page_to_dis).show();
         }
@@ -121,13 +123,18 @@ function generateDiv(words,nextPage){
     const searchbar = '<input class="form-control" id="word_search" type="text" placeholder="Search Words">'
     const ulStart = '<ul class="list-group" id="word_list">';
     let i;
+    const keys = Object.keys(words[0]);
     const textArray = [];
     for (i = 0; i<words.length; i++){
         textArray[i] = '<li class="list-group-item">' + 
-        '<h4 class="list-group-item-heading">'+ words[i]['en'] + '</h4>'+
-        '<p class="list-group-item-text">Spanish: '+ words[i]['es'] +'</p>' +
-        '<p class="list-group-item-text">Hindi: ' + words[i]['hi'] + '</p>' + 
-        '<p class="list-group-item-text">Chinese: ' + words[i]['zh']+ '</p></li>'
+        '<h4 class="list-group-item-heading">'+ words[i]['en'] + '</h4>';
+        if(keys.includes('es')){
+            textArray[i] += '<p class="list-group-item-text">Spanish: '+ words[i]['es'] +'</p></li>'
+        }else if(keys.includes('hi')){
+            textArray[i] += '<p class="list-group-item-text">Hindi: ' + words[i]['hi'] + '</p></li>'
+        }else if(keys.includes('zh')){
+            textArray[i] += '<p class="list-group-item-text">Chinese: ' + words[i]['zh']+ '</p></li>'
+        }
     }
     const endText = '</ul></div>';
     let finalText = divStart+searchbar+ulStart;

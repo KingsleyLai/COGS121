@@ -15,6 +15,7 @@ $(document).ready(() => {
         // User is signed in, obtain uid for future use
           uid = getCurrentUserUID();
           console.log(user.displayName);
+          $('#sidebarUsername').text(user.displayName);
         } else {
             window.location.href='./index';
         }
@@ -27,6 +28,7 @@ $(document).ready(() => {
     });
     // study set button js
     $(".study_set_button").click(() => {
+      alert(uid);
       window.location.href="./studyset?uid=" + uid ;
     });
     // favorite news button js

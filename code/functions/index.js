@@ -31,15 +31,31 @@ function getNewsByUser(userid) {
 
 function getNotebookByUser(userid) {
 	const ref = firebaseApp.firestore().collection('notebook').doc(userid);
-	return ref.get().then((doc) => {
-		const allStudySets = []
-		doc.data()['record'].forEach(e => {
-			allStudySets.push(e);
-		});
-		return allStudySets;
+	const ref2 = firebaseApp.firestore().collection('setting').doc(userid);
+	
+	return ref2.get().then(doc2 => {
+		let prefer_lang;
+		const docData = doc2.data();
+		prefer_lang = docData['prefer_lang'];
+		return ref.get().then((doc) => {
+			const allStudySets = []
+			doc.data()['record'].forEach(e => {
+				const temp = e;
+				const keys = Object.keys(temp);
+				keys.forEach((e2) => {
+					if(e2 === prefer_lang || e2=== 'en'){
+						
+					}else{
+						delete temp[e2];
+					}
+				})
+				allStudySets.push(temp);
+			});
+			return allStudySets;
+		})
 	}).catch((e) => {
 		console.log('Cannot get notebook');
-	});
+	});;
 }
 
 function getFavorNewsByUser(userid) {
@@ -209,23 +225,34 @@ app.get('/addfavor',(request,response) => {
 
 app.get('/studyset',(request,response) => {
 	const user = getCurrentUser_(request);
+	console.log('might here'+user);
 	getNotebookByUser(user).then(allstudysets => {
 		// the length of studysets is 5, page = 1
-
 		const totalCount = allstudysets.length;
 		let result = [];
-
 		const upperBound = Math.min(NUM_STUDY_SET_PER_PAGE, totalCount);
 		let i = 0;
 		for (i = 0; i < upperBound; i = i + 1) {
 			result.push(allstudysets[i]);
 		}
-
+		let isZh = false;
+		let isEs = false;
+		let isHi = false;
+		if(totalCount>0){
+			const keys = Object.keys(result[0]);
+			if(keys.includes('zh')){
+				isZh = true;
+			}else if(keys.includes('es')){
+				isEs = true;
+			}else if(keys.includes('hi')){
+				isHi = true;
+			}
+		}
 		const totalPageNums = Math.ceil(totalCount / NUM_STUDY_SET_PER_PAGE);
 		const studysets = result;
-		response.render('studyset', { studysets, totalPageNums });
+		response.render('studyset', {isEs,isZh,isHi, studysets,totalPageNums });
 	}).catch((e) => {
-		console.log('error');
+		console.log(e);
 		response.send({});
 	});
 });
@@ -234,6 +261,7 @@ app.get('/getStudySetByPage',(request,response) => {
 	// getStudySetByPage?p=2
 	const user = getCurrentUser_(request);
 	const targetPage = request.query.p;
+	console.log('checkhere' +user);
 	getNotebookByUser(user).then(allstudysets => {
 		const totalCount = allstudysets.length;
 		let result = [];
@@ -243,7 +271,6 @@ app.get('/getStudySetByPage',(request,response) => {
 		for (i = (targetPage - 1) * NUM_STUDY_SET_PER_PAGE; i < upperBound; i = i + 1) {
 			result.push(allstudysets[i]);
 		}
-
 		response.json({targetStudySet: result});
 	}).catch((e) => {
 		console.log('error');

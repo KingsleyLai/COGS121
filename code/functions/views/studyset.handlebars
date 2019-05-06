@@ -36,14 +36,30 @@
             <div id="notebook1">
                 <input class="form-control" id="word_search" type="text" placeholder="Search Words">
                 <ul class="list-group" id="word_list">
+                  {{#if isEs}}
                     {{#each studysets}}
                     <li class="list-group-item">
                         <h4 class="list-group-item-heading">{{en}}</h4>
-                        <p class="list-group-item-text">Spanish: {{es}}</p>
-                        <p class="list-group-item-text">Hindi: {{hi}}</p>
-                        <p class="list-group-item-text">Chinese: {{zh}}</p>
+                        <p class="list-group-item-text">Spanish: {{es}}</p> 
                     </li>
                     {{/each}}
+                  {{/if}}
+                  {{#if isHi}}
+                    {{#each studysets}}
+                    <li class="list-group-item">
+                        <h4 class="list-group-item-heading">{{en}}</h4>
+                        <p class="list-group-item-text">Hindi: {{hi}}</p> 
+                    </li>
+                    {{/each}}
+                  {{/if}}
+                  {{#if isZh}}
+                    {{#each studysets}}
+                    <li class="list-group-item">
+                        <h4 class="list-group-item-heading">{{en}}</h4>
+                        <p class="list-group-item-text">Chinese: {{zh}}</p> 
+                    </li>
+                    {{/each}}
+                  {{/if}}
                 </ul>
             </div>
 

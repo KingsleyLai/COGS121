@@ -64,7 +64,7 @@ $(document).ready( () => {
 
     $('#editProfileBtn').click(() =>{
         $('#userCategory').replaceWith('<p id="userCategory"> <b>Prefer News Topic</b>: </p><select class="form-control" id="change_sel1"><option value="0" >Technology</option><option value="1">Sports</option><option value="2">Business</option></select>');
-        $('#userLanguage').replaceWith('<p id="userLanguage"> <b>Prefer Language</b>: </p><select class="form-control" id="change_sel2"><option value="es">Chinese</option><option value="zh">Spanish</option><option value="hi">Hindi</option></select>');
+        $('#userLanguage').replaceWith('<p id="userLanguage"> <b>Prefer Language</b>: </p><select class="form-control" id="change_sel2"><option value="zh">Chinese</option><option value="es">Spanish</option><option value="hi">Hindi</option></select>');
         $('#changePassBtn').hide();
         $('#editProfileBtn').hide();
         $('#editProfileSaveBtn').show();
