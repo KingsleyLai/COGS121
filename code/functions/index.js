@@ -166,6 +166,27 @@ function getUserInfo(userid){
 	});
 }
 
+function addHistoryByUser(userid,targetId){
+	const ref = firebaseApp.firestore().collection('history').doc(userid);
+	return ref.get().then((doc) => {
+		const history = doc.data()['record'];
+		let count;
+		for(count = (history.length-1);count >= 0 && count > (history.length-30);count--){
+			if(history[count]['news_overview_id'] === targetId){
+				history.splice(count,1);
+				break;
+			}
+		}
+		const date = new Date();
+		const toAddDate = firebase.firestore.Timestamp.fromDate(date);
+		const newHisotry = {view_time: toAddDate,news_overview_id: targetId};
+		history.push(newHisotry);
+		ref.update({
+			record: history
+		}).then(() => {console.log('add new history')});
+	});
+}
+
 const app = express();
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -194,6 +215,14 @@ app.get('/history',(request,response) => {
 	const user = getCurrentUser_(request);
 	getHistoryByUser(user).then(history => {
 		response.render('history', { history });
+	});
+});
+
+app.get('/addhistory',(request,response) => {
+	const user = getCurrentUser_(request);
+	const targetId = request.query.nid;
+	addHistoryByUser(user,targetId).then(() => {
+		response.send({});
 	});
 });
 

@@ -21,7 +21,7 @@ $(document).ready(() => {
     });
     $('.dataTables_length').addClass('bs-select');
 
-    $('.read_button').click(() => {
+    $('.favorite_read_button').click(() => {
         window.location.href="./learn?uid=" + uid ;
     });
 

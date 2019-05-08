@@ -20,8 +20,17 @@ $(document).ready(() => {
     });
     $('.dataTables_length').addClass('bs-select');
 
-    $('.read_button').click(() => {
-        window.location.href="./learn?uid=" + uid ;
+    $('.history_read_button').click(() => {
+        //window.location.href="./learn?uid=" + uid ;
+        const u = '/addhistory?uid=' + uid + '&nid=' + 'Owwh1LIYnfMVBCVWp85F';
+        $.ajax({
+            url: u,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) =>{
+                console.log('add to history');
+            }
+        });
     });
 
     $('.add_favor_button').click(function (){
