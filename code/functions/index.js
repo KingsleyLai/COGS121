@@ -187,6 +187,12 @@ function addHistoryByUser(userid,targetId){
 	});
 }
 
+function getNewsFirstPage(userid,targetId){
+	const ref = firebaseApp.firestore().collection('news_content').doc(targetId);
+	const ref2 = firebaseApp.firestore().collection('setting').doc(userid);
+	return true;
+}
+
 const app = express();
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
