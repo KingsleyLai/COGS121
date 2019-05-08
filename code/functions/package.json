@@ -16,5 +16,8 @@
     "handlebars": "^4.1.2",
     "moment": "^2.24.0"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "firebase-functions-test": "^0.1.6"
+  }
 }
