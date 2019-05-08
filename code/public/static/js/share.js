@@ -28,7 +28,6 @@ $(document).ready(() => {
     });
     // study set button js
     $(".study_set_button").click(() => {
-      alert(uid);
       window.location.href="./studyset?uid=" + uid ;
     });
     // favorite news button js

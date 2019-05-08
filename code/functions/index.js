@@ -216,8 +216,7 @@ app.get('/unfavor',(request,response) => {
 app.get('/addfavor',(request,response) => {
 	// unfavor?nid=
 	const user = getCurrentUser_(request);
-	//const targetId = request.query.nid;
-	const targetId = 'Aweas71HCwtPN1WVpZk4';
+	const targetId = request.query.nid;
 	addFavorNewsByUser(user,targetId).then( () => {
 		response.send({});
 	});

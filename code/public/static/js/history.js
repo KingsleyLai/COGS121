@@ -25,7 +25,7 @@ $(document).ready(() => {
     });
 
     $('.add_favor_button').click(function (){
-        const u = '/addfavor?uid='+ uid + '&nid=' + 'Aweas71HCwtPN1WVpZk4';
+        const u = '/addfavor?uid='+ uid + '&nid=' + $(this).find('p').html();
         $.ajax({
             url: u,
             type:'GET',
