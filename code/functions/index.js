@@ -166,25 +166,32 @@ function getUserInfo(userid){
 	});
 }
 
-function addHistoryByUser(userid,targetId){
+function addHistoryByUser(userid,news_title){
 	const ref = firebaseApp.firestore().collection('history').doc(userid);
-	return ref.get().then((doc) => {
-		const history = doc.data()['record'];
-		let count;
-		for(count = (history.length-1);count >= 0 && count > (history.length-30);count--){
-			if(history[count]['news_overview_id'] === targetId){
-				history.splice(count,1);
-				break;
+	const ref2 = firebaseApp.firestore().collection('news_overview');
+	return ref2.where('title','==',news_title).get().then(function(querySnapshot){
+		let targetId;
+		querySnapshot.forEach(function(doc2){
+			targetId = doc2.id;
+		})
+		return ref.get().then((doc) => {
+			const history = doc.data()['record'];
+			let count;
+			for(count = (history.length-1);count >= 0 && count > (history.length-30);count--){
+				if(history[count]['news_overview_id'] === targetId){
+					history.splice(count,1);
+					break;
+				}
 			}
-		}
-		const date = new Date();
-		const toAddDate = firebase.firestore.Timestamp.fromDate(date);
-		const newHisotry = {view_time: toAddDate,news_overview_id: targetId};
-		history.push(newHisotry);
-		ref.update({
-			record: history
-		}).then(() => {console.log('add new history')});
-	});
+			const date = new Date();
+			const toAddDate = firebase.firestore.Timestamp.fromDate(date);
+			const newHisotry = {view_time: toAddDate,news_overview_id: targetId};
+			history.push(newHisotry);
+			ref.update({
+				record: history
+			}).then(() => {console.log('add new history')});
+		});
+	})
 }
 
 function getNewsContent(userid, targetId, pid){
@@ -266,8 +273,8 @@ app.get('/history',(request,response) => {
 
 app.get('/addhistory',(request,response) => {
 	const user = getCurrentUser_(request);
-	const targetId = request.query.nid;
-	addHistoryByUser(user,targetId).then(() => {
+	const news_title = request.query.title;
+	addHistoryByUser(user,news_title).then(() => {
 		response.send({});
 	});
 });
@@ -299,7 +306,6 @@ app.get('/addfavor',(request,response) => {
 
 app.get('/studyset',(request,response) => {
 	const user = getCurrentUser_(request);
-	console.log('might here'+user);
 	getNotebookByUser(user).then(allstudysets => {
 		// the length of studysets is 5, page = 1
 		const totalCount = allstudysets.length;
@@ -335,7 +341,6 @@ app.get('/getStudySetByPage',(request,response) => {
 	// getStudySetByPage?p=2
 	const user = getCurrentUser_(request);
 	const targetPage = request.query.p;
-	console.log('checkhere' +user);
 	getNotebookByUser(user).then(allstudysets => {
 		const totalCount = allstudysets.length;
 		let result = [];

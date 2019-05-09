@@ -12,8 +12,17 @@ $(document).ready(() => {
 
     $('.news-button').click( function() {
 		const content_id = $(this).attr('data-nid');
-		console.log("content id: " + content_id);
 		localStorage.setItem("currentNewsId", content_id);
-        window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
+        const title = $(this).parent().html().split('<br>')[0];
+        const u = '/addhistory?uid=' + uid + '&title=' + title;
+        $.ajax({
+            url: u,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) =>{
+                console.log('add to history');
+                window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
+            }
+        });
     });
 });

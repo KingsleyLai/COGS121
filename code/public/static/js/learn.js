@@ -26,7 +26,15 @@ $(document).ready(() =>{
 	});
 
 	$('#add-to-favorite').click( () => {
-		alert("Added this news to your favorite news.");
+		const u = '/addfavor?uid='+ uid + '&nid=' + '1ouEHgNbRLpFJjcCsEXb';
+        $.ajax({
+            url: u,
+            type:'GET',
+            dataType: 'json',
+            success: (data) => {
+                console.log('add favor news');
+            }
+        });
 	});
 
 	// $('#next-paragraph').click( () => {
