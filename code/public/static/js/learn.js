@@ -3,11 +3,23 @@ $(document).ready(() =>{
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
         // User is signed in, obtain uid for future use
-          uid = getCurrentUserUID();
+		  	uid = getCurrentUserUID();
+		  	const title = $('#learn_page_title').text();
+			const u = '/addhistory?uid=' + uid + '&title=' + title;
+			$.ajax({
+				url: u,
+				type: 'GET',
+				dataType: 'json',
+				success: (data) =>{
+					console.log('add to history');	
+				}
+			});
         } else {
             //nonthing
         }
-    });
+	});
+	
+	
 	//
 	// $('.list-group-item-text').click( () => {
 	// 	// console.log("e is " + e)
@@ -26,7 +38,8 @@ $(document).ready(() =>{
 	});
 
 	$('#add-to-favorite').click( () => {
-		const u = '/addfavor?uid='+ uid + '&nid=' + '1ouEHgNbRLpFJjcCsEXb';
+		const title = $('#learn_page_title').text();
+		const u = '/addfavor?uid='+ uid + '&title=' + title;
         $.ajax({
             url: u,
             type:'GET',

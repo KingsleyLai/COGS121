@@ -22,22 +22,11 @@ $(document).ready(() => {
 
     $('.history_read_button').click(function (){
         const content_id = $(this).attr('data-nid');
-        const title = $(this).parent().parent().children(':first-child').text();
-        
-        const u = '/addhistory?uid=' + uid + '&title=' + title;
-        $.ajax({
-            url: u,
-            type: 'GET',
-            dataType: 'json',
-            success: (data) =>{
-                window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
-                console.log('add to history');
-            }
-        });
+        window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
     });
 
     $('.add_favor_button').click(function (){
-        const u = '/addfavor?uid='+ uid + '&nid=' + $(this).find('p').html();
+        const u = '/addfavor?uid='+ uid + '&title=' + $(this).parent().parent().children(':first-child').text();
         $.ajax({
             url: u,
             type:'GET',

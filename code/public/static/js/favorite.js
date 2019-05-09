@@ -23,23 +23,13 @@ $(document).ready(() => {
 
     $('.favorite_read_button').click(function () {
         const content_id = $(this).attr('data-nid');
-        const title = $(this).parent().parent().children(':first-child').text();
-        const u = '/addhistory?uid=' + uid + '&title=' + title;
-        $.ajax({
-            url: u,
-            type: 'GET',
-            dataType: 'json',
-            success: (data) =>{
-                window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
-                console.log('add to history');
-            }
-        });
+        window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
     });
 
 	$('.unlike_button').click( function() {
-        const u = '/unfavor?uid='+ uid + '&nid=' + $(this).find('p').html();
+        const title = $(this).parent().parent().children(':first-child').text();
+        const u = '/unfavor?uid='+ uid + '&title=' + title;
         const theDiv = $($(this).parent()).parent();
-        console.log(u);
         $.ajax({
             url: u,
             type:'GET',

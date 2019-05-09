@@ -74,7 +74,6 @@ function getFavorNewsByUser(userid) {
 						const temp = doc2.data();
 						const m = moment(e['add_time'].toDate());
 						temp['add_time'] = m.format('L');
-						temp['news_overview_id'] = e['news_overview_id'];
 						result.push(temp);
 						console.log(temp['content_id']);
 					}
@@ -104,7 +103,6 @@ function getHistoryByUser(userid){
 						const temp = doc2.data();
 						const m = moment(e['view_time'].toDate());
 						temp['view_time'] = m.format('L');
-						temp['news_overview_id'] = e['news_overview_id'];
 						result.push(temp);
 						console.log(temp);
 					}
@@ -118,46 +116,60 @@ function getHistoryByUser(userid){
 	});
 }
 
-function deleteFavorNewsByUser(userid,news_overview_id) {
+function deleteFavorNewsByUser(userid,news_title) {
 	const ref = firebaseApp.firestore().collection('favorite').doc(userid);
-	return ref.get().then( (doc) => {
-		let favorNews = [];
-		doc.data()['record'].forEach((e) => {
-			favorNews.push(e);
-		});
-		let i;
-		for (i = 0;i<favorNews.length;i++){
-			if (favorNews[i]['news_overview_id'] === news_overview_id){
-				favorNews.splice(i,1);
-				break;
+	const ref2 = firebaseApp.firestore().collection('news_overview');
+	return ref2.where('title','==',news_title).get().then(function(querySnapshot){
+		let news_overview_id;
+		querySnapshot.forEach(function(doc2){
+			news_overview_id = doc2.id;
+		})
+		return ref.get().then( (doc) => {
+			let favorNews = [];
+			doc.data()['record'].forEach((e) => {
+				favorNews.push(e);
+			});
+			let i;
+			for (i = 0;i<favorNews.length;i++){
+				if (favorNews[i]['news_overview_id'] === news_overview_id){
+					favorNews.splice(i,1);
+					break;
+				}
 			}
-		}
-		ref.update({
-			record: favorNews
-		}).then(() => {console.log('delete favor news')});
-	}).catch((e) => {console.log('error on delete favor news')});
-}
-
-function addFavorNewsByUser(userid,news_overview_id) {
-	const ref = firebaseApp.firestore().collection('favorite').doc(userid);
-	return ref.get().then( (doc) => {
-		const favorNews = doc.data()['record'];
-		let duplicate = false;
-		favorNews.forEach((e) => {
-			if (e['news_overview_id'] === news_overview_id){
-				duplicate = true;
-			}
-		});
-		if(!duplicate){
-			const date = new Date();
-			const toAddDate = firebase.firestore.Timestamp.fromDate(date);
-			const newFavor = {add_time: toAddDate,news_overview_id: news_overview_id};
-			favorNews.push(newFavor);
 			ref.update({
 				record: favorNews
-			}).then(() => {console.log('add new favor news')});
-		}
-	}).catch((e) => {console.log('error on add favor news')});
+			}).then(() => {console.log('delete favor news')});
+		}).catch((e) => {console.log('error on delete favor news')});
+	});
+}
+
+function addFavorNewsByUser(userid,news_title) {
+	const ref = firebaseApp.firestore().collection('favorite').doc(userid);
+	const ref2 = firebaseApp.firestore().collection('news_overview');
+	return ref2.where('title','==',news_title).get().then(function(querySnapshot){
+		let news_overview_id;
+		querySnapshot.forEach(function(doc2){
+			news_overview_id = doc2.id;
+		})
+		return ref.get().then( (doc) => {
+			const favorNews = doc.data()['record'];
+			let duplicate = false;
+			favorNews.forEach((e) => {
+				if (e['news_overview_id'] === news_overview_id){
+					duplicate = true;
+				}
+			});
+			if(!duplicate){
+				const date = new Date();
+				const toAddDate = firebase.firestore.Timestamp.fromDate(date);
+				const newFavor = {add_time: toAddDate,news_overview_id: news_overview_id};
+				favorNews.push(newFavor);
+				ref.update({
+					record: favorNews
+				}).then(() => {console.log('add new favor news')});
+			}
+		}).catch((e) => {console.log('error on add favor news')});
+	});
 }
 
 function getUserInfo(userid){
@@ -222,7 +234,8 @@ function getNewsContent(userid, targetId, pid){
 			let original_content = allNewsContent[parseInt(pid) - 1]['en'];
 			let translate_content = allNewsContent[parseInt(pid) - 1][prefer_lang];
 			let news_len = allNewsContent.length;
-			return [original_content, translate_content, news_len];
+			const title = doc.data()['title'];
+			return [original_content, translate_content, news_len,title];
 		})
 	}).catch((e) => {
 		console.log('Cannot get news content.');
@@ -262,7 +275,9 @@ app.get('/learn', (request, response) => {
 		const isNotFirstPage = !isFirstPage;
 		const isLastPage = currentPid == news_len;
 		const isNotLastPage = !isLastPage;
-		response.render('learn', { original_content, translate_content, targetNextPid, news_len, isFirstPage, isNotFirstPage, isLastPage, isNotLastPage });
+		const title = newsContent[3];
+		console.log(title);
+		response.render('learn', { original_content, translate_content, targetNextPid, news_len, isFirstPage, isNotFirstPage, isLastPage, isNotLastPage,title });
 	});
 });
 
@@ -291,17 +306,17 @@ app.get('/favorite',(request,response) => {
 app.get('/unfavor',(request,response) => {
 	// unfavor?nid=
 	const user = getCurrentUser_(request);
-	const targetId = request.query.nid;
-	deleteFavorNewsByUser(user,targetId).then( () => {
+	const news_title = request.query.title;
+	deleteFavorNewsByUser(user,news_title).then( () => {
 		response.send({});
 	});
 });
 
 app.get('/addfavor',(request,response) => {
-	// unfavor?nid=
+	// unfavor?title=
 	const user = getCurrentUser_(request);
-	const targetId = request.query.nid;
-	addFavorNewsByUser(user,targetId).then( () => {
+	const news_title = request.query.title;
+	addFavorNewsByUser(user,news_title).then( () => {
 		response.send({});
 	});
 });
