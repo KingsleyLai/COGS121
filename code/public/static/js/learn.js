@@ -31,11 +31,21 @@ $(document).ready(() =>{
         $("[data-toggle='popover']").popover('hide');
     });
 
-	$('.popover-word').click( () => {
+	// $('.popover-word').click( () => {
+	// 	$('.addBtn').click( () => {
+	// 		alert("Added this word to studyset.");
+	// 	});
+	// });
+	$('p').on( 'click','span', function(){
+		$(this).popover({ trigger: 'click' });
 		$('.addBtn').click( () => {
 			alert("Added this word to studyset.");
 		});
 	});
+
+	$('#original_content_holder span').click(() =>{
+		console.log('test');
+	})
 
 	$('#add-to-favorite').click( () => {
 		const title = $('#learn_page_title').text();
