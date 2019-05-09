@@ -1,5 +1,14 @@
 console.log("oierhfoiuerhfiuerhf");
 $(document).ready(() =>{
+	let uid;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+        // User is signed in, obtain uid for future use
+          uid = getCurrentUserUID();
+        } else {
+            //nonthing
+        }
+    });
 	//
 	// $('.list-group-item-text').click( () => {
 	// 	// console.log("e is " + e)
@@ -27,8 +36,6 @@ $(document).ready(() =>{
 	});
 });
 
-
-
 function getCurrentUserUID(){
     const currentUser = firebase.auth().currentUser;
     if (currentUser != null) {
@@ -36,3 +43,5 @@ function getCurrentUserUID(){
     }
     return -1;
 }
+
+function getNewsContent()

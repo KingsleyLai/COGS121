@@ -11,8 +11,8 @@ $(document).ready(() => {
     });
 
     $('.news-button').click( () => {
-        window.location.href="./learn?uid=" + uid ;
+		const content_id = $(this).attr('data-nid');
+		localStorage.setItem("currentNews", content_id);
+        window.location.href="./learn?uid=" + uid;
     });
 });
-
-
