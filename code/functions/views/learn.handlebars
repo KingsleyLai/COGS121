@@ -20,6 +20,8 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/css/share.css">
+	<link rel="stylesheet" href="static/css/learn.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<!-- Popper JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
@@ -59,6 +61,7 @@
 					<div class="row">
 						<div class="col">
 							<h3 id="learn_page_title">{{title}}</h3>
+							<p id="learn_page_prefer_lang" style="display:none;">{{prefer_lang}}</p>
 						</div>
 					</div>
 					<div class="row">
@@ -103,7 +106,21 @@
 
 				</div>
 			</div>
+			<div id="notiOverlay">
+				<div class="w3-display-container  w3-display-middle">
+					<div>
+						<div id="notiBody">
+							<p id="english">English: </p>
+							<p id="translate">Translated: </p>
+						</div>
+						<div id="notiButton">
+							<button type="button" id="addWordBtn">Add to studyset</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+		
 	</main>
 </body>
 </html>

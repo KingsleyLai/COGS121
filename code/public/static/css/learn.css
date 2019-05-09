@@ -1,0 +1,13 @@
+#notiOverlay{
+    position: fixed;  
+    width: 20%;
+    height: 30%;
+    top: 20vw;
+    left: 40vw;
+    right: 0;
+    bottom: 0;
+    background:white;
+    z-index: 2;
+    cursor: pointer;
+    display:none;
+}

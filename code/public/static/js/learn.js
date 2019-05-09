@@ -18,35 +18,17 @@ $(document).ready(() =>{
             //nonthing
         }
 	});
-	
-	
-	//
-	// $('.list-group-item-text').click( () => {
-	// 	// console.log("e is " + e)
-	// 	$('.list-group-item-text')["data-content"] = "ataques<button>Add to studyset</button>";
-	// });
 
-    $('[data-toggle="popover"]').popover();
-    $('h1').click( () => {
-        $("[data-toggle='popover']").popover('hide');
-    });
-
-	// $('.popover-word').click( () => {
-	// 	$('.addBtn').click( () => {
-	// 		alert("Added this word to studyset.");
-	// 	});
-	// });
-	$('p').on( 'click','span', function(){
-		$(this).popover({ trigger: 'click' });
-		$('.addBtn').click( () => {
-			alert("Added this word to studyset.");
-		});
+	$('p').on('click','esl',function(){
+		$('#notiOverlay').toggle();
+		if($('#notiOverlay').is(":visible")){
+			const prefer_lang = parseInt($('#learn_page_prefer_lang').text());
+			let translateArr = $(this).attr('data');
+			translateArr = translateArr.split(',');
+			$('#english').text('English: ' + $(this).text());
+			$('#translate').text('Translate: ' + translateArr[prefer_lang]);
+		}	
 	});
-
-	$('#original_content_holder span').click(() =>{
-		console.log('test');
-	})
-
 	$('#add-to-favorite').click( () => {
 		const title = $('#learn_page_title').text();
 		const u = '/addfavor?uid='+ uid + '&title=' + title;

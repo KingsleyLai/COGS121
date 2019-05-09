@@ -5,6 +5,7 @@ const engines = require('consolidate');
 const hbs = require('express-handlebars');
 const moment = require('moment');
 
+
 const NUM_STUDY_SET_PER_PAGE = 5;
 
 const firebaseApp = firebase.initializeApp(
@@ -239,7 +240,7 @@ function getNewsContent(userid, targetId, pid){
 			let translate_content = allNewsContent[parseInt(pid) - 1][prefer_lang];
 			let news_len = allNewsContent.length;
 			const title = doc.data()['title'];
-			return [original_content, translate_content, news_len,title];
+			return [original_content, translate_content, news_len,title,prefer_lang];
 		})
 	}).catch((e) => {
 		console.log('Cannot get news content.');
@@ -280,8 +281,15 @@ app.get('/learn', (request, response) => {
 		const isLastPage = currentPid == news_len;
 		const isNotLastPage = !isLastPage;
 		const title = newsContent[3];
-		console.log(title);
-		response.render('learn', { original_content, translate_content, targetNextPid, news_len, isFirstPage, isNotFirstPage, isLastPage, isNotLastPage,title });
+		let prefer_lang = newsContent[4];
+		if(prefer_lang === 'hi'){
+			prefer_lang = 2;
+		}else if(prefer_lang === 'zh'){
+			prefer_lang = 0;
+		}else if(prefer_lang === 'es'){
+			prefer_lang = 1;
+		}
+		response.render('learn', { original_content, translate_content, targetNextPid, news_len, isFirstPage, isNotFirstPage, isLastPage, isNotLastPage,title,prefer_lang});
 	});
 });
 
