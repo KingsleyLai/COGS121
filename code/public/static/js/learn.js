@@ -38,7 +38,7 @@ $(document).ready(() =>{
 					dataType: 'json',
 					contentType: "application/json; charset=utf-8",
 					success: (data) => {
-						console.log(word);
+						alert('word added to studyset');
 						console.log('add word to study set');
 					}
 				});
@@ -62,6 +62,7 @@ $(document).ready(() =>{
 	// $('#next-paragraph').click( () => {
 	// 	alert("This is the last paragraph.");
 	// });
+	
 });
 
 function getCurrentUserUID(){

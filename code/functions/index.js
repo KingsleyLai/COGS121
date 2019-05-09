@@ -249,14 +249,14 @@ function getNewsContent(userid, targetId, pid){
 
 function addWordByUser(userid,word){
 	const ref = firebaseApp.firestore().collection('notebook').doc(userid);
-	ref.get().then((doc)=>{
+	return ref.get().then((doc)=>{
 		const wordList = doc.data()['record'];
 		wordList.push(word);
 		ref.update({
 			record: wordList
 		}).then(() => {console.log('add new word')})
 		.catch((e)=> {console.log('error on add word to studyset')});
-	})
+	});
 }
 
 const app = express();
@@ -454,8 +454,10 @@ app.get('/updateinfo',(request,response)=>{
 app.post('/addword',(request,response)=>{
 	const uid = getCurrentUser_(request);
 	console.log(request.body);
-	addWordByUser(uid,request.body);
-	response.send({});
+	addWordByUser(uid,request.body).then(()=>{
+		response.send({});
+	})
+	
 })
 
 exports.app = functions.https.onRequest(app);
