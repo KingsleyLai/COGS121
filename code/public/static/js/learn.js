@@ -25,10 +25,27 @@ $(document).ready(() =>{
 			const prefer_lang = parseInt($('#learn_page_prefer_lang').text());
 			let translateArr = $(this).attr('data');
 			translateArr = translateArr.split(',');
-			$('#english').text('English: ' + $(this).text());
+			const en = $(this).text()
+			$('#english').text('English: ' + en);
 			$('#translate').text('Translate: ' + translateArr[prefer_lang]);
+			$('#addWordBtn').click(function (){
+				const word = JSON.stringify({'en':en,'zh':translateArr[0],'es':translateArr[1],'hi':translateArr[2]})
+				const u = '/addword?uid=' + uid;
+				$.ajax({
+					url: u,
+					type:'POST',
+					data: word,
+					dataType: 'json',
+					contentType: "application/json; charset=utf-8",
+					success: (data) => {
+						console.log(word);
+						console.log('add word to study set');
+					}
+				});
+			});
 		}	
 	});
+
 	$('#add-to-favorite').click( () => {
 		const title = $('#learn_page_title').text();
 		const u = '/addfavor?uid='+ uid + '&title=' + title;

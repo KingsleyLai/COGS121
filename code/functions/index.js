@@ -247,6 +247,18 @@ function getNewsContent(userid, targetId, pid){
 	});;
 }
 
+function addWordByUser(userid,word){
+	const ref = firebaseApp.firestore().collection('notebook').doc(userid);
+	ref.get().then((doc)=>{
+		const wordList = doc.data()['record'];
+		wordList.push(word);
+		ref.update({
+			record: wordList
+		}).then(() => {console.log('add new word')})
+		.catch((e)=> {console.log('error on add word to studyset')});
+	})
+}
+
 const app = express();
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -275,6 +287,7 @@ app.get('/learn', (request, response) => {
 		const original_content = newsContent[0];
 		const translate_content = newsContent[1];
 		const targetNextPid = parseInt(currentPid) + 1;
+		const targetPrevPid = parseInt(currentPid) - 1;
 		const news_len = newsContent[2];
 		const isFirstPage = currentPid == 1;
 		const isNotFirstPage = !isFirstPage;
@@ -289,7 +302,7 @@ app.get('/learn', (request, response) => {
 		}else if(prefer_lang === 'es'){
 			prefer_lang = 1;
 		}
-		response.render('learn', { original_content, translate_content, targetNextPid, news_len, isFirstPage, isNotFirstPage, isLastPage, isNotLastPage,title,prefer_lang});
+		response.render('learn', { original_content, translate_content, targetNextPid,targetPrevPid, news_len, isFirstPage, isNotFirstPage, isLastPage, isNotLastPage,title,prefer_lang});
 	});
 });
 
@@ -437,5 +450,12 @@ app.get('/updateinfo',(request,response)=>{
 	ref.set(data);
 	response.send({});
 });
+
+app.post('/addword',(request,response)=>{
+	const uid = getCurrentUser_(request);
+	console.log(request.body);
+	addWordByUser(uid,request.body);
+	response.send({});
+})
 
 exports.app = functions.https.onRequest(app);
