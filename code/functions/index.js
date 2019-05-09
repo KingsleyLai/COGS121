@@ -108,7 +108,11 @@ function getHistoryByUser(userid){
 					}
 				});
 			});
-			return result;
+			if (result.length > 30){
+				return result.slice(result.length-30);
+			}else{
+				return result;
+			}
 		});
 	}).catch((e) => {
 		//backend log error to indicate empty array
