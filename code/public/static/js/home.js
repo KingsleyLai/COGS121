@@ -17,7 +17,6 @@ $(document).ready(() => {
     });
 
 	$('.favor-heart').click( function() {
-		const a = document.getElementsByClassName("far");
-		const b = document.getElementsByClassName("fas");
+		
 	});
 });
