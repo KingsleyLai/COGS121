@@ -59,7 +59,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<h4> Original news in English</h4>
-							<div style="border: 3px solid #F2785C; height: 600px">
+							<div style="border: 3px solid #F2785C; height: 300px">
 								<p id="original_content_holder" style="margin: 10px;">
 
 									<!-- Four days after the coordinated <span class="popover-word" href="#" data-toggle="popover" data-html=true title="Translate" data-content='ataques <br><a href="#" class="addBtn">Add to Studyset</a>'><esl>attacks</esl></span>, the Sri Lankan Health Ministry revised the death toll, saying 253 people had died. That toll is significantly lower than the 359 initially reported to CNN by a Colombo police spokesman this week. The health ministry cited the condition of remains and the difficulty in identifying them for the discrepancy. -->
@@ -69,7 +69,7 @@
 						</div>
 						<div class="col-sm-6">
 							<h4> Translated news in Spanish</h4>
-							<div style="border: 3px solid #F2785C; height: 600px">
+							<div style="border: 3px solid #F2785C; height: 300px">
 								<p id="translated_content_holder" style="margin: 10px;">
 									<!-- Cuatro días después de los ataques coordinados, el Ministerio de Salud de Sri Lanka revisó la cifra de muertos y dijo que 253 personas habían muerto. Esa cifra es significativamente menor que la de los 359 informados inicialmente a CNN por un portavoz de la policía de Colombo esta semana. El ministerio de salud citó la condición de los restos y la dificultad de identificarlos por la discrepancia. -->
 								</p>
@@ -79,7 +79,18 @@
 
 					<div class="row">
 						<div style="text-align: center; width: 100%; margin-top: 30px">
-							<button id="next-paragraph" style="background-color: #F29985" onclick="navigateNextPage({{targetNextPid}})">Read Next Paragraph</button>
+							{{#if isFirstPage}}
+								<button id="prev-paragraph" style="background-color: #F29985" disabled onclick="navigatePrevPage({{targetPrevPid}})"> Previous </button>
+							{{/if}}
+							{{#if isNotFirstPage}}
+								<button id="prev-paragraph" style="background-color: #F29985" onclick="navigatePrevPage({{targetPrevPid}})"> Previous </button>
+							{{/if}}
+							{{#if isLastPage}}
+								<button id="next-paragraph" style="background-color: #F29985" disabled onclick="navigateNextPage({{targetNextPid}}, {{news_len}})"> Next </button>
+							{{/if}}
+							{{#if isNotLastPage}}
+								<button id="next-paragraph" style="background-color: #F29985" onclick="navigateNextPage({{targetNextPid}}, {{news_len}})"> Next </button>
+							{{/if}}
 							<br><br>
 							<button id="add-to-favorite" style="background-color: #F29985">Favorite This News</button>
 						</div>

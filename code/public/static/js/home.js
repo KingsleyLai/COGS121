@@ -14,6 +14,6 @@ $(document).ready(() => {
 		const content_id = $(this).attr('data-nid');
 		console.log("content id: " + content_id);
 		localStorage.setItem("currentNewsId", content_id);
-        window.location.href="./learn?uid=" + uid + "&nid=" + content_id;
+        window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
     });
 });

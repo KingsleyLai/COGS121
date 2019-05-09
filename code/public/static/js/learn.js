@@ -51,22 +51,30 @@ function decodeHtml(html) {
     return $('<div>').html(html).text();
 }
 
+function navigatePrevPage(pid) {
 
-function navigateNextPage(pid) {
+	if (pid == 0) {
+		alert("You have reached the last paragraph. Great work!");
+		return;
+	}
 	var url = new URL(window.location.href);
-
 	var query_string = url.search;
-
 	var search_params = new URLSearchParams(query_string);
-
-	// new value of "id" is set to "101"
 	search_params.set('pid', pid);
-
-	// change the search property of the main url
 	url.search = search_params.toString();
-
-	// the new url string
 	window.location.href = url.toString();
+}
 
+function navigateNextPage(pid, max_pid) {
 
+	if (pid == max_pid + 1) {
+		alert("You have reached the last paragraph. Great work!");
+		return;
+	}
+	var url = new URL(window.location.href);
+	var query_string = url.search;
+	var search_params = new URLSearchParams(query_string);
+	search_params.set('pid', pid);
+	url.search = search_params.toString();
+	window.location.href = url.toString();
 }

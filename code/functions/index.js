@@ -201,7 +201,7 @@ function getNewsContent(userid, targetId, pid){
 				const temp = e;
 				const keys = Object.keys(temp);
 				keys.forEach((e2) => {
-					if(e2 === prefer_lang || e2=== 'en'){
+					if(e2 === prefer_lang || e2 === 'en'){
 
 					}else{
 						delete temp[e2];
@@ -209,11 +209,11 @@ function getNewsContent(userid, targetId, pid){
 				})
 				allNewsContent.push(temp);
 			});
-			let original_content = "Hello <b>World</b>";
-			let translate_content = "你好 <b>啦啦啦</b>";
 
-			return [original_content, translate_content];
-
+			let original_content = allNewsContent[parseInt(pid) - 1]['en'];
+			let translate_content = allNewsContent[parseInt(pid) - 1][prefer_lang];
+			let news_len = allNewsContent.length;
+			return [original_content, translate_content, news_len];
 		})
 	}).catch((e) => {
 		console.log('Cannot get news content.');
@@ -248,7 +248,12 @@ app.get('/learn', (request, response) => {
 		const original_content = newsContent[0];
 		const translate_content = newsContent[1];
 		const targetNextPid = parseInt(currentPid) + 1;
-		response.render('learn', { original_content, translate_content, targetNextPid });
+		const news_len = newsContent[2];
+		const isFirstPage = currentPid == 1;
+		const isNotFirstPage = !isFirstPage;
+		const isLastPage = currentPid == news_len;
+		const isNotLastPage = !isLastPage;
+		response.render('learn', { original_content, translate_content, targetNextPid, news_len, isFirstPage, isNotFirstPage, isLastPage, isNotLastPage });
 	});
 });
 
