@@ -32,7 +32,7 @@ function getNewsByUser(userid) {
 function getNotebookByUser(userid) {
 	const ref = firebaseApp.firestore().collection('notebook').doc(userid);
 	const ref2 = firebaseApp.firestore().collection('setting').doc(userid);
-	
+
 	return ref2.get().then(doc2 => {
 		let prefer_lang;
 		const docData = doc2.data();
@@ -44,7 +44,7 @@ function getNotebookByUser(userid) {
 				const keys = Object.keys(temp);
 				keys.forEach((e2) => {
 					if(e2 === prefer_lang || e2=== 'en'){
-						
+
 					}else{
 						delete temp[e2];
 					}
@@ -187,10 +187,37 @@ function addHistoryByUser(userid,targetId){
 	});
 }
 
-function getNewsFirstPage(userid,targetId){
+function getNewsContent(userid, targetId, pid){
 	const ref = firebaseApp.firestore().collection('news_content').doc(targetId);
 	const ref2 = firebaseApp.firestore().collection('setting').doc(userid);
-	return true;
+
+	return ref2.get().then(doc2 => {
+		let prefer_lang;
+		const docData = doc2.data();
+		prefer_lang = docData['prefer_lang'];
+		return ref.get().then((doc) => {
+			const allNewsContent = []
+			doc.data()['text'].forEach(e => {
+				const temp = e;
+				const keys = Object.keys(temp);
+				keys.forEach((e2) => {
+					if(e2 === prefer_lang || e2=== 'en'){
+
+					}else{
+						delete temp[e2];
+					}
+				})
+				allNewsContent.push(temp);
+			});
+			let original_content = "Hello <b>World</b>";
+			let translate_content = "你好 <b>啦啦啦</b>";
+
+			return [original_content, translate_content];
+
+		})
+	}).catch((e) => {
+		console.log('Cannot get news content.');
+	});;
 }
 
 const app = express();
@@ -214,7 +241,15 @@ app.get('/index', (request, response) => {
 
 app.get('/learn', (request, response) => {
 	const user = getCurrentUser_(request);
-	response.render('learn');
+	// const targetId = localStorage.getItem("currentNewsId");
+	const targetId = request.query.nid;
+	const currentPid = request.query.pid;
+	getNewsContent(user, targetId, currentPid).then(newsContent => {
+		const original_content = newsContent[0];
+		const translate_content = newsContent[1];
+		const targetNextPid = parseInt(currentPid) + 1;
+		response.render('learn', { original_content, translate_content, targetNextPid });
+	});
 });
 
 app.get('/history',(request,response) => {
