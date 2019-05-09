@@ -20,14 +20,17 @@ $(document).ready(() => {
     });
     $('.dataTables_length').addClass('bs-select');
 
-    $('.history_read_button').click(() => {
-        //window.location.href="./learn?uid=" + uid ;
-        const u = '/addhistory?uid=' + uid + '&nid=' + 'Owwh1LIYnfMVBCVWp85F';
+    $('.history_read_button').click(function (){
+        const content_id = $(this).attr('data-nid');
+        const title = $(this).parent().parent().children(':first-child').text();
+        
+        const u = '/addhistory?uid=' + uid + '&title=' + title;
         $.ajax({
             url: u,
             type: 'GET',
             dataType: 'json',
             success: (data) =>{
+                window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
                 console.log('add to history');
             }
         });

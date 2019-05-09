@@ -76,6 +76,7 @@ function getFavorNewsByUser(userid) {
 						temp['add_time'] = m.format('L');
 						temp['news_overview_id'] = e['news_overview_id'];
 						result.push(temp);
+						console.log(temp['content_id']);
 					}
 				});
 			});
@@ -105,6 +106,7 @@ function getHistoryByUser(userid){
 						temp['view_time'] = m.format('L');
 						temp['news_overview_id'] = e['news_overview_id'];
 						result.push(temp);
+						console.log(temp);
 					}
 				});
 			});

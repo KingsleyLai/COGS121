@@ -120,7 +120,7 @@ function generateNextPage(nextPage,page_to_hide,page_to_dis){
 
 function generateDiv(words,nextPage){
     const divStart = '<div id="notebook' + nextPage.toString() + '" style="display:none">';
-    const searchbar = '<input class="form-control" id="word_search" type="text" placeholder="Search Words">'
+    //const searchbar = '<input class="form-control" id="word_search" type="text" placeholder="Search Words">'
     const ulStart = '<ul class="list-group" id="word_list">';
     let i;
     const keys = Object.keys(words[0]);
@@ -137,7 +137,7 @@ function generateDiv(words,nextPage){
         }
     }
     const endText = '</ul></div>';
-    let finalText = divStart+searchbar+ulStart;
+    let finalText = divStart+ulStart;
     for (i = 0; i<textArray.length;i++){
         finalText += textArray[i];
     }
