@@ -15,4 +15,9 @@ $(document).ready(() => {
         localStorage.setItem("currentNewsId", content_id);
         window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
     });
+
+	$('.favor-heart').click( function() {
+		const a = document.getElementsByClassName("far");
+		const b = document.getElementsByClassName("fas");
+	});
 });

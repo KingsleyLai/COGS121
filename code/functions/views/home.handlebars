@@ -15,7 +15,8 @@
   <script src="static/js/home.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="static/css/share.css">
+  <link rel="stylesheet" href="static/css/share.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!-- Popper JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
@@ -43,9 +44,14 @@
             <div class="row" style="margin-left: 10px">
               {{#each news}}
                 <div class="row">
-                  <div class="col news" id="newsBox">{{title}} <br>
+                  <div class="col news" id="newsBox">
+					<p>{{title}}</p>
+					<br>
                     <button class="news-button" data-nid="{{content_id}}">Read News</button><br>
                     <i><div class="link" href="{{source}}" target="_blank">Source article</div></i>
+					<div class="favor-heart" style="text-align: right">
+						<i class="far fa-heart"></i>
+					</div>
                   </div>
                 </div>
               {{/each}}
