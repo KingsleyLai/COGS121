@@ -45,18 +45,17 @@
               {{#each news}}
                 <div class="row">
                   <div class="col news" id="newsBox">
-					<p>{{title}}</p>
-					<br>
+                    <p>{{title}}</p><br>
                     <button class="news-button" data-nid="{{content_id}}">Read News</button><br>
                     <i><div class="link" href="{{source}}" target="_blank">Source article</div></i>
-					<div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
-						{{#if isFavor}}
-							<i class="fas fa-heart" style="color: red"></i>
-						{{/if}}
-						{{#if isNotFavor}}
-							<i class="far fa-heart"></i>
-						{{/if}}
-					</div>
+					          <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
+                      {{#if isFavor}}
+                        <i class="fas fa-heart" style="color: red"></i>
+                      {{/if}}
+                      {{#if isNotFavor}}
+                        <i class="far fa-heart"></i>
+                      {{/if}}
+                    </div>
                   </div>
                 </div>
               {{/each}}
