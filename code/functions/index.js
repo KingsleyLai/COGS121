@@ -16,7 +16,7 @@ function getCurrentUser_(request, response) {
 	// console.log("======================================");
 	// console.log("=== Current User: " + request.query.uid);
 	// console.log("======================================");
-	if (request.query.uid == "") {
+	if (!request.query.uid) {
 		response.redirect('/index');
 	}
 	return request.query.uid;
