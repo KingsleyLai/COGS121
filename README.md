@@ -1,6 +1,6 @@
 # COGS121
 ## Dataset Citation
-## @article{Ehara:2013:PRS:2438653.2438666,
+ @article{Ehara:2013:PRS:2438653.2438666,
  author = {Ehara, Yo and Shimizu, Nobuyuki and Ninomiya, Takashi and Nakagawa, Hiroshi},
  title = {Personalized reading support for second-language web documents},
  journal = {ACM Transactions of Intelligent Systems and Technology},
@@ -21,7 +21,7 @@
  keywords = {Reading support, Web pages, glossing systems, item response theory, logistic regression},
 } 
 
-## @InProceedings{ehara-EtAl:2012:PAPERS,
+ @InProceedings{ehara-EtAl:2012:PAPERS,
   author    = {Ehara, Yo  and  Sato, Issei  and  Oiwa, Hidekazu  and  Nakagawa, Hiroshi},
   title     = {Mining Words in the Minds of Second Language Learners: Learner-Specific Word Difficulty},
   booktitle = {Proceedings of COLING 2012},
