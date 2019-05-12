@@ -2,6 +2,7 @@ $(document).ready(() =>{
 	let uid;
 	let translateArr = [];
 	let en;
+	let toHide = false;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
         // User is signed in, obtain uid for future use
@@ -21,6 +22,17 @@ $(document).ready(() =>{
         }
 	});
 
+	$(document).on('click', (e)=>{		
+		if((e.target.id != 'notiOverlay' && e.target.id !='addWordBtn' && e.target.id !='addWordBtn'
+		&& e.target.class != 'w3-display-container' && e.target.id != 'english' && e.target.id != 'translate'
+		&& e.target.id != 'notiButton' && e.target.id != 'notiBody' && e.target.tagName != 'ESL' &&
+		e.target.class != 'w3-display-middle')){
+			$('#notiOverlay').hide();
+		}else{
+			$('#notiOverlay').show();
+		}
+	});
+
 	$('p').on('click','esl',function(){
 		$('#notiOverlay').toggle();
 		if($('#notiOverlay').is(":visible")){
@@ -31,8 +43,8 @@ $(document).ready(() =>{
 			$('#english').text('English: ' + en);
 			$('#translate').text('Translate: ' + translateArr[prefer_lang]);
 		}	
-		
 	});
+	
 
 	$('#addWordBtn').click(function (){
 		const word = JSON.stringify({'en':en,'zh':translateArr[0],'es':translateArr[1],'hi':translateArr[2]})
