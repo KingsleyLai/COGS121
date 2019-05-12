@@ -270,11 +270,19 @@ function addWordByUser(userid,word){
 	const ref = firebaseApp.firestore().collection('notebook').doc(userid);
 	return ref.get().then((doc)=>{
 		const wordList = doc.data()['record'];
-		wordList.push(word);
-		ref.update({
-			record: wordList
-		}).then(() => {console.log('add new word')})
-		.catch((e)=> {console.log('error on add word to studyset')});
+		let added = true;
+		if(!wordList.some(w => w.en === word.en)){
+			wordList.push(word);
+			ref.update({
+				record: wordList
+			}).then(() => {
+				console.log('add new word');
+			}).catch((e)=> {console.log('error on add word to studyset')});
+		}else{
+			added = false;
+		}
+		return added;
+		
 	});
 }
 
@@ -472,9 +480,13 @@ app.get('/updateinfo',(request,response)=>{
 
 app.post('/addword',(request,response)=>{
 	const uid = getCurrentUser_(request, response);
-	console.log(request.body);
-	addWordByUser(uid,request.body).then(()=>{
-		response.send({});
+	addWordByUser(uid,request.body).then((added)=>{
+		if(added){
+			response.send({added: 1});
+		}else{
+			response.send({added: 0});
+		}
+		
 	})
 
 })

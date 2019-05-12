@@ -1,5 +1,7 @@
 $(document).ready(() =>{
 	let uid;
+	let translateArr = [];
+	let en;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
         // User is signed in, obtain uid for future use
@@ -23,28 +25,36 @@ $(document).ready(() =>{
 		$('#notiOverlay').toggle();
 		if($('#notiOverlay').is(":visible")){
 			const prefer_lang = parseInt($('#learn_page_prefer_lang').text());
-			let translateArr = $(this).attr('data');
+			translateArr = $(this).attr('data');
 			translateArr = translateArr.split(',');
-			const en = $(this).text()
+			en = $(this).text()
 			$('#english').text('English: ' + en);
 			$('#translate').text('Translate: ' + translateArr[prefer_lang]);
-			$('#addWordBtn').click(function (){
-				const word = JSON.stringify({'en':en,'zh':translateArr[0],'es':translateArr[1],'hi':translateArr[2]})
-				const u = '/addword?uid=' + uid;
-				$.ajax({
-					url: u,
-					type:'POST',
-					data: word,
-					dataType: 'json',
-					contentType: "application/json; charset=utf-8",
-					success: (data) => {
-						alert('word added to studyset');
-						console.log('add word to study set');
-					}
-				});
-			});
 		}	
+		
 	});
+
+	$('#addWordBtn').click(function (){
+		const word = JSON.stringify({'en':en,'zh':translateArr[0],'es':translateArr[1],'hi':translateArr[2]})
+		const u = '/addword?uid=' + uid;
+		$.ajax({
+			url: u,
+			type:'POST',
+			data: word,
+			dataType: 'json',
+			contentType: "application/json; charset=utf-8",
+			success: (data) => {
+				if(data['added']){
+					alert('word added to studyset');
+					console.log('add word to study set');
+				}else{
+					alert('word already in studyset');
+				}
+			}
+		});
+	});
+
+	
 
 	$('#add-to-favorite').click( () => {
 		const title = $('#learn_page_title').text();
