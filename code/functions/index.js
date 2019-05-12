@@ -12,13 +12,10 @@ const firebaseApp = firebase.initializeApp(
 	functions.config().firebase
 );
 
-function getCurrentUser_(request, response) {
+function getCurrentUser_(request) {
 	// console.log("======================================");
 	// console.log("=== Current User: " + request.query.uid);
 	// console.log("======================================");
-	if (request.query.uid == "") {
-		response.redirect('/index');
-	}
 	return request.query.uid;
 }
 
@@ -287,7 +284,7 @@ app.get('/', (request, response) => {
 });
 
 app.get('/home', (request, response) => {
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	getNewsByUser(user).then(news => {
 		response.render('home', { news });
 	});
@@ -298,7 +295,7 @@ app.get('/index', (request, response) => {
 });
 
 app.get('/learn', (request, response) => {
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	// const targetId = localStorage.getItem("currentNewsId");
 	const targetId = request.query.nid;
 	const currentPid = request.query.pid;
@@ -326,14 +323,14 @@ app.get('/learn', (request, response) => {
 });
 
 app.get('/history',(request,response) => {
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	getHistoryByUser(user).then(history => {
 		response.render('history', { history });
 	});
 });
 
 app.get('/addhistory',(request,response) => {
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	const news_title = request.query.title;
 	addHistoryByUser(user,news_title).then(() => {
 		response.send({});
@@ -341,7 +338,7 @@ app.get('/addhistory',(request,response) => {
 });
 
 app.get('/favorite',(request,response) => {
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	getFavorNewsByUser(user).then(favorNews => {
 		response.render('favorite', { favorNews });
 	});
@@ -349,7 +346,7 @@ app.get('/favorite',(request,response) => {
 
 app.get('/unfavor',(request,response) => {
 	// unfavor?nid=
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	const news_title = request.query.title;
 	deleteFavorNewsByUser(user,news_title).then( () => {
 		response.send({});
@@ -358,7 +355,7 @@ app.get('/unfavor',(request,response) => {
 
 app.get('/addfavor',(request,response) => {
 	// unfavor?title=
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	const news_title = request.query.title;
 	addFavorNewsByUser(user,news_title).then( () => {
 		response.send({});
@@ -366,7 +363,7 @@ app.get('/addfavor',(request,response) => {
 });
 
 app.get('/studyset',(request,response) => {
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	getNotebookByUser(user).then(allstudysets => {
 		// the length of studysets is 5, page = 1
 		const totalCount = allstudysets.length;
@@ -400,7 +397,7 @@ app.get('/studyset',(request,response) => {
 
 app.get('/getStudySetByPage',(request,response) => {
 	// getStudySetByPage?p=2
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	const targetPage = request.query.p;
 	getNotebookByUser(user).then(allstudysets => {
 		const totalCount = allstudysets.length;
@@ -419,7 +416,7 @@ app.get('/getStudySetByPage',(request,response) => {
 });
 
 app.get('/profile',(request,response) => {
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	getUserInfo(user).then(userInfo => {
 		const isTech = userInfo.prefer_category == 0;
 		const isBusiness = userInfo.prefer_category == 2;
@@ -432,12 +429,12 @@ app.get('/profile',(request,response) => {
 });
 
 app.get('/onboard',(request,response) => {
-	const user = getCurrentUser_(request, response);
+	const user = getCurrentUser_(request);
 	response.render('onboard');
 });
 
 app.get('/onboardsetup',(request,response)=>{
-	const user = getCurrentUser_(request, response);
+	const uid = getCurrentUser_(request);
 	const lang_pref = request.query.la;
 	const category = parseInt(request.query.ca);
 
@@ -461,7 +458,7 @@ app.get('/onboardsetup',(request,response)=>{
 });
 
 app.get('/updateinfo',(request,response)=>{
-	const user = getCurrentUser_(request, response);
+	const uid = getCurrentUser_(request);
 	const lang_pref = request.query.la;
 	const category = parseInt(request.query.ca);
 	const ref = firebaseApp.firestore().collection('setting').doc(uid);
@@ -471,7 +468,7 @@ app.get('/updateinfo',(request,response)=>{
 });
 
 app.post('/addword',(request,response)=>{
-	const user = getCurrentUser_(request, response);
+	const uid = getCurrentUser_(request);
 	console.log(request.body);
 	addWordByUser(uid,request.body).then(()=>{
 		response.send({});
