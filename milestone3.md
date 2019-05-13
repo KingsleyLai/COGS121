@@ -38,6 +38,7 @@ UI changes
 - Created “DuoNews” icon for app
 - Changed theme colors to Cyan Blue: #00BCD4, white: #fff, and light grey: rgba(51, 51, 51, 0.06)
 - Changed the basic font family to sans-serif
+- Redesigned all buttons to fit theme style
 
 #### Login, Signup, and Onboard Page:
 - Redesigned “DuoNews” icon in the center of page
@@ -51,7 +52,7 @@ UI changes
 
 #### Homepage and others:
 - Changed top navbar background color to Cyan Blue with the redesigned “DuoNews” icon in center
-- Styled the slogan font and color 
+- Styled slogan and title font and color 
 - Changed background color to light grey
 - Redesigned News boxes
     1.Changed background color to white

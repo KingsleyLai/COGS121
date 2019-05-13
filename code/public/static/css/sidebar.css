@@ -1,7 +1,9 @@
 
 .side {
 	width: 200px;
+	height: 800px;
 	background-color: #fff;
+
 }
 .user_information{
   border-top: 3px;

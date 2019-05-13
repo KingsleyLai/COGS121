@@ -11,6 +11,7 @@
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.css"/>
+	<link rel="stylesheet" href="static/css/share.css">
 
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
 	<script src='static/js/share.js'></script>
@@ -57,10 +58,10 @@
 						</div>
             <div class="row">
               <div class="col">
-                <button type="button" id="editProfileBtn">Edit Profile</button>
-                <button type="button" id="changePassBtn">Change Password</button>
-                <button type="button" id="editProfileCancelBtn" style="display: none;">Discard Changes</button>
-                <button type="button" id="editProfileSaveBtn" style="display: none;">Save Changes</button>
+                <button type="button" class="button" id="editProfileBtn" style="margin-left: 28%;margin-right: 10px;">Edit Profile</button>
+                <button type="button" class="button"  id="changePassBtn">Change Password</button>
+                <button type="button" class="button" id="editProfileCancelBtn" style="display: none;">Discard Changes</button>
+                <button type="button" class="button" id="editProfileSaveBtn" style="display: none;">Save Changes</button>
               </div>
             </div>
 				  </div>
@@ -77,8 +78,8 @@
           <input class="input" type="password" id="confirm_change_password"><br>
           <p id="change_password_match" style="display:none;color:red;">Password Doesn't match</p>
           <p id="change_password_length" style="display:none;color:red;">Password must has at least 6 digits</p>
-          <button type="button" id="change_password_cancel_btn">Cancel</button>
-          <button type="button" id="change_password_confirm_btn">Confirm Change</button>
+          <button style="margin-left:35px;"type="button" class="button" id="change_password_cancel_btn">Cancel</button>
+          <button type="button" class="button" id="change_password_confirm_btn">Confirm Change</button>
         </div>
         <div class="col-4" ></div>
       </div>
