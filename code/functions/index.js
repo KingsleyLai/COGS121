@@ -397,8 +397,11 @@ app.get('/studyset',(request,response) => {
 				isHi = true;
 			}
 		}
-		const totalPageNums = Math.ceil(totalCount / NUM_STUDY_SET_PER_PAGE);
+		let totalPageNums = Math.ceil(totalCount / NUM_STUDY_SET_PER_PAGE);
 		const studysets = result;
+		if(totalPageNums == 0){
+			totalPageNums = 1;
+		}
 		response.render('studyset', {isEs,isZh,isHi, studysets,totalPageNums });
 	}).catch((e) => {
 		console.log(e);
