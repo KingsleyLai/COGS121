@@ -3,32 +3,32 @@
 ### 1.Latest UI skeleton
 
 #### Login Page
-![Login]()
+![Login](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Login.png)
 
 #### Signup Page
-![Signup]()
+![Signup](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Signup.png)
 
 #### Onboard Page
-![Onboard]()
+![Onboard](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Onboard.png)
 
 #### User Profile Page
-![Profile]()
+![Profile](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Profile.png)
 
 #### Screen #1: Homepage
-![Homepage]()
+![Homepage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Home.png)
 
 #### Screen #2: Read News Page (Learning Page)
-![Learnpage]()
-![Learnpage]()
+![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Learn1.png)
+![Learnpage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Learn2.png)
 
 #### Study Sets Page
-![Studyset]()
+![Studyset](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Studyset.png)
 
 #### Favorite Page
-![Favorite]()
+![Favorite](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/Favorite.png)
 
 #### History Page
-![History]()
+![History](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone3/History.png)
 
 
 
