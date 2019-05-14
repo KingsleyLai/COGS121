@@ -27,7 +27,6 @@ $(document).ready(() => {
 
     $('.add_favor_button').click(function (){
         const u = '/addfavor?uid='+ uid + '&title=' + $(this).parent().parent().children(':first-child').text();
-        console.log(u);
         $.ajax({
             url: u,
             type:'GET',

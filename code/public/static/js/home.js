@@ -23,7 +23,32 @@ $(document).ready(() => {
         window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
     });
 
-	$('.favor-heart').click( function() {
-		
-	});
+	$('.add_favor_button').click(function (){
+        const u = '/addfavor?uid='+ uid + '&title=' + $(this).parent().parent().children(':first-child').text();
+        $.ajax({
+            url: u,
+            type:'GET',
+            dataType: 'json',
+            success: (data) => {
+                console.log('add favor news');
+                $(this).hide();
+                $(this).parent().children('.unfavor_button').show();
+            }
+        });
+    });
+
+    $('.unfavor_button').click( function() {
+        const title = $(this).parent().parent().children(':first-child').text();
+        const u = '/unfavor?uid='+ uid + '&title=' + title;
+        $.ajax({
+            url: u,
+            type:'GET',
+            dataType: 'json',
+            success: (data) => {
+                console.log('remove favor news');
+                $(this).hide();
+                $(this).parent().children('.add_favor_button').show();
+            }
+        });
+    });
 });
