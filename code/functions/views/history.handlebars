@@ -19,6 +19,7 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/css/share.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <!-- Popper JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
@@ -56,7 +57,16 @@
                     <td><i><a href="{{source}}" target="_blank">Source article</a></i></td>
                     <td>
                       <button type="button" data-nid="{{content_id}}" class="history_read_button">Read It</button>
-                      <button type="button" class="add_favor_button">Favor it</button>
+                      {{#if favor}}
+                        <!-- <button type="button" class="add_favor_button">Favor it</button>-->
+                        <i class="fas fa-heart unfavor_button"style="color: red"></i>
+                        <i class="far fa-heart add_favor_button" style="display:none;"></i>
+                      {{else}}
+                        <!-- <button type="button" class="add_favor_button">Unavor it</button> -->
+                        <i class="far fa-heart add_favor_button"></i>
+                        <i class="fas fa-heart unfavor_button"style="color: red; display:none;"></i>
+                      {{/if}}
+                      
                       <!-- <button type="button" class="delete_button">Delete History</button> -->
                     </td>
                   </tr>

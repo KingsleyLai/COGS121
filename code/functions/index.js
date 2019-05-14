@@ -110,6 +110,7 @@ function getFavorNewsByUser(userid) {
 function getHistoryByUser(userid){
 	const ref = firebaseApp.firestore().collection('history').doc(userid);
 	const ref2 = firebaseApp.firestore().collection('news_overview');
+	const ref3 = firebaseApp.firestore().collection('favorite').doc(userid);
 	return ref.get().then((doc) => {
 		const history = [];
 		doc.data()['record'].forEach(e => {
@@ -123,15 +124,45 @@ function getHistoryByUser(userid){
 						const temp = doc2.data();
 						const m = moment(e['view_time'].toDate());
 						temp['view_time'] = m.format('L');
+						temp['favor'] = false;
+						temp['news_overview_id'] = doc2.id;
 						result.push(temp);
-						console.log(temp);
 					}
 				});
 			});
 			if (result.length > 30){
-				return result.slice(result.length-30);
+				const newResult=  result.slice(result.length-30);
+				return ref3.get().then((doc3) => {
+					const favor = doc3.data()['record'];
+					const favor_id = [];
+					favor.forEach((e) =>{
+						favor_id.push(e['news_overview_id']);
+					});
+					console.log('check here' + favor_id);
+					newResult.forEach((e) =>{
+						if(favor_id.includes(e['news_overview_id'])){
+							e['favor'] = true;
+						}
+					})
+					return newResult;
+
+				});
 			}else{
-				return result;
+				return ref3.get().then((doc3) => {
+					const favor = doc3.data()['record'];
+					const favor_id = [];
+					favor.forEach((e) =>{
+						favor_id.push(e['news_overview_id']);
+					});
+					console.log('check here' + favor_id);
+					result.forEach((e) =>{
+						if(favor_id.includes(e['news_overview_id'])){
+							e['favor'] = true;
+						}
+					})
+					return result;
+
+				});
 			}
 		});
 	}).catch((e) => {
@@ -336,6 +367,7 @@ app.get('/learn', (request, response) => {
 app.get('/history',(request,response) => {
 	const user = getCurrentUser_(request, response);
 	getHistoryByUser(user).then(history => {
+		console.log(history);
 		response.render('history', { history });
 	});
 });

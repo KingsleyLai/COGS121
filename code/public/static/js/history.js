@@ -27,12 +27,30 @@ $(document).ready(() => {
 
     $('.add_favor_button').click(function (){
         const u = '/addfavor?uid='+ uid + '&title=' + $(this).parent().parent().children(':first-child').text();
+        console.log(u);
         $.ajax({
             url: u,
             type:'GET',
             dataType: 'json',
             success: (data) => {
                 console.log('add favor news');
+                $(this).hide();
+                $(this).parent().children('.unfavor_button').show();
+            }
+        });
+    });
+
+    $('.unfavor_button').click( function() {
+        const title = $(this).parent().parent().children(':first-child').text();
+        const u = '/unfavor?uid='+ uid + '&title=' + title;
+        $.ajax({
+            url: u,
+            type:'GET',
+            dataType: 'json',
+            success: (data) => {
+                console.log('remove favor news');
+                $(this).hide();
+                $(this).parent().children('.add_favor_button').show();
             }
         });
     });
