@@ -1,4 +1,11 @@
 $(document).ready(() => {
+    const firstTimeUser = localStorage.getItem('firstTimeUser');
+    if(firstTimeUser === '1'){
+        introJs().setOptions({showStepNumbers:false,exitOnOverlayClick:true,showProgress:true}).start();
+        localStorage.setItem('firstTimeUser','0');
+    }else{
+        localStorage.setItem('firstTimeUser','0');
+    }
     let uid;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
