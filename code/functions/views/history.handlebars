@@ -59,12 +59,14 @@
                       <button type="button" data-nid="{{content_id}}" class="history_read_button">Read It</button>
                       {{#if favor}}
                         <!-- <button type="button" class="add_favor_button">Favor it</button>-->
-                        <i class="fas fa-heart unfavor_button"style="color: red"></i>
-                        <i class="far fa-heart add_favor_button" style="display:none;"></i>
+                        <button type="button" class="unfavor_button" style="background:none; border:none;"><i class="fas fa-heart"style="color: red;"></i></button>
+                        <button type="button" class="add_favor_button" style="background:none; border:none;display:none;"><i class="far fa-heart"></i></button>
+                        <!-- <i class="fas fa-heart unfavor_button"style="color: red"></i>-->
+                        
                       {{else}}
                         <!-- <button type="button" class="add_favor_button">Unavor it</button> -->
-                        <i class="far fa-heart add_favor_button"></i>
-                        <i class="fas fa-heart unfavor_button"style="color: red; display:none;"></i>
+                        <button type="button" class="unfavor_button" style="background:none; border:none;display:none;"><i class="fas fa-heart"style="color: red;"></i></button>
+                        <button type="button" class="add_favor_button" style="background:none; border:none;"><i class="far fa-heart"></i></button>
                       {{/if}}
                       
                       <!-- <button type="button" class="delete_button">Delete History</button> -->
