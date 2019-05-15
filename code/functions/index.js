@@ -25,28 +25,32 @@ function getCurrentUser_(request, response) {
 function getNewsByUser(userid) {
 	const ref = firebaseApp.firestore().collection('news_overview');
 	const ref2 = firebaseApp.firestore().collection('favorite').doc(userid);
-	return ref.get().then((snapshot) => {
-		return ref2.get().then( (doc) => {
-			const result = [];
-			const favor_list = doc.data()['record'];
-			snapshot.docs.forEach(doc2 => {
-				let temp = doc2.data();
-				temp['isFavor'] = false;
-				temp['isNotFavor'] = true;
-				favor_list.forEach(e => {
-					if (doc2.id === e['news_overview_id']) {
-						temp['isFavor'] = true;
-						temp['isNotFavor'] = false;
-					}
-				})
-				result.push(temp);
+	const ref3 = firebaseApp.firestore().collection('setting').doc(userid);
+
+	return ref3.get().then((doc) => {
+		const prefer_category = doc.data()['prefer_category'];
+		return ref.where('category','==',prefer_category).get().then((snapshot) => {
+			return ref2.get().then( (doc) => {
+				const result = [];
+				const favor_list = doc.data()['record'];
+				snapshot.docs.forEach(doc2 => {
+					let temp = doc2.data();
+					temp['isFavor'] = false;
+					temp['isNotFavor'] = true;
+					favor_list.forEach(e => {
+						if (doc2.id === e['news_overview_id']) {
+							temp['isFavor'] = true;
+							temp['isNotFavor'] = false;
+						}
+					})
+					result.push(temp);
+				});
+
+				return result;
 			});
-
-			return result;
 		});
-
-
 	});
+
 }
 
 function getNotebookByUser(userid) {
