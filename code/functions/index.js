@@ -465,8 +465,8 @@ app.get('/profile',(request,response) => {
 	const user = getCurrentUser_(request, response);
 	getUserInfo(user).then(userInfo => {
 		const isTech = userInfo.prefer_category == 0;
-		const isBusiness = userInfo.prefer_category == 2;
-		const isPolitic = userInfo.prefer_category == 1;
+		const isBusiness = userInfo.prefer_category == 1;
+		const isPolitic = userInfo.prefer_category == 2;
 		const isZh = userInfo.prefer_lang === 'zh';
 		const isEs = userInfo.prefer_lang === 'es';
 		const isHi = userInfo.prefer_lang === 'hi';

@@ -1,7 +1,7 @@
 const dict = {
     '0': 'Technology',
-    '1': 'Politics',
-    '2': 'Business',
+	'1': 'Business',
+    '2': 'Politics',
     'hi': 'Hindi',
     'es': 'Spanish',
     'zh': 'Chinese'
@@ -63,7 +63,7 @@ $(document).ready( () => {
     });
 
     $('#editProfileBtn').click(() =>{
-        $('#userCategory').replaceWith('<p id="userCategory"> <b>Prefer News Topic</b>: </p><select class="form-control" id="change_sel1"><option value="0" >Technology</option><option value="1">Politics</option><option value="2">Business</option></select>');
+        $('#userCategory').replaceWith('<p id="userCategory"> <b>Prefer News Topic</b>: </p><select class="form-control" id="change_sel1"><option value="0" >Technology</option><option value="1">Business</option><option value="2">Politics</option></select>');
         $('#userLanguage').replaceWith('<p id="userLanguage"> <b>Prefer Language</b>: </p><select class="form-control" id="change_sel2"><option value="zh">Chinese</option><option value="es">Spanish</option><option value="hi">Hindi</option></select>');
         $('#changePassBtn').hide();
         $('#editProfileBtn').hide();
