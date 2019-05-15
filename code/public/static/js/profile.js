@@ -1,6 +1,6 @@
 const dict = {
     '0': 'Technology',
-    '1': 'Sports',
+    '1': 'Politics',
     '2': 'Business',
     'hi': 'Hindi',
     'es': 'Spanish',
@@ -63,7 +63,7 @@ $(document).ready( () => {
     });
 
     $('#editProfileBtn').click(() =>{
-        $('#userCategory').replaceWith('<p id="userCategory"> <b>Prefer News Topic</b>: </p><select class="form-control" id="change_sel1"><option value="0" >Technology</option><option value="1">Sports</option><option value="2">Business</option></select>');
+        $('#userCategory').replaceWith('<p id="userCategory"> <b>Prefer News Topic</b>: </p><select class="form-control" id="change_sel1"><option value="0" >Technology</option><option value="1">Politics</option><option value="2">Business</option></select>');
         $('#userLanguage').replaceWith('<p id="userLanguage"> <b>Prefer Language</b>: </p><select class="form-control" id="change_sel2"><option value="zh">Chinese</option><option value="es">Spanish</option><option value="hi">Hindi</option></select>');
         $('#changePassBtn').hide();
         $('#editProfileBtn').hide();
@@ -79,8 +79,8 @@ $(document).ready( () => {
         $('#editProfileCancelBtn').hide();
         $('#changePassBtn').show();
         $('#editProfileBtn').show();
-    });   
-    
+    });
+
     $('#editProfileSaveBtn').click(() => {
         const category = $('#change_sel1').val();
         const lang = $('#change_sel2').val();
@@ -107,7 +107,5 @@ $(document).ready( () => {
                 $('#editProfileBtn').show();
             }
         });
-    });  
+    });
 });
-
-

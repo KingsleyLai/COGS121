@@ -313,7 +313,7 @@ function addWordByUser(userid,word){
 			added = false;
 		}
 		return added;
-		
+
 	});
 }
 
@@ -466,11 +466,11 @@ app.get('/profile',(request,response) => {
 	getUserInfo(user).then(userInfo => {
 		const isTech = userInfo.prefer_category == 0;
 		const isBusiness = userInfo.prefer_category == 2;
-		const isSport = userInfo.prefer_category == 1;
+		const isPolitic = userInfo.prefer_category == 1;
 		const isZh = userInfo.prefer_lang === 'zh';
 		const isEs = userInfo.prefer_lang === 'es';
 		const isHi = userInfo.prefer_lang === 'hi';
-		response.render('profile', {isTech, isBusiness ,isSport, isZh,isEs,isHi});
+		response.render('profile', {isTech, isBusiness ,isPolitic, isZh,isEs,isHi});
 	});
 });
 
@@ -521,7 +521,7 @@ app.post('/addword',(request,response)=>{
 		}else{
 			response.send({added: 0});
 		}
-		
+
 	})
 
 })
