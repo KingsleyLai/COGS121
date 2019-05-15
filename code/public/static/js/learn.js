@@ -14,7 +14,7 @@ $(document).ready(() =>{
 				type: 'GET',
 				dataType: 'json',
 				success: (data) =>{
-					console.log('add to history');	
+					console.log('add to history');
 				}
 			});
         } else {
@@ -22,7 +22,7 @@ $(document).ready(() =>{
         }
 	});
 
-	$(document).on('click', (e)=>{		
+	$(document).on('click', (e)=>{
 		if((e.target.id != 'notiOverlay' && e.target.id !='addWordBtn' && e.target.id !='addWordBtn'
 		&& e.target.class != 'w3-display-container' && e.target.id != 'english' && e.target.id != 'translate'
 		&& e.target.id != 'notiButton' && e.target.id != 'notiBody' && e.target.tagName != 'ESL' &&
@@ -42,9 +42,9 @@ $(document).ready(() =>{
 			en = $(this).text()
 			$('#english').text('English: ' + en);
 			$('#translate').text('Translate: ' + translateArr[prefer_lang]);
-		}	
+		}
 	});
-	
+
 
 	$('#addWordBtn').click(function (){
 		const word = JSON.stringify({'en':en,'zh':translateArr[0],'es':translateArr[1],'hi':translateArr[2]})
@@ -57,16 +57,15 @@ $(document).ready(() =>{
 			contentType: "application/json; charset=utf-8",
 			success: (data) => {
 				if(data['added']){
-					alert('word added to studyset');
-					console.log('add word to study set');
+					M.toast({html: 'You have added this word into your studyset!', classes: 'rounded'});
 				}else{
-					alert('word already in studyset');
+					M.toast({html: 'This word is already in your studyset!', classes: 'rounded'});
 				}
 			}
 		});
 	});
 
-	
+
 
 	$('#add-to-favorite').click( () => {
 		const title = $('#learn_page_title').text();
@@ -76,7 +75,9 @@ $(document).ready(() =>{
             type:'GET',
             dataType: 'json',
             success: (data) => {
-                console.log('add favor news');
+                // console.log('add favor news');
+				M.toast({html: 'You have added this news into your favorite news!', classes: 'rounded'});
+				// $('#add-to-favorite').attr(disabled, true);
             }
         });
 	});
@@ -84,7 +85,7 @@ $(document).ready(() =>{
 	// $('#next-paragraph').click( () => {
 	// 	alert("This is the last paragraph.");
 	// });
-	
+
 });
 
 function getCurrentUserUID(){

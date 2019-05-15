@@ -30,7 +30,8 @@ $(document).ready(() => {
             type:'GET',
             dataType: 'json',
             success: (data) => {
-                console.log('add favor news');
+                // console.log('add favor news');
+				M.toast({html: 'You have added this news into your favorite news!', classes: 'rounded'});
                 $(this).hide();
                 $(this).parent().children('.unfavor_button').show();
             }
@@ -45,7 +46,8 @@ $(document).ready(() => {
             type:'GET',
             dataType: 'json',
             success: (data) => {
-                console.log('remove favor news');
+                // console.log('remove favor news');
+				M.toast({html: 'You have removed this news from your favorite news!', classes: 'rounded'});
                 $(this).hide();
                 $(this).parent().children('.add_favor_button').show();
             }
