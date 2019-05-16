@@ -267,7 +267,7 @@ function addHistoryByUser(userid,news_title){
 	})
 }
 
-function getNewsContent(userid, targetId, pid){
+/*function getNewsContent(userid, targetId, pid){
 	const ref = firebaseApp.firestore().collection('news_content').doc(targetId);
 	const ref2 = firebaseApp.firestore().collection('setting').doc(userid);
 
@@ -290,6 +290,39 @@ function getNewsContent(userid, targetId, pid){
 				allNewsContent.push(temp);
 			});
 
+			let original_content = allNewsContent[parseInt(pid) - 1]['en'];
+			let translate_content = allNewsContent[parseInt(pid) - 1][prefer_lang];
+			let news_len = allNewsContent.length;
+			const title = doc.data()['title'];
+			return [original_content, translate_content, news_len,title,prefer_lang];
+		})
+	}).catch((e) => {
+		console.log('Cannot get news content.');
+	});;
+}*/
+
+function getNewsContent(userid, targetId, pid){
+	const ref = firebaseApp.firestore().collection('news_content').doc(targetId);
+	const ref2 = firebaseApp.firestore().collection('setting').doc(userid);
+
+	return ref2.get().then(doc2 => {
+		
+		const docData = doc2.data();
+		const prefer_lang = docData['prefer_lang'];
+		return ref.get().then((doc) => {
+			const allNewsContent = []
+			doc.data()['text'].forEach(e => {
+				const temp = e;
+				const keys = Object.keys(temp);
+				keys.forEach((e2) => {
+					if(e2 === prefer_lang || e2 === 'en'){
+
+					}else{
+						delete temp[e2];
+					}
+				})
+				allNewsContent.push(temp);
+			});
 			let original_content = allNewsContent[parseInt(pid) - 1]['en'];
 			let translate_content = allNewsContent[parseInt(pid) - 1][prefer_lang];
 			let news_len = allNewsContent.length;
@@ -340,7 +373,7 @@ app.get('/index', (request, response) => {
 	response.render('index');
 });
 
-app.get('/learn', (request, response) => {
+/*app.get('/learn', (request, response) => {
 	const user = getCurrentUser_(request, response);
 	// const targetId = localStorage.getItem("currentNewsId");
 	const targetId = request.query.nid;
@@ -365,6 +398,43 @@ app.get('/learn', (request, response) => {
 			prefer_lang = 1;
 		}
 		response.render('learn', { original_content, translate_content, targetNextPid,targetPrevPid, news_len, isFirstPage, isNotFirstPage, isLastPage, isNotLastPage,title,prefer_lang});
+	});
+});*/
+app.get('/learn', (request, response) => {
+	const user = getCurrentUser_(request, response);
+	const targetId = request.query.nid;
+	const currentPid = request.query.pid;
+	getNewsContent(user, targetId, currentPid).then(newsContent => {
+		const original_content = newsContent[0];
+		const translate_content = newsContent[1];
+		const targetNextPid = parseInt(currentPid) + 1;
+		const targetPrevPid = parseInt(currentPid) - 1;
+		const news_len = newsContent[2];
+		const title = newsContent[3];
+		let prefer_lang = newsContent[4];
+		if(prefer_lang === 'hi'){
+			prefer_lang = 2;
+		}else if(prefer_lang === 'zh'){
+			prefer_lang = 0;
+		}else if(prefer_lang === 'es'){
+			prefer_lang = 1;
+		}
+		response.render('learn', { original_content, translate_content, targetNextPid,targetPrevPid, news_len,title,prefer_lang});
+	});
+});
+
+app.get('/learnByPage', (request, response) => {
+	const user = getCurrentUser_(request, response);
+	const targetId = request.query.nid;
+	const currentPid = request.query.pid;
+	getNewsContent(user, targetId, currentPid).then(newsContent => {
+		const original_content = newsContent[0];
+		const translate_content = newsContent[1];
+		const targetNextPid = parseInt(currentPid) + 1;
+		const targetPrevPid = parseInt(currentPid) - 1;
+		const news_len = newsContent[2];
+		response.json({ original_content:original_content, translate_content:translate_content,
+			 targetNextPid:targetNextPid,targetPrevPid:targetPrevPid, news_len:news_len});
 	});
 });
 

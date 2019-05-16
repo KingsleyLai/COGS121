@@ -109,6 +109,62 @@ $(document).ready(() =>{
 	// 	alert("This is the last paragraph.");
 	// });
 
+	$('#next-paragraph').click(function (){
+		$('#next-paragraph').attr("disabled", true);
+		const url = new URL(window.location.href);
+		const query_string = url.search;
+		const search_params = new URLSearchParams(query_string);
+		const toPage =  $(this).val();
+		search_params.set('pid',toPage);
+		url.search = search_params.toString();
+		const u = '/learnByPage' + url['href'].replace(url['origin'] + '/learn','');
+		$.ajax({
+            url: u,
+			type:'GET',
+			dataType: 'json',
+            success: (data) => {
+				$('#next-paragraph').attr("disabled", false);
+				$("#original_content_holder").html(data['original_content']);
+				$("#translated_content_holder").html(data['translate_content']);
+				if(toPage == parseInt(data['news_len'])){
+					$('#next-paragraph').attr("disabled", true);
+				}else if(toPage == 2){
+					$('#prev-paragraph').attr("disabled", false);
+				}
+				$('#prev-paragraph').val(data['targetPrevPid']);
+				$('#next-paragraph').val(data['targetNextPid']);
+            }
+        });
+	});
+
+	$('#prev-paragraph').click(function (){
+		$('#prev-paragraph').attr("disabled", true);
+		const url = new URL(window.location.href);
+		const query_string = url.search;
+		const search_params = new URLSearchParams(query_string);
+		const toPage =  $(this).val();
+		search_params.set('pid',toPage);
+		url.search = search_params.toString();
+		const u = '/learnByPage' + url['href'].replace(url['origin'] + '/learn','');
+		$.ajax({
+            url: u,
+			type:'GET',
+			dataType: 'json',
+            success: (data) => {
+				$('#prev-paragraph').attr("disabled", false);
+				$("#original_content_holder").html(data['original_content']);
+				$("#translated_content_holder").html(data['translate_content']);
+				if(toPage == 1){
+					$('#prev-paragraph').attr("disabled", true);
+				}else if(toPage == (parseInt(data['news_len'])-1)){
+					$('#next-paragraph').attr("disabled", false);
+				}
+				$('#prev-paragraph').val(data['targetPrevPid']);
+				$('#next-paragraph').val(data['targetNextPid']);
+            }
+        });
+	});
+
 });
 
 function getCurrentUserUID(){
@@ -120,6 +176,7 @@ function getCurrentUserUID(){
 }
 
 function renderContent(original_content, translate_content) {
+	console.log(original_content);
 	$("#original_content_holder").html(decodeHtml(original_content));
 	$("#translated_content_holder").html(decodeHtml(translate_content));
 }
@@ -128,7 +185,7 @@ function decodeHtml(html) {
     return $('<div>').html(html).text();
 }
 
-function navigatePrevPage(pid) {
+/*function navigatePrevPage(pid) {
 
 	if (pid == 0) {
 		alert("You have reached the last paragraph. Great work!");
@@ -154,4 +211,4 @@ function navigateNextPage(pid, max_pid) {
 	search_params.set('pid', pid);
 	url.search = search_params.toString();
 	window.location.href = url.toString();
-}
+}*/
