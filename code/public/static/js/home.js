@@ -18,8 +18,10 @@ $(document).ready(() => {
     });
 
     $('.news-button').click( function() {
-		const content_id = $(this).attr('data-nid');
-        localStorage.setItem("currentNewsId", content_id);
+        const content_id = $(this).attr('data-nid');
+        const faovred = $(this).parent().children('.favor-heart').attr('is-favor');
+        localStorage.setItem('currentNewsId', content_id);
+        localStorage.setItem('favored',faovred);
         window.location.href="./learn?uid=" + uid + "&nid=" + content_id + "&pid=1";
     });
 
@@ -30,6 +32,7 @@ $(document).ready(() => {
             type:'GET',
             dataType: 'json',
             success: (data) => {
+                $(this).parent().parent().children('.favor-heart').attr('is-favor','true');
                 $('#addFavorToast').toast('show');
                 $(this).hide();
                 $(this).parent().children('.unfavor_button').show();
@@ -45,6 +48,7 @@ $(document).ready(() => {
             type:'GET',
             dataType: 'json',
             success: (data) => {
+                $(this).parent().parent().children('.favor-heart').attr('is-favor','false');
                 $('#unfavorToast').toast('show');
                 $(this).hide();
                 $(this).parent().children('.add_favor_button').show();

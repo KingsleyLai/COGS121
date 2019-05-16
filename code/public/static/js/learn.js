@@ -2,7 +2,11 @@ $(document).ready(() =>{
 	let uid;
 	let translateArr = [];
 	let en;
-	let toHide = false;
+	const favored = localStorage.getItem('favored');
+	if(favored === 'true'){
+		$('#add-to-favorite').hide();
+		$('#remove-favorite').show();
+	}
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
         // User is signed in, obtain uid for future use
@@ -77,6 +81,7 @@ $(document).ready(() =>{
             type:'GET',
             dataType: 'json',
             success: (data) => {
+				localStorage.setItem('favored','true');
                 $('#addFavorToast').toast('show');
 				$('#add-to-favorite').hide();
 				$('#remove-favorite').show();
@@ -92,6 +97,7 @@ $(document).ready(() =>{
             type:'GET',
             dataType: 'json',
             success: (data) => {
+				localStorage.setItem('favored','false');
                 $('#unfavorToast').toast('show');
 				$('#remove-favorite').hide();
                 $('#add-to-favorite').show();
