@@ -36,7 +36,7 @@ $(document).ready(() => {
             dataType: 'json',
             success: (data) => {
                 theDiv.remove();
-				M.toast({html: 'You have removed this news from your favorite news!', classes: 'rounded'});
+				$('#unfavorToast').toast('show');
             }
         });
     });

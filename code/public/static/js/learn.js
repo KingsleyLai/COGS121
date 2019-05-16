@@ -57,9 +57,11 @@ $(document).ready(() =>{
 			contentType: "application/json; charset=utf-8",
 			success: (data) => {
 				if(data['added']){
-					M.toast({html: 'You have added this word into your studyset!', classes: 'rounded'});
+					
+					$('#addWordToast').toast('show');
 				}else{
-					M.toast({html: 'This word is already in your studyset!', classes: 'rounded'});
+					
+					$('#alreadtAddWordToast').toast('show');
 				}
 			}
 		});
@@ -75,12 +77,27 @@ $(document).ready(() =>{
             type:'GET',
             dataType: 'json',
             success: (data) => {
-                // console.log('add favor news');
-				M.toast({html: 'You have added this news into your favorite news!', classes: 'rounded'});
-				// $('#add-to-favorite').attr(disabled, true);
+                $('#addFavorToast').toast('show');
+				$('#add-to-favorite').hide();
+				$('#remove-favorite').show();
             }
         });
 	});
+
+	$('#remove-favorite').click( function() {
+        const title = $('#learn_page_title').text();
+        const u = '/unfavor?uid='+ uid + '&title=' + title;
+        $.ajax({
+            url: u,
+            type:'GET',
+            dataType: 'json',
+            success: (data) => {
+                $('#unfavorToast').toast('show');
+				$('#remove-favorite').hide();
+                $('#add-to-favorite').show();
+            }
+        });
+    });
 
 	// $('#next-paragraph').click( () => {
 	// 	alert("This is the last paragraph.");

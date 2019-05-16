@@ -47,10 +47,11 @@ $(document).ready( () => {
                         // User is signed in, obtain uid for future use
                         let currentUser = firebase.auth().currentUser;
                         currentUser.updatePassword(pass).then(function() {
-                            alert("Password changed");
                             $('#password_change_div').hide();
+                            $('#passwordChangeToast').toast('show');
                         }).catch( function(e) {
                             console.log('cannot change password');
+                            $('#passwordChangeFailToast').toast('show');
                         });
                     } else {
                         //
@@ -96,6 +97,7 @@ $(document).ready( () => {
                 $('#editProfileCancelBtn').hide();
                 $('#changePassBtn').show();
                 $('#editProfileBtn').show();
+                $('#savedToast').toast('show');
             },
             fail: () =>{
                 $('select').remove();
@@ -105,6 +107,7 @@ $(document).ready( () => {
                 $('#editProfileCancelBtn').hide();
                 $('#changePassBtn').show();
                 $('#editProfileBtn').show();
+                $('#savedFailToast').toast('show');
             }
         });
     });

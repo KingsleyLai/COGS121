@@ -27,12 +27,6 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script>
 		$(document).ready(() =>{
 			renderContent('{{original_content}}', '{{translate_content}}');
@@ -106,7 +100,44 @@
 								<button id="next-paragraph" class="button" onclick="navigateNextPage({{targetNextPid}}, {{news_len}})"> Next </button>
 							{{/if}}
 							<br><br>
-							<button id="add-to-favorite" class="button">Favorite ❤️</button>
+							<button id="add-to-favorite" class="button">Favor News</button>
+							<button id="remove-favorite" class="button" style="display:none;">Unfavor News</button>
+						</div>
+					</div>
+					<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+						<div style="position: absolute; top: 0; right: 0;">
+							<div class="toast" id="addWordToast" data-delay="1500">
+								<div class="toast-header">
+									Toast Header
+								</div>
+								<div class="toast-body">
+									You have added this word into your studyset!
+								</div>
+							</div>
+							<div class="toast" id="alreadtAddWordToast" data-delay="1500">
+								<div class="toast-header">
+									Toast Header
+								</div>
+								<div class="toast-body">
+									This word is already in your studyset!
+								</div>
+							</div>
+							<div class="toast" id="addFavorToast" data-delay="1500">
+								<div class="toast-header">
+									Toast Header
+								</div>
+								<div class="toast-body">
+									You have added this news into your favorite news!
+								</div>
+							</div>
+							<div class="toast" id="unfavorToast" data-delay="1500">
+								<div class="toast-header">
+									Toast Header
+								</div>
+								<div class="toast-body">
+									You have removed this news from your favorite news!
+								</div>
+							</div>
 						</div>
 					</div>
 
