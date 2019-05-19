@@ -18,8 +18,13 @@ $(document).ready(() =>{
 				type: 'GET',
 				dataType: 'json',
 				success: (data) =>{
-					console.log('add to history');
+					if(data['success']){
+						console.log('add to history');
+					}
 				}
+			});
+			$(document).ajaxError(()=>{
+				alert('Unknow ajax error');
 			});
         } else {
             //nonthing
@@ -69,6 +74,10 @@ $(document).ready(() =>{
 				}
 			}
 		});
+
+		$(document).ajaxError(() =>{
+            alert('Unknown ajax error');
+        });
 	});
 
 
@@ -86,6 +95,10 @@ $(document).ready(() =>{
 				$('#add-to-favorite').hide();
 				$('#remove-favorite').show();
             }
+		});
+		
+		$(document).ajaxError(() =>{
+            alert('Unknown ajax error');
         });
 	});
 
@@ -102,6 +115,10 @@ $(document).ready(() =>{
 				$('#remove-favorite').hide();
                 $('#add-to-favorite').show();
             }
+		});
+		
+		$(document).ajaxError(() =>{
+            alert('Unknown ajax error');
         });
     });
 
@@ -134,6 +151,10 @@ $(document).ready(() =>{
 				$('#prev-paragraph').val(data['targetPrevPid']);
 				$('#next-paragraph').val(data['targetNextPid']);
             }
+		});
+		
+		$(document).ajaxError(() =>{
+            alert('Unknown ajax error');
         });
 	});
 
@@ -162,6 +183,10 @@ $(document).ready(() =>{
 				$('#prev-paragraph').val(data['targetPrevPid']);
 				$('#next-paragraph').val(data['targetNextPid']);
             }
+		});
+		
+		$(document).ajaxError(() =>{
+            alert('Unknown ajax error');
         });
 	});
 
@@ -176,7 +201,6 @@ function getCurrentUserUID(){
 }
 
 function renderContent(original_content, translate_content) {
-	console.log(original_content);
 	$("#original_content_holder").html(decodeHtml(original_content));
 	$("#translated_content_holder").html(decodeHtml(translate_content));
 }

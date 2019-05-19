@@ -24,6 +24,10 @@ $(document).ready( () => {
             }
 
         });
+
+        $(document).ajaxError(() =>{
+            alert('Unknown ajax error');
+        });
     });
 });
 

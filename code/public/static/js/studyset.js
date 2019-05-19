@@ -116,6 +116,10 @@ function generateNextPage(nextPage,page_to_hide,page_to_dis){
             $(page_to_dis).show();
         }
     });
+
+    $(document).ajaxError(() =>{
+        alert('Unknown ajax error');
+    });
 }
 
 function generateDiv(words,nextPage){

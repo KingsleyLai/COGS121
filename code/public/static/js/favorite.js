@@ -39,6 +39,10 @@ $(document).ready(() => {
 				$('#unfavorToast').toast('show');
             }
         });
+
+        $(document).ajaxError(() =>{
+            alert('Unknown ajax error');
+        });
     });
 
 });
