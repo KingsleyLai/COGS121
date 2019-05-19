@@ -38,6 +38,10 @@ $(document).ready(() => {
                 $(this).parent().children('.unfavor_button').show();
             }
         });
+
+        $(document).ajaxError(() =>{
+            alert('Unknown ajax error');
+        });
     });
 
     $('.unfavor_button').click( function() {
@@ -53,6 +57,10 @@ $(document).ready(() => {
                 $(this).hide();
                 $(this).parent().children('.add_favor_button').show();
             }
+        });
+
+        $(document).ajaxError(() =>{
+            alert('Unknown ajax error');
         });
     });
 });

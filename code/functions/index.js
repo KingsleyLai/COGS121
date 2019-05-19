@@ -47,8 +47,14 @@ function getNewsByUser(userid) {
 				});
 
 				return result;
+			}).catch(e=>{
+				console.log('cannot get news: ' + e);
 			});
+		}).catch(e=>{
+			console.log('cannot get news: ' + e);
 		});
+	}).catch(e =>{
+		console.log('cannot get news: ' + e);
 	});
 
 }
@@ -76,10 +82,12 @@ function getNotebookByUser(userid) {
 				allStudySets.push(temp);
 			});
 			return allStudySets;
-		})
+		}).catch(e=>{
+			console.log('Cannot get notebook: ' + e);
+		});
 	}).catch((e) => {
-		console.log('Cannot get notebook');
-	});;
+		console.log('Cannot get notebook: ' + e);
+	});
 }
 
 function getFavorNewsByUser(userid) {
@@ -104,10 +112,12 @@ function getFavorNewsByUser(userid) {
 				});
 			});
 			return result;
+		}).catch(e =>{
+			console.log('Cannot get favor news: ' + e);
 		});
 	}).catch((e) => {
 		//backend log error to indicate empty array
-		console.log('error')
+		console.log('Cannot get favor news: ' + e);
 	});
 }
 
@@ -142,7 +152,6 @@ function getHistoryByUser(userid){
 					favor.forEach((e) =>{
 						favor_id.push(e['news_overview_id']);
 					});
-					console.log('check here' + favor_id);
 					newResult.forEach((e) =>{
 						if(favor_id.includes(e['news_overview_id'])){
 							e['favor'] = true;
@@ -150,6 +159,8 @@ function getHistoryByUser(userid){
 					})
 					return newResult;
 
+				}).catch(e=>{
+					console.log('Get History error:' + e);
 				});
 			}else{
 				return ref3.get().then((doc3) => {
@@ -158,7 +169,6 @@ function getHistoryByUser(userid){
 					favor.forEach((e) =>{
 						favor_id.push(e['news_overview_id']);
 					});
-					console.log('check here' + favor_id);
 					result.forEach((e) =>{
 						if(favor_id.includes(e['news_overview_id'])){
 							e['favor'] = true;
@@ -166,12 +176,16 @@ function getHistoryByUser(userid){
 					})
 					return result;
 
+				}).catch(e=>{
+					console.log('Get History error:' + e);
 				});
 			}
+		}).catch(e => {
+			console.log('Get History error:' + e);
 		});
 	}).catch((e) => {
 		//backend log error to indicate empty array
-		console.log('error3');
+		console.log('Get History error:' + e);
 	});
 }
 
@@ -198,7 +212,9 @@ function deleteFavorNewsByUser(userid,news_title) {
 			ref.update({
 				record: favorNews
 			}).then(() => {console.log('delete favor news')});
-		}).catch((e) => {console.log('error on delete favor news')});
+		}).catch((e) => {console.log('error on delete favor news: ' + e);});
+	}).catch(e =>{
+		console.log('error on delete favor news: ' + e);
 	});
 }
 
@@ -227,7 +243,9 @@ function addFavorNewsByUser(userid,news_title) {
 					record: favorNews
 				}).then(() => {console.log('add new favor news')});
 			}
-		}).catch((e) => {console.log('error on add favor news')});
+		}).catch((e) => {console.log('error on add favor news: ' + e);});
+	}).catch(e=>{
+		console.log('error on add favor news: ' + e);
 	});
 }
 
@@ -236,6 +254,8 @@ function getUserInfo(userid){
 	return ref.get().then((doc) => {
 		const info = {prefer_lang: doc.data()['prefer_lang'], prefer_category: doc.data()['prefer_category']};
 		return info;
+	}).catch(e=>{
+		console.log('error on getting user info: ' + e)
 	});
 }
 
@@ -263,8 +283,12 @@ function addHistoryByUser(userid,news_title){
 			ref.update({
 				record: history
 			}).then(() => {console.log('add new history')});
+		}).catch(e =>{
+			console.log('Cannot add history: ' + e);
 		});
-	})
+	}).catch(e =>{
+		console.log('Cannot add history: ' + e);
+	});
 }
 
 /*function getNewsContent(userid, targetId, pid){
@@ -328,10 +352,12 @@ function getNewsContent(userid, targetId, pid){
 			let news_len = allNewsContent.length;
 			const title = doc.data()['title'];
 			return [original_content, translate_content, news_len,title,prefer_lang];
-		})
+		}).catch(e=>{
+			console.log('Cannot get news content: ' + e);
+		});
 	}).catch((e) => {
-		console.log('Cannot get news content.');
-	});;
+		console.log('Cannot get news content: ' + e);
+	});
 }
 
 function addWordByUser(userid,word){
@@ -345,7 +371,7 @@ function addWordByUser(userid,word){
 				record: wordList
 			}).then(() => {
 				console.log('add new word');
-			}).catch((e)=> {console.log('error on add word to studyset')});
+			}).catch((e)=> {console.log('error on add word to studyset: ' + e);});
 		}else{
 			added = false;
 		}
@@ -441,8 +467,9 @@ app.get('/learnByPage', (request, response) => {
 app.get('/history',(request,response) => {
 	const user = getCurrentUser_(request, response);
 	getHistoryByUser(user).then(history => {
-		console.log(history);
 		response.render('history', { history });
+	}).catch(e =>{
+		response.render(e);
 	});
 });
 
@@ -450,7 +477,9 @@ app.get('/addhistory',(request,response) => {
 	const user = getCurrentUser_(request, response);
 	const news_title = request.query.title;
 	addHistoryByUser(user,news_title).then(() => {
-		response.send({});
+		response.send({success:true});
+	}).catch(e =>{
+		response.send({})
 	});
 });
 
