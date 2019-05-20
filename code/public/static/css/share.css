@@ -34,8 +34,8 @@ esl {
 	padding: 30px;
 	font-family: serif;
 	font-size: 18pt;
-	width: 400px;
-	height: 300px;
+	width: 28vw;
+	height: 16vw;
 	margin: 0px 40px 20px 15px;
 }
 .news-button {
@@ -47,6 +47,15 @@ esl {
 	font-weight: 300;
 	font-variant-caps: all-small-caps;
 	padding: 3px 25px;
+}
+.newsBoxTitle {
+	 overflow: auto;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   line-height: 2;        /* fallback */
+   max-height: 2*2;       /* fallback */
 }
 .link {
 	color: #00BCD4;

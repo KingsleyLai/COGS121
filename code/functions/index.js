@@ -45,8 +45,12 @@ function getNewsByUser(userid) {
 					})
 					result.push(temp);
 				});
-
-				return result;
+				if(result.length < 5){
+					return result;
+				}else{
+					return result.slice(result.length-4, result.length);
+				}
+				
 			}).catch(e=>{
 				console.log('cannot get news: ' + e);
 			});
