@@ -1,5 +1,3 @@
-
-
 #notiOverlay{
     position: fixed;
     width: 25%;
@@ -48,4 +46,5 @@
     font-size: 18pt;
     font-family: serif;
     height: 300px;
+    overflow: auto;
 }
