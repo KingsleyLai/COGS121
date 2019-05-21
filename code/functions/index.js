@@ -45,12 +45,39 @@ function getNewsByUser(userid) {
 					})
 					result.push(temp);
 				});
-				if(result.length < 5){
+				/*
+				if(result.length < 4){
 					return result;
 				}else{
 					return result.slice(result.length-4, result.length);
+				}*/
+				const l = [];
+				const r = [];
+				let i = 0;
+				if (result.length < 4){
+					if(result.length < 3){
+						l.push(result[0]);
+						l.push(result[1]);
+					}else{
+						for(i = 0;i<result.length;i++){
+							if(i%2 == 0){
+								l.push(result[i]);
+							}else{
+								r.push(result[i]);
+							}
+						}
+					}
+				}else{
+					const newResult = result.slice(result.length-4, result.length);
+					for(i = 0;i<newResult.length;i++){
+						if(i%2 == 0){
+							l.push(newResult[i]);
+						}else{
+							r.push(newResult[i]);
+						}
+					}
 				}
-				
+				return ([l,r]);
 			}).catch(e=>{
 				console.log('cannot get news: ' + e);
 			});
@@ -395,7 +422,9 @@ app.get('/', (request, response) => {
 app.get('/home', (request, response) => {
 	const user = getCurrentUser_(request, response);
 	getNewsByUser(user).then(news => {
-		response.render('home', { news });
+		const l = news[0];
+		const r = news[1];
+		response.render('home', { l,r });
 	});
 });
 

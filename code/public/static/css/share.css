@@ -25,7 +25,8 @@ esl {
 }
 .mainContent {
 	background-color: #EEEEEE;
-	height: 800px;
+	height: 100%;
+	position: absolute;
 }
 .button {
 	background-color: #00BCD4;

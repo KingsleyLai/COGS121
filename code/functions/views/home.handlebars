@@ -32,7 +32,7 @@
 
   <main>
     <!-- Page Content-->
-		<div id="home_main" class="container-fluid mainContent" style="position: absolute" data-intro="Hi, welcome to DuoNews. Let's walk you thourgh the app and get familiar with it. You can choose to skip this tutorial and play aournd by yourself." data-step="1">
+		<div id="home_main" class="container-fluid mainContent" data-intro="Hi, welcome to DuoNews. Let's walk you thourgh the app and get familiar with it. You can choose to skip this tutorial and play aournd by yourself." data-step="1">
       <div class="row" style="height: 100%;">
           {{> sidebar}}
 
@@ -45,7 +45,7 @@
               </div>
             </div>
             <div class="row" style="margin-left: 10px;">
-              {{#each news}}
+              {{!-- {{#each news}}
               <div class="col">
                 <div class="row">
                   <div class="col news newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
@@ -66,8 +66,8 @@
                   </div>
                 </div>
               </div>
-              {{/each}}
-            {{!-- {{#each l}}
+              {{/each}} --}}
+            {{#each l}}
               <div class="col-6">
                 <div class="row">
                   <div class="col news newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
@@ -112,7 +112,7 @@
                   </div>
                 </div>
               </div>
-            {{/each}}     --}}
+            {{/each}}    
             </div>
             <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
               <div style="position: absolute; top: 0; right: 0;">
