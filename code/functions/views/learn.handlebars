@@ -51,8 +51,8 @@
 				<div class="col-sm-10">
 					<div class="row sloganDiv">
 						<div class="col">
-							<h1 id="slogan">Read News</h1>
-							<ul style="margin-bottom: 0px">
+							<h1 class="header">Read News</h1>
+							<ul style="margin: -10px -10px 5px;font-size: 15pt;font-family: sans-serif;">
 								<li>ESL words are highlighed</li>
 								<li>Click ESL word to see translation</li>
 							</ul>
@@ -60,33 +60,36 @@
 					</div>
 					<div class="row" style="margin: 0px">
 						<div class="col" style="margin: 0px">
-							<h3 id="learn_page_title" style="font-family: serif; font-size: 24pt; margin-top: 0;">{{title}}</h3>
+							<h3 id="learn_page_title">{{title}}</h3>
 							<p id="learn_page_prefer_lang" style="display:none;">{{prefer_lang}}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
-							<h4 style="font-family: serif; font-size: 18pt"> Original text in English</h4>
-							<div class="textBox">
-								<p id="original_content_holder" style="margin: 10px;">
+							<div class="textCol">
+								<h4 class="textHeader"> Original Text in English</h4>
+								<div class="textBox">
+									<p id="original_content_holder">
 
-									<!-- Four days after the coordinated <span class="popover-word" href="#" data-toggle="popover" data-html=true title="Translate" data-content='ataques <br><a href="#" class="addBtn">Add to Studyset</a>'><esl>attacks</esl></span>, the Sri Lankan Health Ministry revised the death toll, saying 253 people had died. That toll is significantly lower than the 359 initially reported to CNN by a Colombo police spokesman this week. The health ministry cited the condition of remains and the difficulty in identifying them for the discrepancy. -->
-								</p>
+										<!-- Four days after the coordinated <span class="popover-word" href="#" data-toggle="popover" data-html=true title="Translate" data-content='ataques <br><a href="#" class="addBtn">Add to Studyset</a>'><esl>attacks</esl></span>, the Sri Lankan Health Ministry revised the death toll, saying 253 people had died. That toll is significantly lower than the 359 initially reported to CNN by a Colombo police spokesman this week. The health ministry cited the condition of remains and the difficulty in identifying them for the discrepancy. -->
+									</p>
+								</div>
 							</div>
-
 						</div>
 						<div class="col-sm-6">
-							<h4 style="font-family: serif; font-size: 18pt"> Translated text in {{pl}}</h4>
-							<div class="textBox">
-								<p id="translated_content_holder" style="margin: 10px;">
-									<!-- Cuatro días después de los ataques coordinados, el Ministerio de Salud de Sri Lanka revisó la cifra de muertos y dijo que 253 personas habían muerto. Esa cifra es significativamente menor que la de los 359 informados inicialmente a CNN por un portavoz de la policía de Colombo esta semana. El ministerio de salud citó la condición de los restos y la dificultad de identificarlos por la discrepancia. -->
-								</p>
+							<div class="textCol">
+								<h4 class="textHeader"> Translated Text in {{pl}}</h4>
+								<div class="textBox">
+									<p id="translated_content_holder">
+										<!-- Cuatro días después de los ataques coordinados, el Ministerio de Salud de Sri Lanka revisó la cifra de muertos y dijo que 253 personas habían muerto. Esa cifra es significativamente menor que la de los 359 informados inicialmente a CNN por un portavoz de la policía de Colombo esta semana. El ministerio de salud citó la condición de los restos y la dificultad de identificarlos por la discrepancia. -->
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="row">
-						<div style="margin-left: -35px; text-align: center; width: 100%; margin-top: 15px">
+						<div style="text-align: center; width: 100%; margin-top: 15px">
 							<!--
 							{{#if isFirstPage}}
 								<button id="prev-paragraph" class="button" disabled onclick="navigatePrevPage({{targetPrevPid}})"> Previous </button>
@@ -147,12 +150,12 @@
 				</div>
 			</div>
 			<div id="notiOverlay">
-				<div class="w3-display-container  w3-display-middle">
+				<div class="w3-display-container  w3-display-middle" style="width: max-content;">
 					<div id="notiBody">
 						<p id="english">English: </p>
-						<p id="translate">Translated: </p>
+						<p id="translate">Translation: </p>
 					</div>
-					<div id="notiButton">
+					<div id="notiButton"style="text-align: center;">
 						<button type="button" class="button" id="addWordBtn">Add to studyset</button>
 					</div>
 				</div>

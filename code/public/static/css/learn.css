@@ -1,19 +1,51 @@
+
+
 #notiOverlay{
-    position: fixed;  
-    width: 20%;
+    position: fixed;
+    width: 25%;
     height: 30%;
     top: 20vw;
-    left: 40vw;
+    left: 45vw;
     right: 0;
     bottom: 0;
-    background:white;
+    background: #ecfdff;
+    color: #343a40;
+    font-size: 16pt;
+    font-weight: bold;
     z-index: 2;
     cursor: pointer;
     display:none;
 }
 
-.col-sm-6 {
-	background-color: #fff;
-	margin-left: 30px;
-	max-width: 450px;
+#addWordBtn {
+    width: max-content;
+}
+
+#learn_page_title {
+    font-family: serif;
+    font-weight: bold;
+    font-variant-caps: petite-caps;
+    font-size: 27pt;
+    color: #343a40;
+    margin-top: 0;
+}
+
+.textCol {
+    background-color: #fff;
+    color: #343a40;
+    margin: 0px -60px 10px 15px;
+    padding: 5px 20px 0px 30px;
+    max-width: 540px;
+}
+
+.textHeader {
+    font-size: 18pt;
+    font-variant-caps: all-small-caps;
+    color: #00BCD4;
+}
+
+.textBox {
+    font-size: 18pt;
+    font-family: serif;
+    height: 300px;
 }

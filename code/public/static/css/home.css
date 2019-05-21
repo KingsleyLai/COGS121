@@ -1,11 +1,18 @@
+#slogan {
+	font-family: fantasy;
+	font-weight: bolder;
+	color: #00BCD4;
+	padding-top: 10px;
+}
 .newsBox {
 	background-color: #fff;
 	padding: 30px;
 	font-family: serif;
 	font-size: 18pt;
-	width: 320px;
-	height: 240px;
-    margin: 0px 40px 20px 15px;
+	max-width: 500px;
+	height: 250px;
+	margin-bottom: 40px;
+    margin-left: 5px;
 }
 .news-button {
 	background-color: #00BCD4;
