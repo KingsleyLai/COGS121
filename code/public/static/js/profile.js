@@ -6,9 +6,17 @@ const dict = {
     'es': 'Spanish',
     'zh': 'Chinese'
 };
+const dict2 = {
+    'Technology': '0',
+	'Business': '1',
+    'Politics': '2',
+    'Hindi': 'hi',
+    'Spanish': 'es',
+    'Chinese': 'zh'
+};
 $(document).ready( () => {
 
-    let prefer_category = $('#userCategory').text().slice(19);
+    let prefer_category = $('#userCategory').text().slice(20);
     let prefer_lang = $('#userLanguage').text().slice(18);
     let uid;
     firebase.auth().onAuthStateChanged(function(user) {
@@ -64,8 +72,8 @@ $(document).ready( () => {
     });
 
     $('#editProfileBtn').click(() =>{
-        $('#userCategory').replaceWith('<p id="userCategory"> <b>Prefer News Topic</b>: </p><select class="form-control" id="change_sel1"><option value="0" >Technology</option><option value="1">Business</option><option value="2">Politics</option></select>');
-        $('#userLanguage').replaceWith('<p id="userLanguage"> <b>Prefer Language</b>: </p><select class="form-control" id="change_sel2"><option value="zh">Chinese</option><option value="es">Spanish</option><option value="hi">Hindi</option></select>');
+        $('#userCategory').replaceWith('<p id="userCategory"> <b>Prefer News Topic</b>: </p><select class="form-control" id="change_sel1"><option value="none" selected>Please Select</option><option value="0" >Technology</option><option value="1">Business</option><option value="2">Politics</option></select>');
+        $('#userLanguage').replaceWith('<p id="userLanguage"> <b>Prefer Language</b>: </p><select class="form-control" id="change_sel2"><option value="none" selected>Please Select</option><option value="zh">Chinese</option><option value="es">Spanish</option><option value="hi">Hindi</option></select>');
         $('#changePassBtn').hide();
         $('#editProfileBtn').hide();
         $('#editProfileSaveBtn').show();
@@ -83,8 +91,14 @@ $(document).ready( () => {
     });
 
     $('#editProfileSaveBtn').click(() => {
-        const category = $('#change_sel1').val();
-        const lang = $('#change_sel2').val();
+        let category = $('#change_sel1').val();
+        let lang = $('#change_sel2').val();
+        if(category === 'none'){
+            category = dict2[prefer_category];
+        }
+        if(lang === 'none'){
+            lang = dict2[prefer_lang];
+        }
         $.ajax({
             url: '/updateinfo?uid=' + uid +'&la='+lang+'&ca='+category,
             type: 'GET',
