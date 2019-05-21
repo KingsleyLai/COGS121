@@ -3,8 +3,8 @@
 	padding: 30px;
 	font-family: serif;
 	font-size: 18pt;
-	width: 28vw;
-	height: 18vw;
+	width: 320px;
+	height: 240px;
     margin: 0px 40px 20px 15px;
 }
 .news-button {
@@ -23,8 +23,8 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; /* number of lines to show */
-    line-height: 1;        /* fallback */
-    max-height: 1*2;       /* fallback */
+    line-height: 1.5;        /* fallback */
+    max-height: 70px;       /* fallback */
 }
 .link {
 	color: #00BCD4;

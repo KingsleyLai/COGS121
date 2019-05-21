@@ -26,7 +26,7 @@ $(document).ready(() => {
     });
 
 	$('.add_favor_button').click(function (){
-        const u = '/addfavor?uid='+ uid + '&title=' + $(this).parent().parent().children(':first-child').text();
+        const u = '/addfavor?uid='+ uid + '&title=' + $(this).parent().parent().parent().parent().children(':first-child').children(':first-child').children(':first-child').text();
         $.ajax({
             url: u,
             type:'GET',
@@ -45,7 +45,7 @@ $(document).ready(() => {
     });
 
     $('.unfavor_button').click( function() {
-        const title = $(this).parent().parent().children(':first-child').text();
+        const title = $(this).parent().parent().parent().parent().children(':first-child').children(':first-child').children(':first-child').text();
         const u = '/unfavor?uid='+ uid + '&title=' + title;
         $.ajax({
             url: u,

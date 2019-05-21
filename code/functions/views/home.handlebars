@@ -45,45 +45,33 @@
               </div>
             </div>
             <div class="row" style="margin-left: 10px;">
-              {{!-- {{#each news}}
-              <div class="col">
-                <div class="row">
-                  <div class="col news newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
-                    <p class="newsBoxTitle">{{title}}</p><br>
-                    <button class="news-button" data-nid="{{content_id}}" data-intro="Click here to read the news" data-step="4">Read News</button><br>
-                    <a class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</a>
-					          <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
-                      {{#if isFavor}}
-                        <!-- <i class="fas fa-heart" style="color: red"></i>-->
-                        <button type="button" class="unfavor_button" style="background:none; border:none;"><i class="fas fa-heart"style="color: red;"></i></button>
-                        <button type="button" class="add_favor_button" style="background:none; border:none;display:none;"><i class="far fa-heart"></i></button>
-                      {{else}}
-                        <!-- <i class="far fa-heart" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"></i>-->
-                        <button type="button" class="unfavor_button" style="background:none; border:none;display:none;" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"><i class="fas fa-heart"style="color: red;"></i></button>
-                        <button type="button" class="add_favor_button" style="background:none; border:none;"><i class="far fa-heart"></i></button>
-                      {{/if}}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {{/each}} --}}
             {{#each l}}
               <div class="col-6">
                 <div class="row">
                   <div class="col news newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
-                    <p class="newsBoxTitle">{{title}}</p><br>
-                    <button class="news-button" data-nid="{{content_id}}" data-intro="Click here to read the news" data-step="4">Read News</button><br>
-                    <a class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</a>
-					          <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
-                      {{#if isFavor}}
-                        <!-- <i class="fas fa-heart" style="color: red"></i>-->
-                        <button type="button" class="unfavor_button" style="background:none; border:none;"><i class="fas fa-heart"style="color: red;"></i></button>
-                        <button type="button" class="add_favor_button" style="background:none; border:none;display:none;"><i class="far fa-heart"></i></button>
-                      {{else}}
-                        <!-- <i class="far fa-heart" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"></i>-->
-                        <button type="button" class="unfavor_button" style="background:none; border:none;display:none;" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"><i class="fas fa-heart"style="color: red;"></i></button>
-                        <button type="button" class="add_favor_button" style="background:none; border:none;"><i class="far fa-heart"></i></button>
-                      {{/if}}
+                    <div class="row">
+                      <div class="col">
+                        <p class="newsBoxTitle">{{title}}</p><br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">
+                        <button class="news-button" data-nid="{{content_id}}" data-intro="Click here to read the news" data-step="4">Read News</button><br>
+                        <a class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</a>
+                      </div>
+                      <div class="col-4" style="left: 8px;top: 50px;">
+                        <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
+                        {{#if isFavor}}
+                          <!-- <i class="fas fa-heart" style="color: red"></i>-->
+                          <button type="button" class="unfavor_button" style="background:none; border:none;"><i class="fas fa-heart"style="color: red;"></i></button>
+                          <button type="button" class="add_favor_button" style="background:none; border:none;display:none;"><i class="far fa-heart"></i></button>
+                        {{else}}
+                          <!-- <i class="far fa-heart" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"></i>-->
+                          <button type="button" class="unfavor_button" style="background:none; border:none;display:none;" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"><i class="fas fa-heart"style="color: red;"></i></button>
+                          <button type="button" class="add_favor_button" style="background:none; border:none;"><i class="far fa-heart"></i></button>
+                        {{/if}}
+                    </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -95,27 +83,37 @@
               <div class="col-6">
                 <div class="row">
                   <div class="col news newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
-                    <p class="newsBoxTitle">{{title}}</p><br>
-                    <button class="news-button" data-nid="{{content_id}}" data-intro="Click here to read the news" data-step="4">Read News</button><br>
-                    <a class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</a>
-					          <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
-                      {{#if isFavor}}
-                        <!-- <i class="fas fa-heart" style="color: red"></i>-->
-                        <button type="button" class="unfavor_button" style="background:none; border:none;"><i class="fas fa-heart"style="color: red;"></i></button>
-                        <button type="button" class="add_favor_button" style="background:none; border:none;display:none;"><i class="far fa-heart"></i></button>
-                      {{else}}
-                        <!-- <i class="far fa-heart" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"></i>-->
-                        <button type="button" class="unfavor_button" style="background:none; border:none;display:none;" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"><i class="fas fa-heart"style="color: red;"></i></button>
-                        <button type="button" class="add_favor_button" style="background:none; border:none;"><i class="far fa-heart"></i></button>
-                      {{/if}}
+                    <div class="row">
+                      <div class="col">
+                        <p class="newsBoxTitle">{{title}}</p><br>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-8">
+                        <button class="news-button" data-nid="{{content_id}}" data-intro="Click here to read the news" data-step="4">Read News</button><br>
+                        <a class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</a>
+                      </div>
+                      <div class="col-4" style="left: 8px;top: 50px;">
+                        <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
+                        {{#if isFavor}}
+                          <!-- <i class="fas fa-heart" style="color: red"></i>-->
+                          <button type="button" class="unfavor_button" style="background:none; border:none;"><i class="fas fa-heart"style="color: red;"></i></button>
+                          <button type="button" class="add_favor_button" style="background:none; border:none;display:none;"><i class="far fa-heart"></i></button>
+                        {{else}}
+                          <!-- <i class="far fa-heart" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"></i>-->
+                          <button type="button" class="unfavor_button" style="background:none; border:none;display:none;" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"><i class="fas fa-heart"style="color: red;"></i></button>
+                          <button type="button" class="add_favor_button" style="background:none; border:none;"><i class="far fa-heart"></i></button>
+                        {{/if}}
+                    </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            {{/each}}    
+            {{/each}}
             </div>
             <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
-              <div style="position: absolute; top: 0; right: 0;">
+              <div style="position: absolute; top: 20px; right: 20px;">
                 <div class="toast" id="addFavorToast" data-delay="1500">
                   <div class="toast-header">
                     Toast Header
