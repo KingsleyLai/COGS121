@@ -1,7 +1,7 @@
 
-.row {
+/*.row {
     background-color: #EEEEEE;
-}
+}*/
 #slogan {
 	font-family: fantasy;
 	font-weight: bolder;
@@ -23,45 +23,9 @@ esl {
 	padding: 0;
   font-weight: 900;
 }
-.col {
-	margin: 20px 10px;
-}
-#home_main {
+.mainContent {
 	background-color: #EEEEEE;
-}
-#newsBox {
-	background-color: #fff;
-	padding: 30px;
-	font-family: serif;
-	font-size: 18pt;
-	width: 28vw;
-	height: 16vw;
-	margin: 0px 40px 20px 15px;
-}
-.news-button {
-	background-color: #00BCD4;
-	color: #fff;
-	border: none;
-	font-family: sans-serif;
-	font-size: 16pt;
-	font-weight: 300;
-	font-variant-caps: all-small-caps;
-	padding: 3px 25px;
-}
-.newsBoxTitle {
-	 overflow: auto;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 2; /* number of lines to show */
-   line-height: 2;        /* fallback */
-   max-height: 2*2;       /* fallback */
-}
-.link {
-	color: #00BCD4;
-	margin: 3px;
-	font-size: 12pt;
-	text-decoration: underline;
+	height: 800px;
 }
 .button {
 	background-color: #00BCD4;
@@ -74,12 +38,11 @@ esl {
 	padding: 3px 25px;
 	width: 150px;
 }
-.col-sm-6 {
-	background-color: #fff;
-	margin-left: 30px;
-	max-width: 450px;
-}
 .textBox {
 	border: 3px;
 	height: 300px;
+}
+
+.sloganDiv {
+	padding: 24px 16px;
 }

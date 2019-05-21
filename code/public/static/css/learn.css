@@ -11,3 +11,9 @@
     cursor: pointer;
     display:none;
 }
+
+.col-sm-6 {
+	background-color: #fff;
+	margin-left: 30px;
+	max-width: 450px;
+}

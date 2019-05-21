@@ -26,13 +26,17 @@
 
   <main>
     <!-- Page Content-->
-    <div  class="container-fluid" style="height: 100%; position: absolute">
+    <div  class="container-fluid mainContent" style="height: 100%; position: absolute">
       <div class="row" style="height: 100%;">
           {{> sidebar}}
 
           <!-- Main Page Content-->
           <div class="col" id="studyset_main">
-            <h1 id="slogan">Study Set 1</h1>
+            <div class="row sloganDiv">
+              <div class="col">
+                <h1 id="slogan">Study Set</h1>
+              </div>
+            </div>
             <div id="notebook1">
                 <ul class="list-group" id="word_list">
                   {{#if isEs}}

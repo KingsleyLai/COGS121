@@ -17,6 +17,7 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="static/css/share.css">
+  <link rel="stylesheet" href="static/css/home.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <link rel="stylesheet" href="static/css/introjs.css">
   <!-- Popper JS -->
@@ -31,25 +32,26 @@
 
   <main>
     <!-- Page Content-->
-		<div  class="container-fluid" style="height: 100%; position: absolute" data-intro="Hi, welcome to DuoNews. Let's walk you thourgh the app and get familiar with it. You can choose to skip this tutorial and play aournd by yourself." data-step="1">
+		<div id="home_main" class="container-fluid mainContent" style="position: absolute" data-intro="Hi, welcome to DuoNews. Let's walk you thourgh the app and get familiar with it. You can choose to skip this tutorial and play aournd by yourself." data-step="1">
       <div class="row" style="height: 100%;">
           {{> sidebar}}
 
           <!-- Main Page Content-->
-          <div class="col" id="home_main">
-            <div class="row">
+          <div class="col">
+            <div class="row sloganDiv">
               <div class="col">
 			        	<h1 id="slogan">Catch up with latest news while learning ESL...</h1>
                 <h4 style="font-family: sans-serif">Personalized news recommended for you:</h4>
               </div>
             </div>
-            <div class="row" style="margin-left: 10px">
+            <div class="row" style="margin-left: 10px;">
               {{#each news}}
+              <div class="col">
                 <div class="row">
-                  <div class="col news" id="newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
+                  <div class="col news newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
                     <p class="newsBoxTitle">{{title}}</p><br>
                     <button class="news-button" data-nid="{{content_id}}" data-intro="Click here to read the news" data-step="4">Read News</button><br>
-                    <i><div class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</div></i>
+                    <a class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</a>
 					          <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
                       {{#if isFavor}}
                         <!-- <i class="fas fa-heart" style="color: red"></i>-->
@@ -63,9 +65,56 @@
                     </div>
                   </div>
                 </div>
+              </div>
               {{/each}}
+            {{!-- {{#each l}}
+              <div class="col-6">
+                <div class="row">
+                  <div class="col news newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
+                    <p class="newsBoxTitle">{{title}}</p><br>
+                    <button class="news-button" data-nid="{{content_id}}" data-intro="Click here to read the news" data-step="4">Read News</button><br>
+                    <a class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</a>
+					          <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
+                      {{#if isFavor}}
+                        <!-- <i class="fas fa-heart" style="color: red"></i>-->
+                        <button type="button" class="unfavor_button" style="background:none; border:none;"><i class="fas fa-heart"style="color: red;"></i></button>
+                        <button type="button" class="add_favor_button" style="background:none; border:none;display:none;"><i class="far fa-heart"></i></button>
+                      {{else}}
+                        <!-- <i class="far fa-heart" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"></i>-->
+                        <button type="button" class="unfavor_button" style="background:none; border:none;display:none;" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"><i class="fas fa-heart"style="color: red;"></i></button>
+                        <button type="button" class="add_favor_button" style="background:none; border:none;"><i class="far fa-heart"></i></button>
+                      {{/if}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
             </div>
-            <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+            <div class="row" style="margin-left: 10px;">
+            {{#each r}}
+              <div class="col-6">
+                <div class="row">
+                  <div class="col news newsBox" data-intro="Here are the news recommendation based on your preference, you can change it in your profile" data-step="3">
+                    <p class="newsBoxTitle">{{title}}</p><br>
+                    <button class="news-button" data-nid="{{content_id}}" data-intro="Click here to read the news" data-step="4">Read News</button><br>
+                    <a class="link" href="{{source}}" target="_blank" data-intro="Click here to view the source article" data-step="5">Source article</a>
+					          <div class="favor-heart" is-favor="{{isFavor}}" style="text-align: right">
+                      {{#if isFavor}}
+                        <!-- <i class="fas fa-heart" style="color: red"></i>-->
+                        <button type="button" class="unfavor_button" style="background:none; border:none;"><i class="fas fa-heart"style="color: red;"></i></button>
+                        <button type="button" class="add_favor_button" style="background:none; border:none;display:none;"><i class="far fa-heart"></i></button>
+                      {{else}}
+                        <!-- <i class="far fa-heart" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"></i>-->
+                        <button type="button" class="unfavor_button" style="background:none; border:none;display:none;" data-intro="Click here to add this article to your favorite news list. That all the basic steps to use the app, enjoy!" data-step="6"><i class="fas fa-heart"style="color: red;"></i></button>
+                        <button type="button" class="add_favor_button" style="background:none; border:none;"><i class="far fa-heart"></i></button>
+                      {{/if}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{/each}}     --}}
+            </div>
+            <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
               <div style="position: absolute; top: 0; right: 0;">
                 <div class="toast" id="addFavorToast" data-delay="1500">
                   <div class="toast-header">

@@ -43,13 +43,13 @@
 
 	<main id="main-content-div">
 		<!-- Page Content-->
-		<div  class="container-fluid" style="height: 100%; position: absolute">
+		<div  class="container-fluid mainContent" style="height: 100%; position: absolute">
 			<div class="row" style="height: 100%;">
 				{{> sidebar}}
 
 				<!-- Main Page Content-->
 				<div class="col-sm-10">
-					<div class="row">
+					<div class="row sloganDiv">
 						<div class="col">
 							<h1 id="slogan">Read News</h1>
 							<ul style="margin-bottom: 0px">
@@ -107,7 +107,7 @@
 							<button id="remove-favorite" class="button" style="display:none;">Unfavor News</button>
 						</div>
 					</div>
-					<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+					<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
 						<div style="position: absolute; top: 0; right: 0;">
 							<div class="toast" id="addWordToast" data-delay="1500">
 								<div class="toast-header">
