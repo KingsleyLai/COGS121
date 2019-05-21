@@ -32,13 +32,13 @@ $(document).ready( () => {
     });
 
     $('#changePassBtn').click(() => {
-        $('#password_change_div').show();
+        $('#notiOverlay').show();
     });
 
     $('#change_password_cancel_btn').click(() => {
-        $('#password_change_div').hide();
-        $('#change_password').val("");
-        $('#confirm_change_password').val("");
+        $('#notiOverlay').hide();
+        $('#change_password').val('');
+        $('#confirm_change_password').val('');
     });
 
     $('#change_password_confirm_btn').click(() => {
@@ -55,7 +55,7 @@ $(document).ready( () => {
                         // User is signed in, obtain uid for future use
                         let currentUser = firebase.auth().currentUser;
                         currentUser.updatePassword(pass).then(function() {
-                            $('#password_change_div').hide();
+                            $('#notiOverlay').hide();
                             $('#passwordChangeToast').toast('show');
                         }).catch( function(e) {
                             console.log('cannot change password');

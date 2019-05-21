@@ -12,6 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.css"/>
 	<link rel="stylesheet" href="static/css/share.css">
+  <link rel="stylesheet" href="static/css/profile.css">
 
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
 	<script src='static/js/share.js'></script>
@@ -40,7 +41,7 @@
         {{> sidebar}}
 
         <!-- Main Page Content-->
-        <div class="col-sm-10">
+        <div class="col">
           <div style="margin-top: 20%">
 						<div class="row">
 							<div class="col" style="text-align: right; padding-right: 50px;">
@@ -102,23 +103,27 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="container-fluid" style="text-align: center; display:none;" id="password_change_div">
-      <div class="row">
-        <div class="col-4" ></div>
-        <div class="col-4" style="border:2px solid">
-          <label for="change_password">Password: </label>
-          <input class="input" type="password" id="change_password"><br>
-          <label for="confirm_change_password">Confirm Password: </label>
-          <input class="input" type="password" id="confirm_change_password"><br>
-          <p id="change_password_match" style="display:none;color:red;">Password Doesn't match</p>
-          <p id="change_password_length" style="display:none;color:red;">Password must has at least 6 digits</p>
-          <button style="margin-left:35px;"type="button" class="button" id="change_password_cancel_btn">Cancel</button>
-          <button type="button" class="button" id="change_password_confirm_btn">Confirm Change</button>
-        </div>
-        <div class="col-4" ></div>
-      </div>
-
+      <div id="notiOverlay">
+				<div class="w3-display-container  w3-display-middle">
+          <div class="row">
+            <div class="col" style="margin:16px auto">
+              <label for="change_password">Password: </label>
+              <input class="input" type="password" id="change_password"><br>
+              <label for="confirm_change_password">Confirm Password: </label>
+              <input class="input" type="password" id="confirm_change_password"><br>
+              <p id="change_password_match" style="display:none;color:red;">Password Doesn't match</p>
+              <p id="change_password_length" style="display:none;color:red;">Password must has at least 6 digits</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col" style="margin:0 auto 16px auto">
+              <button style="margin-left:35px;"type="button" class="button" id="change_password_cancel_btn">Cancel</button>
+              <button type="button" class="button" id="change_password_confirm_btn">Confirm Change</button>
+            </div>
+          </div>
+          
+				</div>
+			</div>
     </div>
   </main>
 </body>
