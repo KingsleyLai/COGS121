@@ -361,7 +361,7 @@ function getNewsContent(userid, targetId, pid){
 	const ref2 = firebaseApp.firestore().collection('setting').doc(userid);
 
 	return ref2.get().then(doc2 => {
-		
+
 		const docData = doc2.data();
 		const prefer_lang = docData['prefer_lang'];
 		return ref.get().then((doc) => {
@@ -471,14 +471,18 @@ app.get('/learn', (request, response) => {
 		const news_len = newsContent[2];
 		const title = newsContent[3];
 		let prefer_lang = newsContent[4];
+		let pl = prefer_lang;
 		if(prefer_lang === 'hi'){
 			prefer_lang = 2;
+			pl = "Hindi";
 		}else if(prefer_lang === 'zh'){
 			prefer_lang = 0;
+			pl = "Chinese";
 		}else if(prefer_lang === 'es'){
 			prefer_lang = 1;
+			pl = "Spanish";
 		}
-		response.render('learn', { original_content, translate_content, targetNextPid,targetPrevPid, news_len,title,prefer_lang});
+		response.render('learn', { original_content, translate_content, targetNextPid,targetPrevPid, news_len,title, prefer_lang, pl});
 	});
 });
 
