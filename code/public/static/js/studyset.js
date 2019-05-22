@@ -123,7 +123,7 @@ function generateNextPage(nextPage,page_to_hide,page_to_dis){
 }
 
 function generateDiv(words,nextPage){
-    const divStart = '<div id="notebook' + nextPage.toString() + '" style="display:none">';
+    const divStart = '<div class="notebook" id="notebook' + nextPage.toString() + '" style="display:none">';
     //const searchbar = '<input class="form-control" id="word_search" type="text" placeholder="Search Words">'
     const ulStart = '<ul class="list-group" id="word_list">';
     let i;
