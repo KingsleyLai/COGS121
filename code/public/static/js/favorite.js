@@ -17,7 +17,11 @@ $(document).ready(() => {
         {
             orderable: false,
             targets: 2
-        }]
+        }],
+        'lengthMenu': [[5], [5]],
+        'columnDefs': [
+            { 'width': '50%', 'targets': 0 }
+        ]
     });
     $('.dataTables_length').addClass('bs-select');
 

@@ -20,7 +20,7 @@ $(document).ready( () => {
             type:'GET',
             dateType:'json',
             success: (data) =>{
-                window.location.href='./home' + '?uid=' + uid;
+                setTimeout(function(){ window.location.href ='./home' + '?uid=' + uid; }, 5000);
             }
 
         });
