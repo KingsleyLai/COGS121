@@ -1,0 +1,32 @@
+.notebook {
+    margin: -5px 100px 20px 10px;
+    font-family: sans-serif;
+}
+
+.list-group-item {
+    padding: 20px 32px 5px 35px;
+    border: 10px solid #EEEEEE;
+}
+
+.list-group-item-heading {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.list-group-item-text {
+    font-size: 14pt;
+}
+
+.pagination {
+    margin-top: 10px;
+    padding-left: 20px;
+	font-family: sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
+	font-variant-caps: all-small-caps;
+}
+
+.page-item.active .page-link {
+    background-color: #00BCD4;
+    border-color: #00BCD4;
+}

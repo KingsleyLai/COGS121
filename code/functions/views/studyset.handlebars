@@ -15,6 +15,8 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/css/share.css">
+  <link rel="stylesheet" href="static/css/studyset.css">
+
   <!-- Popper JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <!-- Latest compiled JavaScript -->
@@ -34,10 +36,10 @@
           <div class="col" id="studyset_main">
             <div class="row sloganDiv">
               <div class="col">
-                <h1 id="slogan">Study Set</h1>
+                <h1 class="header">Study Set</h1>
               </div>
             </div>
-            <div id="notebook1">
+            <div class="notebook" id="notebook1">
                 <ul class="list-group" id="word_list">
                   {{#if isEs}}
                     {{#each studysets}}

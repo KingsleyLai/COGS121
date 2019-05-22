@@ -48,9 +48,8 @@
 					<div class="row sloganDiv">
 						<div class="col">
 							<h1 class="header">Read News</h1>
-							<ul style="margin: -10px -10px 5px;font-size: 15pt;font-family: sans-serif;">
-								<li>ESL words are highlighed</li>
-								<li>Click ESL word to see translation</li>
+							<ul style="position: absolute; top: 60px; right: 30px; color: #00BCD4; font-size: 16pt;font-family: fantasy;">
+								<li>Click on the highlighted ESL words to see translation</li>
 							</ul>
 						</div>
 					</div>
@@ -60,7 +59,7 @@
 							<p id="learn_page_prefer_lang" style="display:none;">{{prefer_lang}}</p>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" style="padding: 10px 7px;">
 						<div class="col-sm-6">
 							<div class="textCol">
 								<h4 class="textHeader"> Original Text in English</h4>
@@ -72,7 +71,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-6" style="padding-left: 0px;">
 							<div class="textCol">
 								<h4 class="textHeader"> Translated Text in {{pl}}</h4>
 								<div class="textBox">
@@ -107,10 +106,9 @@
 						</div>
 					</div>
 					<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
-						<div style="position: absolute; top: 0; right: 0;">
 							<div class="toast" id="addWordToast" data-delay="1500">
 								<div class="toast-header">
-									Toast Header
+									Success
 								</div>
 								<div class="toast-body">
 									You have added this word into your studyset!
@@ -118,7 +116,7 @@
 							</div>
 							<div class="toast" id="alreadtAddWordToast" data-delay="1500">
 								<div class="toast-header">
-									Toast Header
+									Ooops
 								</div>
 								<div class="toast-body">
 									This word is already in your studyset!
@@ -126,7 +124,7 @@
 							</div>
 							<div class="toast" id="addFavorToast" data-delay="1500">
 								<div class="toast-header">
-									Toast Header
+									Success
 								</div>
 								<div class="toast-body">
 									You have added this news into your favorite news!
@@ -134,13 +132,12 @@
 							</div>
 							<div class="toast" id="unfavorToast" data-delay="1500">
 								<div class="toast-header">
-									Toast Header
+									Success
 								</div>
 								<div class="toast-body">
 									You have removed this news from your favorite news!
 								</div>
 							</div>
-						</div>
 					</div>
 
 				</div>

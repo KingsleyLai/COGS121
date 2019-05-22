@@ -1,7 +1,9 @@
 .header {
 	font-family: fantasy;
 	font-weight: bolder;
+	font-size: 40pt;
 	color: #00BCD4;
+	padding-top: 30px;
 }
 
 esl {
@@ -42,4 +44,13 @@ esl {
 
 .sloganDiv {
 	padding: 24px 16px;
+}
+
+.toast {
+	position: absolute; 
+	width: 1200px;
+	top: 0; 
+	right: 0;
+	font-size: 14pt;
+	background-color: lightgreen;
 }

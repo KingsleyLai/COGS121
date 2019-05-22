@@ -1,18 +1,21 @@
 #notiOverlay{
     position: fixed;
-    width: 25%;
-    height: 30%;
-    top: 20vw;
-    left: 45vw;
-    right: 0;
-    bottom: 0;
-    background: #ecfdff;
+    width: 22%;
+    height: 24%;
+    top: 24vw;
+    left: 47vw;
+    /* right: 0; */
+    /* bottom: 0; */
+    background: #fdffff;
     color: #343a40;
     font-size: 16pt;
     font-weight: bold;
     z-index: 2;
     cursor: pointer;
-    display:none;
+    display: none;
+    border-bottom: 4px solid #006e7b;
+    border-right: 2px solid #006e7b;
+    border-radius: 28px;
 }
 
 #addWordBtn {
@@ -25,14 +28,14 @@
     font-variant-caps: petite-caps;
     font-size: 27pt;
     color: #343a40;
-    margin-top: 0;
+    margin-top: -15px;
 }
 
 .textCol {
     background-color: #fff;
     color: #343a40;
     margin: 0px -60px 10px 15px;
-    padding: 5px 20px 0px 30px;
+    padding: 10px 30px;
     max-width: 540px;
 }
 
@@ -47,4 +50,21 @@
     font-family: serif;
     height: 300px;
     overflow: auto;
+}
+
+.toast {
+    position: absolute; 
+    width: 1200px;
+    top: 0; 
+    right: 0;
+    font-size: 14pt;
+    background-color: lightgreen;
+}
+
+#alreadtAddWordToast {
+    background-color: red;
+}
+
+#next-paragraph {
+    margin-left: 13px;
 }
