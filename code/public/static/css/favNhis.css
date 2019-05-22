@@ -4,3 +4,71 @@
 #history_table_wrapper {
     margin: 20px;
 }
+
+#favorite_table {
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 14pt;
+}
+
+#history_table {
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 14pt;
+}
+
+a {
+    color: #00BCD4;
+}
+
+.favorite_read_button {
+	background-color: #00BCD4;
+	color: #fff;
+	border: none;
+	font-family: sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
+	font-variant-caps: all-small-caps;
+    padding: 3px 25px;
+}
+
+.history_read_button {
+	background-color: #00BCD4;
+	color: #fff;
+	border: none;
+	font-family: sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
+	font-variant-caps: all-small-caps;
+    padding: 3px 25px;
+}
+
+.unlike_button {
+	background-color: #fff;
+	color: #00BCD4;
+	border: none;
+	font-family: sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
+	font-variant-caps: all-small-caps;
+    padding: 3px 25px;
+    border: 1px solid #00BCD4;
+}
+
+#favorite_table_paginate {
+    margin-top: 20px;
+    padding-left: 20px;
+	font-family: sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
+	font-variant-caps: all-small-caps;
+}
+
+#history_table_paginate {
+    margin-top: 20px;
+    padding-left: 20px;
+	font-family: sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
+	font-variant-caps: all-small-caps;
+}

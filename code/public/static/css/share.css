@@ -54,3 +54,17 @@ esl {
 	font-size: 14pt;
 	background-color: lightgreen;
 }
+
+.pagination {
+    margin-top: 20px;
+    padding-left: 20px;
+	font-family: sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
+	font-variant-caps: all-small-caps;
+}
+
+.page-item.active .page-link {
+    background-color: #00BCD4;
+    border-color: #00BCD4;
+}
