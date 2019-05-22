@@ -21,6 +21,15 @@ $(document).ready(() => {
         }
     });
 
+	if (window.location.href.includes("/home")) {
+		$('.home_button').css('background-color', 'aliceblue');
+	} else if (window.location.href.includes("/studyset")) {
+		$('.study_set_button').css('background-color', 'aliceblue');
+	} else if (window.location.href.includes("/favorite")) {
+		$('.favorite_news_button').css('background-color', 'aliceblue');
+	} else if (window.location.href.includes("/history")) {
+		$('.history_button').css('background-color', 'aliceblue');
+	}
 
     // home button js
     $('.home_button').click(() => {
