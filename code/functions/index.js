@@ -35,15 +35,23 @@ function getNewsByUser(userid) {
 				const favor_list = doc.data()['record'];
 				snapshot.docs.forEach(doc2 => {
 					let temp = doc2.data();
-					temp['isFavor'] = false;
-					temp['isNotFavor'] = true;
-					favor_list.forEach(e => {
-						if (doc2.id === e['news_overview_id']) {
-							temp['isFavor'] = true;
-							temp['isNotFavor'] = false;
+					let favor = false;
+					// temp['isFavor'] = false;
+					// temp['isNotFavor'] = true;
+					if (favor_list.length > 0) {
+						favor_list.forEach(e => {
+							if (doc2.id === e['news_overview_id']) {
+								// temp['isFavor'] = true;
+								// temp['isNotFavor'] = false;
+								favor = true;
+							}
+						})
+						if (!favor) {
+							result.push(temp)
 						}
-					})
-					result.push(temp);
+					} else {
+						result.push(temp);
+					}
 				});
 				/*
 				if(result.length < 4){
@@ -51,6 +59,7 @@ function getNewsByUser(userid) {
 				}else{
 					return result.slice(result.length-4, result.length);
 				}*/
+				console.log("===============result length: " + result.length + "================");
 				const l = [];
 				const r = [];
 				let i = 0;
