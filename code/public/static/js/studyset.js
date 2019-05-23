@@ -1,6 +1,6 @@
 $(document).ready(() =>{
     //dynamicall inject html to handlebars file
-    const lastPage = $('#lastPage a').html();
+    const lastPage = $('#lastPage button').html();
     generatePages(parseInt(lastPage));
 
     $('#word_search').on('keyup', () => {
@@ -11,6 +11,7 @@ $(document).ready(() =>{
     });
 
     //Function to change the paging
+    /*
     $('.pagination li a').click( function (){
         const content = $(this).html();
         const page_to_hide = '#notebook'+$('.active a').html();
@@ -78,6 +79,94 @@ $(document).ready(() =>{
             }
         }
 
+    });*/
+
+    //Function to change the paging
+    $('.pagination li button').click( function (){
+        const content = $(this).html();
+        const page_to_hide = '#notebook'+$('.active button').html();
+        if(content === 'Previous' || content === 'Next'){
+            let current_page = parseInt($('.active button').html());
+            if (content === 'Previous'){
+                current_page--;
+                $('#next').removeClass('disabled');
+                $('#upper_next').removeClass('disabled');
+                if(current_page == 1){
+                    $('#prev').addClass('disabled');
+                    $('#upper_prev').addClass('disabled');
+                }else if(current_page != lastPage){
+                    $('#next').removeClass('disabled');
+                    $('#upper_next').removeClass('disabled');
+                }
+            }else{
+                current_page++;
+                $('#prev').removeClass('disabled');
+                $('#upper_prev').removeClass('disabled');
+                if(current_page == lastPage){
+                    $('#next').addClass('disabled');
+                    $('#upper_next').addClass('disabled');
+                }else if(current_page != 1){
+                    $('#prev').removeClass('disabled');
+                    $('#upper_prev').removeClass('disabled');
+                }
+            }
+            
+            const page_to_dis = '#notebook' + current_page;
+            const page_id = '#page' + current_page;
+            const upper_page_id = '#upper_page' + current_page;
+            $('.pagination .active').removeClass('active');
+            if(current_page == lastPage){
+                $('#lastPage').addClass('active');
+                $('#upper_lastPage').addClass('active');
+            }else{
+                $(page_id).addClass('active');
+                $(upper_page_id).addClass('active');
+            }
+            if($(page_to_dis).length == 0){
+                generateNextPage(current_page,page_to_hide,page_to_dis);
+            }else{
+                $(page_to_hide).hide();
+                $(page_to_dis).show();
+            }
+        }else{
+            const page_to_dis = '#notebook' + content
+            const page_id = '#page' + content;
+            const upper_page_id = '#upper_page' + content;
+            const to_page = parseInt(content);
+            if(to_page == 1){
+                $('#prev').addClass('disabled');
+                $('#upper_prev').addClass('disabled');
+                if(content != 1){
+                    $('#next').removeClass('disabled');
+                    $('#upper_next').removeClass('disabled');
+                }
+            }else if(to_page == lastPage){
+                $('#next').addClass('disabled');
+                $('#prev').removeClass('disabled');
+                $('#upper_next').addClass('disabled');
+                $('#upper_prev').removeClass('disabled');
+            }else{
+                $('#prev').removeClass('disabled');
+                $('#next').removeClass('disabled');
+                $('#upper_prev').removeClass('disabled');
+                $('#upper_next').removeClass('disabled');
+            }
+            $('.pagination .active').removeClass('active');
+            if(content == lastPage){
+                $('#lastPage').addClass('active');
+                $('#upper_lastPage').addClass('active');
+            }else{
+                $(page_id).addClass('active');
+                $(upper_page_id).addClass('active');
+            }
+            if($(page_to_dis).length == 0){
+                generateNextPage(content,page_to_hide,page_to_dis);
+            }else{
+                $(page_to_hide).hide();
+                $(page_to_dis).show();
+            }
+        }
+
     });
 });
  
@@ -94,10 +183,17 @@ function generatePages(lastPage) {
     if (lastPage != 1){
         $('#lastPage').show();
         $('#next').removeClass('disabled');
+        $('#upper_lastPage').show();
+        $('#upper_next').removeClass('disabled');
     }
     for (i = 2; i < lastPage; i++){
         const idName = '#page' + (i-1).toString();
-        $(idName).after( '<li class="page-item" ' + 'id="page' + i.toString() + '"' +'><a class="page-link">' + i.toString() + '</a></li>')
+        $(idName).after( '<li class="page-item" ' + 'id="page' + i.toString() + '"' +'><button class="page-link">' + i.toString() + '</button></li>')
+    }
+    
+    for (i = 2; i < lastPage; i++){
+        const idName = '#upper_page' + (i-1).toString();
+        $(idName).after( '<li class="page-item" ' + 'id="upper_page' + i.toString() + '"' +'><button class="page-link">' + i.toString() + '</button></li>')
     }
 }
 
@@ -112,6 +208,7 @@ function generateNextPage(nextPage,page_to_hide,page_to_dis){
             const result = data['targetStudySet'];    
             const finalText = generateDiv(result,nextPage);
             $('#notebook1').after(finalText);
+            $('.lds-roller').hide();
             $(page_to_hide).hide();
             $(page_to_dis).show();
         }

@@ -39,6 +39,12 @@
                 <h1 class="header">Study Set</h1>
               </div>
             </div>
+            <ul class="pagination">
+                <li class="page-item disabled" id="upper_prev"><button class="page-link">Previous</button></li>
+                <li class="page-item active" id="upper_page1"><button class="page-link">1</button></li>
+                <li class="page-item" id="upper_lastPage" style="display:none;"><button class="page-link">{{totalPageNums}}</button></li>
+                <li class="page-item disabled" id="upper_next"><button class="page-link">Next</button></li>
+            </ul>
             <div class="notebook" id="notebook1">
                 <ul class="list-group" id="word_list">
                   {{#if isEs}}
@@ -69,10 +75,10 @@
             </div>
 
             <ul class="pagination">
-                <li class="page-item disabled" id="prev"><a class="page-link">Previous</a></li>
-                <li class="page-item active" id="page1"><a class="page-link">1</a></li>
-                <li class="page-item" id="lastPage" style="display:none;"><a class="page-link">{{totalPageNums}}</a></li>
-                <li class="page-item disabled" id="next"><a class="page-link">Next</a></li>
+                <li class="page-item disabled" id="prev"><button class="page-link">Previous</button></li>
+                <li class="page-item active" id="page1"><button class="page-link">1</button></li>
+                <li class="page-item" id="lastPage" style="display:none;"><button class="page-link">{{totalPageNums}}</button></li>
+                <li class="page-item disabled" id="next"><button class="page-link">Next</button></li>
             </ul>
           </div>
 
