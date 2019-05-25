@@ -12,3 +12,7 @@
 ### 5. Explanation of how to implement the data display
 
 ### 6. Describe some more ambitious data display ideas.
+- Giving a hover effect when the mouse in on the news box and display a short summary of the news
+- Allows user to delete the words in the studyset
+- Responsive windows that adjust size such as font to adapt most of the screen
+- Allow user to select how many words display on the screen
