@@ -8,6 +8,10 @@
 ### 3.Explanation of UI improvement
 
 ### 4. Screenshots of Data displayed
+- DataTables Frameword and Bootstrap grid system on Favorite Page
+![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/favorite.png)
+- DataTables Frameword and Bootstrap grid system on History Page
+![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/history.png)
 
 ### 5. Explanation of how to implement the data display and how you hooked up to data APIs or databases
 - On the Home page, we use the Bootstrap grid system to display a 2 by 2 grid for showing the latest news. In our node.js endpoint, we fetch news from Firebase based on user’s categorical preferences and prioritize to display news with latest timestamp.
