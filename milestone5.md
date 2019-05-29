@@ -4,8 +4,58 @@
 - Our app is targeting college students who are English Language Learners which is English as Second Language(ESL) students. They want to catch up with the daily news, understand the content in the news, and learn more vocabulary by reading the news. First, ESL students will have to read news from news website such as CNN, but they cannot understand the content due to the limited vocabulary and cannot learn words from it because they don't know the meaning of them. Although Google Chrome comes with a translate function to translate the whole page, they can't connect the translated word to the English word which causes them they cannot learn from it. They have to switch between the translated page and original page to look for connecting the words. Then, those ESL students will search for an app that can display news in two languages parallelly and show them which words are good for ESL students to learn from it, which is our app, DuoNews. By using DuoNews, ESL students can choose their interested topic and prefer language to translate, then reading the news in both original text and translated text, and show the ESL word in the original text and with the translated meaning while they click on them. Students can also add those words in the studyset so they can review the word in the future. Moreover, they can favor the news and read them later and change the topic to view different kinds of news. As a result, those ESL students who want to catch up the daily news and learn English are satisfied, they now can read the news in both English and their native languages without switching the display of the page, and study English to improve their vocabulary.
 
 ### 2. Screenshots of latest UI
+#### Onboard Page
+![Onboard](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Onboard.png)
+![Onboard](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Onboard2.png)
+
+#### User Profile Page
+![Profile](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Profile.png)
+
+#### Homepage
+![Homepage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Home.png)
+
+#### Read News Page (Learning Page)
+![Word Translation](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone4/Learn.png)
+![Add Word Message](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone4/Learn2.png)
+
+
+#### Study Sets Page
+![Studyset](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone4/Studyset.png)
+
+#### Favorite Page
+![Favorite](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone4/Favorite.png)
+
 
 ### 3.Explanation of UI improvement
+UI changes
+#### General:
+- Redesigned all buttons based on user feedback
+- Moved pop-up messages closer to user's mouth-click actions to improve visibility
+
+#### Onboard:
+- Designed new user tutorial
+- Removed redundant progress bar  
+- Styled color, font, and buttons to fit the theme
+
+#### User Profile Page
+- Adjusted and modified buttons, fonts, sizes and layouts
+
+#### Homepage:
+- Aligned and modified sizes and positions of buttons and links
+
+#### Read News page:
+- Redesigned the pop-up window for word translation
+- Modified highlighting of words
+
+#### Study Sets Page
+- Added pagination box on top of page for easier user interaction
+- Adjusted sizes and number of items
+
+#### Favorite pages:
+- Redesigned buttons
+- Modified toast notification
+
+
 
 ### 4. Screenshots of Data displayed
 - DataTables Frameword and Bootstrap grid system on Favorite Page
