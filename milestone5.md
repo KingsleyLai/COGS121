@@ -5,7 +5,6 @@
 
 ### 2. Screenshots of latest UI
 #### Onboard Page
-![Onboard](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Onboard.png)
 ![Onboard](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Onboard2.png)
 
 #### User Profile Page
@@ -15,15 +14,15 @@
 ![Homepage](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Home.png)
 
 #### Read News Page (Learning Page)
-![Word Translation](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone4/Learn.png)
-![Add Word Message](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone4/Learn2.png)
+![Word Translation](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Learn.png)
+![Add Word Message](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Learn2.png)
 
 
 #### Study Sets Page
-![Studyset](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone4/Studyset.png)
+![Studyset](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Studyset.png)
 
 #### Favorite Page
-![Favorite](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone4/Favorite.png)
+![Favorite](https://github.com/KingsleyLai/COGS121/blob/master/images/milestone5/Favorite.png)
 
 
 ### 3.Explanation of UI improvement
