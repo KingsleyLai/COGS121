@@ -1,25 +1,21 @@
 #notiOverlay{
     position: fixed;
-    width: 22%;
-    height: 24%;
-    top: 24vw;
-    left: 47vw;
-    /* right: 0; */
-    /* bottom: 0; */
+    width: 18%;
+    height: 20%;
+    top: 26vw;
+    left: 28vw;
     background: #fdffff;
-    color: #343a40;
-    font-size: 16pt;
-    font-weight: bold;
+    color: black;
+    font-size: 14pt;
     z-index: 2;
     cursor: pointer;
     display: none;
-    border-bottom: 4px solid #006e7b;
-    border-right: 2px solid #006e7b;
-    border-radius: 28px;
+    border-radius: 5px;
+    box-shadow: 0 1px 10px rgba(0,0,0,.4);
 }
 
 #addWordBtn {
-    width: max-content;
+    width: 14vw;
 }
 
 #learn_page_title {

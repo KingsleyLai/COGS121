@@ -1097,8 +1097,6 @@
             oldReferenceLayer.querySelector('.introjs-bullets li > a.active').className = '';
             oldReferenceLayer.querySelector('.introjs-bullets li > a[data-stepnumber="' + targetElement.step + '"]').className = 'active';
         }
-        oldReferenceLayer.querySelector('.introjs-progress .introjs-progressbar').style.cssText = 'width:' + _getProgress.call(self) + '%;';
-        oldReferenceLayer.querySelector('.introjs-progress .introjs-progressbar').setAttribute('aria-valuenow', _getProgress.call(self));
 
         //show the tooltip
         oldtooltipContainer.style.opacity = 1;
@@ -1125,7 +1123,6 @@
           tooltipLayer      = document.createElement('div'),
           tooltipTextLayer  = document.createElement('div'),
           bulletsLayer      = document.createElement('div'),
-          progressLayer     = document.createElement('div'),
           buttonsLayer      = document.createElement('div');
 
       helperLayer.className = highlightClass;
@@ -1188,20 +1185,7 @@
 
       bulletsLayer.appendChild(ulContainer);
 
-      progressLayer.className = 'introjs-progress';
 
-      if (this._options.showProgress === false) {
-        progressLayer.style.display = 'none';
-      }
-      var progressBar = document.createElement('div');
-      progressBar.className = 'introjs-progressbar';
-      progressBar.setAttribute('role', 'progress');
-      progressBar.setAttribute('aria-valuemin', 0);
-      progressBar.setAttribute('aria-valuemax', 100);
-      progressBar.setAttribute('aria-valuenow', _getProgress.call(this));
-      progressBar.style.cssText = 'width:' + _getProgress.call(this) + '%;';
-
-      progressLayer.appendChild(progressBar);
 
       buttonsLayer.className = 'introjs-tooltipbuttons';
       if (this._options.showButtons === false) {
@@ -1211,7 +1195,6 @@
       tooltipLayer.className = 'introjs-tooltip';
       tooltipLayer.appendChild(tooltipTextLayer);
       tooltipLayer.appendChild(bulletsLayer);
-      tooltipLayer.appendChild(progressLayer);
 
       //add helper layer number
       var helperNumberLayer = document.createElement('span');

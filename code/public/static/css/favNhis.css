@@ -24,26 +24,34 @@ a {
 .favorite_read_button {
 	background-color: #00BCD4;
 	color: #fff;
-	border: none;
 	font-family: sans-serif;
 	font-size: 16pt;
 	font-weight: 300;
 	font-variant-caps: all-small-caps;
-    padding: 3px 25px;
+	padding: 2px 20px;
+	width: 100px;
+	border: 1px;
+	border-radius: 27px;
+	min-width: max-content;
 }
 
 .history_read_button {
 	background-color: #00BCD4;
 	color: #fff;
-	border: none;
 	font-family: sans-serif;
 	font-size: 16pt;
 	font-weight: 300;
 	font-variant-caps: all-small-caps;
-    padding: 3px 25px;
+	padding: 2px 20px;
+	width: 100px;
+	border: 1px;
+	border-radius: 27px;
+	min-width: max-content;
 }
 
 .unlike_button {
+	margin: 0px 10px 0px 10px;
+	padding: 0px;
 	background-color: #fff;
 	color: #00BCD4;
 	border: none;
@@ -51,7 +59,9 @@ a {
 	font-size: 16pt;
 	font-weight: 300;
 	font-variant-caps: all-small-caps;
-    padding: 3px 25px;
+	width: 100px;
+	border-radius: 27px;
+	min-width: max-content;
     border: 1px solid #00BCD4;
 }
 
