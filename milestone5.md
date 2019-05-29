@@ -57,18 +57,25 @@ UI changes
 
 
 ### 4. Screenshots of Data displayed
-- DataTables Frameword and Bootstrap grid system on Favorite Page
-![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/favorite.png)
+- Boostrap grid system on Home Page
+![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/home.png)
+![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/homeGrid.png)
 - DataTables Frameword and Bootstrap grid system on History Page
 ![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/history.png)
+- DataTables Frameword and Bootstrap grid system on Favorite Page
+![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/favorite.png)
+- Bootstrap list group and grid system on Studyset Page
+![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/studyset.png)
+- Bootstrap grid system and Jquery ajax call on Learn Page
+![DataDisplay](https://github.com/KingsleyLai/COGS121/blob/master/images/data_display/learn.png)
 
 ### 5. Explanation of how to implement the data display and how you hooked up to data APIs or databases
 - On the Home page, we use the Bootstrap grid system to display a 2 by 2 grid for showing the latest news. In our node.js endpoint, we fetch news from Firebase based on user’s categorical preferences and prioritize to display news with latest timestamp.
 - On the History page, we use the DataTables Framework and Bootstrap grid system to display the news user viewed. We put news title, source article link, view date, and actions (read and favor/unfavor) in order so users can access basic information of the news and have actions with them. In our node.js endpoint, we fetch user’s history from the history collection of our database based on the user id and sorted them by time.
 - On the Favorite page, we use the DataTables Framework and Bootstrap grid system to display the news user favored.  We put news title, source article link, view date, and actions (read and unfavor) in order so users can access basic information of the news and have actions with them. Also, we fetch the favorite news from the favorite collection of our database using the node.js endpoint.
 - On the Studyset page, we display the vocabulary and its translated meaning as a list group using Bootstrap, and its grid system. We also use jQuery’s ajax, HTML, after functions to fetch more vocabulary from the database and dynamically inject them into the HTML file so the user doesn’t need to reload the page when they click on the page, and viewing the words already seen before will not cause an ajax call to the database so the data will display immediately.
-- On the Reading news page, we also use ajax call to our database to get news content then displaying each paragraph of the news when the user clicks prev/next button. The news is displayed side by side of its English text and translated text, so the user can see the translation directly. We also highlight the ESL words in the English text body, user can click on these ESL words and a small card will be popped up which displaying the corresponding translation and a button which user can click and add the word into their studyset. We collected ESL words dataset from online resource and created a Jupyter notebook to filter and write the common ESL words into a text file.
-- To populate news data into Firebase, we created a Jupyter notebook to read daily news and translate them into different languages using the Google Translate API in Python. Then, pushing the original news and translated news into our firebase database.
+- On the Reading news page, we use Bootstrap grid system and we also use ajax call to our database to get news content then displaying each paragraph of the news when the user clicks prev/next button. The news is displayed side by side of its English text and translated text, so the user can see the translation directly. We also highlight the ESL words in the English text body, user can click on these ESL words and a small card will be popped up which displaying the corresponding translation and a button which user can click and add the word into their studyset. We collected ESL words dataset from online resource and created a Jupyter notebook to filter and write the common ESL words into a text file.
+- To populate news data into Firebase, we created a Jupyter Notebook to read daily news and translate them into different languages using the Google Translate API in Python. Then, pushing the original news and translated news into our firebase database.
 
 ### 6. Describe some more ambitious data display ideas.
 - Giving a hover effect when the mouse in on the news box and display a short summary of the news
