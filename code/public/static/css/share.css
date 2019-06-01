@@ -49,25 +49,12 @@ esl {
 }
 
 .toast {
-	position: absolute; 
+	position: absolute;
 	width: 1200px;
 	top: 0; 
 	right: 0;
 	font-size: 14pt;
 	background-color: lightgreen;
-}
-
-.pagination {
-  padding-left: 66%;
-	font-family: sans-serif;
-	font-size: 16pt;
-	font-weight: 300;
-	font-variant-caps: all-small-caps;
-}
-
-.page-item.active .page-link {
-    background-color: #00BCD4;
-    border-color: #eeeeee;
 }
 
 body {

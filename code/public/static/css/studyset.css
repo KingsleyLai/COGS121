@@ -1,5 +1,10 @@
 .notebook {
-    margin: -5px 100px 20px 10px;
+    min-width: 73vw;
+    float: right;
+    margin-top: -5px;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    margin-left: 10px;
     font-family: sans-serif;
 }
 
@@ -15,4 +20,19 @@
 
 .list-group-item-text {
     font-size: 14pt;
+}
+
+.pagination {
+    margin-right: 6%; 
+    float: right;
+    font-family: sans-serif;
+    font-size: 16pt;
+    font-weight: 300;
+    max-width: 450px;
+    font-variant-caps: all-small-caps;
+  }
+  
+.page-item.active .page-link {
+    background-color: #00BCD4;
+    border-color: #eeeeee;
 }
