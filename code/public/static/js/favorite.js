@@ -20,7 +20,7 @@ $(document).ready(() => {
         }],
         'lengthMenu': [[5], [5]],
         'columnDefs': [
-            { 'width': '50%', 'targets': 0 }
+            { 'width': '60%', 'targets': 0 }
         ]
     });
     $('.dataTables_length').addClass('bs-select');
