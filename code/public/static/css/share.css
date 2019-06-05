@@ -1,3 +1,11 @@
+/**
+ * share.css 
+ * a shared stylesheet for all pages
+ */
+body {
+	background-color: #EEEEEE;
+	height: 100%;
+}
 .header {
 	font-family: fantasy;
 	font-weight: bolder;
@@ -5,12 +13,6 @@
 	color: #00BCD4;
 	padding-top: 30px;
 }
-
-esl {
-	font-weight: 600;
-	background-color: #f8e9327a;
-}
-
 .navbar {
 	background-color: #00BCD4
 }
@@ -21,11 +23,21 @@ esl {
 	padding: 0;
   font-weight: 900;
 }
+.textBox {
+	border: 3px;
+	height: 300px;
+}
+.sloganDiv {
+	padding: 24px 16px;
+}
 .mainContent {
 	background-color: #EEEEEE;
 	height: 100%;
 	position: absolute;
 }
+/**
+ * Buttons (global)
+ */
 .button {
 	background-color: #00BCD4;
 	color: #fff;
@@ -38,16 +50,17 @@ esl {
 	border: 1px;
 	border-radius: 27px;
 	min-width: max-content;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
 }
-.textBox {
-	border: 3px;
-	height: 300px;
-}
-
-.sloganDiv {
-	padding: 24px 16px;
-}
-
+.button:hover {
+	background-color: rgb(0, 126, 143);
+	color: white;
+  }
+/**
+ * Toast message
+ */
 .toast {
 	position: absolute;
 	width: 1200px;
@@ -55,9 +68,4 @@ esl {
 	right: 0;
 	font-size: 14pt;
 	background-color: lightgreen;
-}
-
-body {
-	background-color: #EEEEEE;
-	height: 100%;
 }

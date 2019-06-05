@@ -1,7 +1,8 @@
-
+/**
+ * sidebar.css 
+ * a shared stylesheet for sidebar on all pages
+ */
 .side {
-	/*width: 200px;
-	height: 800px;*/
 	width:100%;
 	height: 100%;
 	background-color: white;

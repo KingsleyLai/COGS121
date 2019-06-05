@@ -1,6 +1,14 @@
+/**
+ * learn.css 
+ * stylesheet for reading news/learning page
+ */
+
+/**
+ * pop-up window
+ */
 #notiOverlay{
     position: fixed;
-    width: 18%;
+    width: 20%;
     height: 20%;
     top: 26vw;
     left: 28vw;
@@ -13,11 +21,6 @@
     border-radius: 5px;
     box-shadow: 0 1px 10px rgba(0,0,0,.4);
 }
-
-#addWordBtn {
-    width: 14vw;
-}
-
 #learn_page_title {
     font-family: serif;
     font-weight: bold;
@@ -26,7 +29,10 @@
     color: #343a40;
     margin-top: -15px;
 }
-
+esl {
+	font-weight: 600;
+	background-color: #f8e9327a;
+}
 .textCol {
     background-color: #fff;
     color: #343a40;
@@ -34,20 +40,20 @@
     padding: 10px 30px;
     max-width: 540px;
 }
-
 .textHeader {
     font-size: 18pt;
     font-variant-caps: all-small-caps;
     color: #00BCD4;
 }
-
 .textBox {
     font-size: 18pt;
     font-family: serif;
     height: 300px;
     overflow: auto;
 }
-
+/**
+ * Toast message
+ */
 .toast {
     position: absolute; 
     width: 1200px;
@@ -56,9 +62,15 @@
     font-size: 14pt;
     background-color: lightgreen;
 }
-
 #alreadtAddWordToast {
     background-color: goldenrod;
+}
+
+/**
+ * Buttons (overwrites class "button")
+ */
+#addWordBtn {
+    width: 14vw;
 }
 
 #next-paragraph {
