@@ -1,0 +1,19 @@
+{
+	"news": {
+		"politic": [
+			{
+				"title": "2 off-duty airmen disciplined for consuming alcohol at a missile alert facility in Wyoming",
+				"source": "https://www.cnn.com/2019/05/24/politics/airmen-missile-base-alcohol/index.html",
+				"text": "Two off-duty Air Force personnel consumed alcohol on the premises of a missile alert facility at Francis E. Warren Air Force Base in Wyoming, a statement from 90th Missile Wing Public Affairs Operations Chief Joseph Coslett said.\n\"An investigation, including admission by the Airmen, revealed the two consumed the alcohol while in an off-duty status and were not in contact, nor had any access to weapons or classified material,\" the statement said.\nAn Air Force official told CNN the airmen were off-duty and don't normally spend the night at the alert facility.\n\"They thought that they could follow the same rules that they follow at lodging at main base. There are rules, however, that you may not have any alcohol out at the missile fields even if you are off duty,\" the official said.\nThe Air Force statement said the airmen were held accountable for their actions but would not \"discuss specific administrative punishments.\""
+			}
+		],
+
+		"tech": [
+			{
+				"title": "Amazon might be working on a smart watch that can sense your feelings",
+				"source": "https://www.cnn.com/2019/05/23/tech/amazon-patent-wearable-emotions/index.html",
+				"text": "Amazon may be getting into the business of reading your emotions. The teams behind Amazon's Echo smart speaker and Alexa's voice are joining up to build a voice-activated wearable for your wrist, according to Bloomberg, citing an anonymous source.\nThe smart watch or smart band will reportedly have built-in microphones that pick up on emotions by listening to your voice.\nAmazon patented some of that technology in a 2017 patent, which shows a woman saying, \"Alexa, I'm hungry,\" while coughing and sniffling. Alexa then hears the woman is sick and offers a recipe for chicken soup and asks if she wants to buy cough drops to be delivered within the hour.\nAmazon also says in the patent application that Alexa could take into account a user's gender, age, ethnicity and whether they are sick, crying, happy, sad, tired, excited, or other states. If a user were bored and sleepy, Alexa could be programmed to respond, \"By the way, this singer just released his new album for just $1.99. Do you want to preview it?\"\nAmazon is testing the device, but it's not clear how close the device is to market, according to Bloomberg. It's also possible the wearable will remain an experiment and never be commercialized.\n\"We do not comment on rumors or speculation,\" Amazon told CNN Business.\nIt could be a business opportunity for Amazon to encourage people to use Prime Now delivery and buy things when they're feeling emotional. Whatever you're feeling, Alexa might be able to guess and make a sale off it.\n\"Could it work? I'm skeptical until proven otherwise,\" says IDC research director Ramon Llamas, \"That's something a human could pick up on, but I'm not sure if a machine/smart assistant could.\"\nAmazon isn't the only company to look into programming artificial intelligence to be able to sense your emotions. Apple filed a patent application in 2017 for a device, described as similar to a HomePod, that would guess that you were sad by listening to your voice. Its reaction was less transaction-like and more about commiseration: An emoji-based version of Siri could then look sad alongside with you."
+			}
+		]
+	}
+}
