@@ -16,7 +16,8 @@
 ##### Ruoyi Yu
 ###### Responsible for
 - CSS
-- Milestone2
+- Some HTML (styling)
+- Prototype
 - UI design
 
 ### 2. List of All Source Code Files
