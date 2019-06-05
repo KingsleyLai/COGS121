@@ -1,3 +1,11 @@
+/**
+ * home.css 
+ * a stylesheet for home page
+ */
+
+ /**
+ * News Boxes
+ */
 .newsBox {
 	background-color: #fff;
 	padding: 30px;
@@ -8,6 +16,19 @@
 	margin-bottom: 40px;
     margin-left: 5px;
 }
+.newsBoxTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-height: 1.5;        /* fallback */
+	max-height: 70px;       /* fallback */
+	min-height: 70px;
+}
+/**
+ * Buttons
+ */
 .news-button {
 	background-color: #00BCD4;
 	color: #fff;
@@ -19,16 +40,14 @@
 	width: 140px;
 	border: 1px;
 	border-radius: 27px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
 }
-.newsBoxTitle {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    line-height: 1.5;        /* fallback */
-    max-height: 70px;       /* fallback */
-}
+.news-button:hover {
+	background-color: rgb(0, 126, 143);
+	color: white;
+  }
 .link {
 	color: #00BCD4;
 	margin: 10px;

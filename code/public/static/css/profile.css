@@ -1,4 +1,12 @@
-#notiOverlay{
+/**
+ * profile.css 
+ * stylesheet for user profile page
+ */
+
+/**
+ * pop-up window
+ */
+ #notiOverlay{
     position: absolute;  
     width: 40%;
     height: 35%;
