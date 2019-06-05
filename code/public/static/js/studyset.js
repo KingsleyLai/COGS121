@@ -9,6 +9,7 @@
  */
 $(document).ready(() => {
     // dynamicall inject html to handlebars file
+    // get last page number and generate paging
     const lastPage = $('#lastPage button').html();
     generatePages(parseInt(lastPage));
 
@@ -21,8 +22,12 @@ $(document).ready(() => {
 
     // Function to change content between pages
     $('.pagination li button').click(function() {
+        //get current pages and div to hide
         const content = $(this).html();
         const page_to_hide = '#notebook' + $('.active button').html();
+        //check if user clicks prev/next button or numbered button
+        // remove active class for current page and add to page that is going to display
+        // disable prev or next button according to the page going to
         if (content === 'Previous' || content === 'Next') {
             let current_page = parseInt($('.active button').html());
             if (content === 'Previous') {
@@ -118,6 +123,7 @@ function getCurrentUserUID() {
 
 function generatePages(lastPage) {
     let i;
+    //generating paging
     if (lastPage != 1) {
         $('#lastPage').show();
         $('#next').removeClass('disabled');
@@ -136,6 +142,7 @@ function generatePages(lastPage) {
 }
 
 function generateNextPage(nextPage, page_to_hide, page_to_dis) {
+    //making ajax call to generate a new div and inject to html
     const u = '/getStudySetByPage?uid=' + getCurrentUserUID() + '&p=' + nextPage.toString();
     $.ajax({
         url: u,
@@ -158,6 +165,7 @@ function generateNextPage(nextPage, page_to_hide, page_to_dis) {
 }
 
 function generateDiv(words, nextPage) {
+    //function to generate a div
     const divStart = '<div class="notebook" id="notebook' + nextPage.toString() + '" style="display:none">';
     const ulStart = '<ul class="list-group" id="word_list">';
     let i;
